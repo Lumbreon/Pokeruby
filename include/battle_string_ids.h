@@ -1,7 +1,7 @@
 #ifndef GUARD_BATTLE_STRING_IDS_H
 #define GUARD_BATTLE_STRING_IDS_H
 
-#define BATTLESTRINGS_COUNT     369
+#define BATTLESTRINGS_COUNT     370
 
 #define BATTLESTRINGS_ID_ADDER  12 // all battlestrings have its ID + 12, because first 5 are reserved
 
