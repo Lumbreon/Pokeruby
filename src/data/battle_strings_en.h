@@ -353,8 +353,10 @@ enum
     BATTLE_TEXT_Obtained3,
     BATTLE_TEXT_NoEffect,
     BATTLE_TEXT_NoEffectOn,
+	BATTLE_TEXT_BadDreamsDmg,
 };
 
+const u8 BattleText_BadDreamsDmg[] = _("¡{DEFENDING_MON} is hurt by.\n{ATTACKING_MON}' BAD DREAMS!");
 const u8 BattleText_UnknownString[] = _("{STRING 33}");
 const u8 BattleText_GainExpPoints[] = _("{STRING 0} gained{STRING 1}\n{STRING 42} EXP. Points!\p");
 const u8 BattleText_Terminator[] = _("");
@@ -1215,6 +1217,7 @@ const u8 *const gBattleStringsTable[] =
     BattleText_Obtained3,
     BattleText_NoEffect,
     BattleText_NoEffectOn,
+	BattleText_BadDreamsDmg,
 };
 
 // below are lists of battle string enums and NOT pointers to the strings.
