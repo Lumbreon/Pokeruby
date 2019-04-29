@@ -110,6 +110,7 @@ extern u8 BattleScript_WrapTurnDmg[];
 extern u8 BattleScript_WrapEnds[];
 extern u8 BattleScript_DisabledNoMore[];
 extern u8 BattleScript_EncoredNoMore[];
+extern u8 BattleScript_BadDreamsDmg[];
 
 extern u8 BattleScript_SideStatusWoreOff[];
 extern u8 BattleScript_RainContinuesOrEnds[];
@@ -1872,6 +1873,13 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                         effect++;
                     }
                     break;
+		case ABILITY_BAD_DREAMS:
+                if (gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP || gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP)
+                {
+                    BattleScriptPushCursorAndCallback(BattleScript_BadDreamsDmg);
+                    effect++;
+                }
+                break;
                 case ABILITY_SHED_SKIN:
                     if ((gBattleMons[bank].status1 & STATUS_ANY) && (Random() % 3) == 0)
                     {
