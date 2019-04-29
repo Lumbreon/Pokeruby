@@ -1222,8 +1222,13 @@
 	.byte 0xf7
 	.endm
 
-	.macro trainerslideout bank
+	.macro trygetbaddreamstarget address
 	.byte 0xf8
+	.4byte \address
+	.endm
+	
+	.macro trainerslideout bank
+	.byte 0xf9
 	.byte \bank
 	.endm
 
