@@ -78,3 +78,7 @@ gAbilityNames:: @ 81FA248
 	.string "CACOPHONY$", 13
 	.string "AIR LOCK$", 13
 	.string "BAD DREAMS$", 13
+	.string "MOTOR DRIVE$", 13
+	.string "STORM DRAIN$", 13
+	.string "SAP SIPPER$", 13
+	

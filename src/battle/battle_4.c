@@ -1096,18 +1096,6 @@ static const u8 sBallCatchBonuses[] =
     20, 15, 10, 15 // Ultra, Great, Poke, Safari
 };
 
-bool32 IsBattlerAlive(u8 battlerId)
-{
-    if (gBattleMons[battlerId].hp == 0)
-        return FALSE;
-    else if (battlerId >= gBattlersCount)
-        return FALSE;
-    else if (gAbsentBattlerFlags & gBitTable[battlerId])
-        return FALSE;
-	else
-		return TRUE;
-}
-
 static void atk00_attackcanceler(void)
 {
     s32 i;
@@ -6417,12 +6405,15 @@ static void atk47_setgraphicalstatchangevalues(void)
 #ifdef NONMATCHING
 static void atk48_playstatchangeanimation(void)
 {
+    u32 ability;
     int curr_stat = 0;
     u16 stat_animID = 0;
     int changeable_stats = 0;
     u32 stats_to_check;
     u8 arg3;
+    u32 flags = gBattlescriptCurrInstr[3];
 
+    ability = gBattleMons[gActiveBattler].ability;
     gActiveBattler = GetBattleBank(T2_READ_8(gBattlescriptCurrInstr + 1));
     stats_to_check = T2_READ_8(gBattlescriptCurrInstr + 2);
     arg3 = T2_READ_8(gBattlescriptCurrInstr + 3);
@@ -11535,8 +11526,8 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
     if (flags & STAT_CHANGE_NOT_PROTECT_AFFECTED)
         notProtectAffected++;
     flags &= ~(STAT_CHANGE_NOT_PROTECT_AFFECTED);
-
     PREPARE_STAT_BUFFER(gBattleTextBuff1, statId)
+	
 
     if ((statValue << 0x18) < 0) // stat decrease
     {
@@ -15707,6 +15698,17 @@ void atkEF_handleballthrow(void)
             }
         }
     }
+}
+bool32 IsBattlerAlive(u8 battlerId)
+{
+    if (gBattleMons[battlerId].hp == 0)
+        return FALSE;
+    else if (battlerId >= gBattlersCount)
+        return FALSE;
+    else if (gAbsentBattlerFlags & gBitTable[battlerId])
+        return FALSE;
+	else
+		return TRUE;
 }
 
 static void atkF0_givecaughtmon(void)

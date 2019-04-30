@@ -351,3 +351,4 @@
 	enum BATTLE_TEXT_NoEffect
 	enum BATTLE_TEXT_NoEffectOn
 	enum BATTLE_TEXT_BadDreamsDmg
+	enum BATTLE_TEXT_StatRaisedUsing
