@@ -1874,7 +1874,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                     }
                     break;
 		case ABILITY_BAD_DREAMS:
-                if (gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP || gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP)
+                if (gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP 
+		    || gBattleMons[(bank) ^ 3].status1 & STATUS_SLEEP)
                 {
                     BattleScriptPushCursorAndCallback(BattleScript_BadDreamsDmg);
                     effect++;
