@@ -4172,7 +4172,7 @@ BattleScript_MoveStatDrain::
 	setgraphicalstatchangevalues
 	playanimation TARGET, B_ANIM_STATS_CHANGE, sANIM_ARG1
 	waitanimation
-	printstring BATTLE_TEXT_StatRaisedUsing
+	printfromtable gStatDrainStrings
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 	

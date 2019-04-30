@@ -1959,18 +1959,22 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 			case ABILITY_MOTOR_DRIVE:
                 if (moveType == TYPE_ELECTRIC)
                     effect = 3, StatId = STAT_STAGE_SPEED;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 0;
                 break;
             case ABILITY_LIGHTNING_ROD:
                 if (moveType == TYPE_ELECTRIC)
                     effect = 3, StatId = STAT_STAGE_SPATK;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 2;
                 break;
             case ABILITY_STORM_DRAIN:
                 if (moveType == TYPE_WATER)
                     effect = 3, StatId = STAT_STAGE_SPATK;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 2;
                 break;
 			case ABILITY_SAP_SIPPER:
                 if (moveType == TYPE_GRASS)
                     effect = 3, StatId = STAT_STAGE_ATK;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 1;
                 break;
                 case ABILITY_WATER_ABSORB:
                     if (moveType == TYPE_WATER && gBattleMoves[move].power != 0)
@@ -2042,7 +2046,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 
                     SET_STATCHANGER(StatId, 1, FALSE);
                     gBattleMons[bank].statStages[StatId]++;
-                    PREPARE_STAT_BUFFER(gBattleTextBuff1, StatId);
+					PREPARE_STAT_BUFFER(gBattleTextBuff1, StatId);
 					}
 				}
             }

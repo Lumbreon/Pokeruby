@@ -325,6 +325,6 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_Cacophony
 	.4byte gAbilityDescription_AirLock
 	.4byte gAbilityDescription_BadDreams
-	.4byte gAbilityDescription_MotorDrive
 	.4byte gAbilityDescription_StormDrain
+	.4byte gAbilityDescription_MotorDrive
 	.4byte gAbilityDescription_SapSipper

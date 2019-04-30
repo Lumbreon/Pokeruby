@@ -351,4 +351,6 @@
 	enum BATTLE_TEXT_NoEffect
 	enum BATTLE_TEXT_NoEffectOn
 	enum BATTLE_TEXT_BadDreamsDmg
-	enum BATTLE_TEXT_StatRaisedUsing
+	enum BATTLE_TEXT_SpeedRaisedUsing
+	enum BATTLE_TEXT_AttackRaisedUsing
+	enum BATTLE_TEXT_SpAttackRaisedUsing
