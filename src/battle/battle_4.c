@@ -1096,6 +1096,18 @@ static const u8 sBallCatchBonuses[] =
     20, 15, 10, 15 // Ultra, Great, Poke, Safari
 };
 
+bool32 IsBattlerAlive(u8 battlerId)
+{
+    if (gBattleMons[battlerId].hp == 0)
+        return FALSE;
+    else if (battlerId >= gBattlersCount)
+        return FALSE;
+    else if (gAbsentBattlerFlags & gBitTable[battlerId])
+        return FALSE;
+	else
+		return TRUE;
+}
+
 static void atk00_attackcanceler(void)
 {
     s32 i;
@@ -15961,15 +15973,4 @@ static void atkF8_trygetbaddreamstarget(void)
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     else
         gBattlescriptCurrInstr += 5;
-}
-bool32 IsBattlerAlive(u8 battlerId)
-{
-    if (gBattleMons[battlerId].hp == 0)
-        return FALSE;
-    else if (battlerId >= gBattlersCount)
-        return FALSE;
-    else if (gAbsentBattlerFlags & gBitTable[battlerId])
-        return FALSE;
-	else
-		return TRUE;
 }
