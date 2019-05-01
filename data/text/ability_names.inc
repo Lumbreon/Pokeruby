@@ -84,3 +84,6 @@ gAbilityNames:: @ 81FA248
 	.string "PUÑO FÉRREO$", 13
 	.string "SNIPER$", 13
 	.string "SIMPLE$", 13
+	.string "FILTRO$", 13
+	.string "ROCA SÓLIDA$", 13
+	.string "CROMOLENTE$", 13

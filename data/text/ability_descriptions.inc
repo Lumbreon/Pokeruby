@@ -253,6 +253,12 @@ gAbilityDescription_Sniper: @ 81FA0F6
 gAbilityDescription_Simple: @ 81FA0F6
 	.string "Sube cambios de poder.$"
 
+gAbilityDescription_Filter: @ 81FA0F6
+	.string "Atenúa MOV. Muy efectivos.$"
+
+gAbilityDescription_TintedLens: @ 81FA0F6
+	.string "Sube MOV. Poco efectivos.$"
+
 	.align 2
 gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_None
@@ -340,3 +346,6 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_IronFists
 	.4byte gAbilityDescription_Sniper
 	.4byte gAbilityDescription_Simple
+	.4byte gAbilityDescription_Filter
+	.4byte gAbilityDescription_Filter
+	.4byte gAbilityDescription_TintedLens

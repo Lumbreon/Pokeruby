@@ -1543,15 +1543,32 @@ static void ModulateDmgByType(u8 multiplier)
 
 static void atk06_typecalc(void)
 {
+	#define SUPER_EFFECTIVE 0
+	#define NOT_VERY_EFFECTIVE 1
     int i = 0;
     u8 move_type;
+	u16 effectiveness;
+	
+	if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && !(gMoveResultFlags & MOVE_RESULT_NOT_VERY_EFFECTIVE))
+		effectiveness = SUPER_EFFECTIVE;
+	else if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && !(gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE))
+		effectiveness = NOT_VERY_EFFECTIVE;
+	
     if (gCurrentMove != MOVE_STRUGGLE)
     {
         if (gBattleStruct->dynamicMoveType)
             move_type = gBattleStruct->dynamicMoveType & 0x3F;
         else
             move_type = gBattleMoves[gCurrentMove].type;
-
+	if (effectiveness == NOT_VERY_EFFECTIVE && gBattleMons[gBankAttacker].ability == ABILITY_TINTED_LENS)
+		{
+            gBattleMoveDamage = gBattleMoveDamage * 2;
+        }
+	if (effectiveness == SUPER_EFFECTIVE && (gBattleMons[gBankTarget].ability == ABILITY_FILTER || gBattleMons[gBankTarget].ability == ABILITY_SOLID_ROCK))
+        {
+            gBattleMoveDamage = gBattleMoveDamage * 15;
+            gBattleMoveDamage = gBattleMoveDamage / 20;
+        }
         //check stab
         if (gBattleMons[gBankAttacker].type1 == move_type || gBattleMons[gBankAttacker].type2 == move_type)
         {
