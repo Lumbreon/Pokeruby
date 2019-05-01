@@ -250,6 +250,9 @@ gAbilityDescription_IronFists: @ 81FA0F6
 gAbilityDescription_Sniper: @ 81FA0F6
 	.string "Sube golpes críticos.$"
 
+gAbilityDescription_Simple: @ 81FA0F6
+	.string "Sube cambios de poder.$"
+
 	.align 2
 gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_None
@@ -336,3 +339,4 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_SapSipper
 	.4byte gAbilityDescription_IronFists
 	.4byte gAbilityDescription_Sniper
+	.4byte gAbilityDescription_Simple

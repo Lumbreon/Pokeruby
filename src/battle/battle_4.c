@@ -6425,6 +6425,9 @@ static void atk48_playstatchangeanimation(void)
     gActiveBattler = GetBattleBank(T2_READ_8(gBattlescriptCurrInstr + 1));
     stats_to_check = T2_READ_8(gBattlescriptCurrInstr + 2);
     arg3 = T2_READ_8(gBattlescriptCurrInstr + 3);
+	
+	if (ability == ABILITY_SIMPLE)
+        flags |= ATK48_STAT_BY_TWO;
     if (arg3 & 1)
     {
         u16 r1 = 0x15;
@@ -11535,7 +11538,10 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
         notProtectAffected++;
     flags &= ~(STAT_CHANGE_NOT_PROTECT_AFFECTED);
     PREPARE_STAT_BUFFER(gBattleTextBuff1, statId)
-	
+	if (gBattleMons[gActiveBattler].ability == ABILITY_SIMPLE)
+    {
+        statValue = (SET_STAT_BUFF_VALUE(GET_STAT_BUFF_VALUE(statValue) * 2)) | ((statValue <= -1) ? STAT_BUFF_NEGATIVE : 0);
+    }
 
     if ((statValue << 0x18) < 0) // stat decrease
     {
@@ -11623,10 +11629,19 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             index = 1;
             if (statValue == -2)
             {
-                gBattleTextBuff2[1] = B_BUFF_STRING;
-                gBattleTextBuff2[2] = STRINGID_STATHARSHLY;
-                gBattleTextBuff2[3] = STRINGID_STATHARSHLY >> 8;
-                index = 4;
+                gBattleTextBuff2[4] = B_BUFF_STRING;
+                gBattleTextBuff2[5] = STRINGID_STATSHARPLY;
+                gBattleTextBuff2[6] = STRINGID_STATSHARPLY >> 8;
+				gBattleTextBuff2[7] = B_BUFF_EOS;
+                index = 1;
+            }
+            if (statValue <= -3)
+            {
+                gBattleTextBuff2[4] = B_BUFF_STRING;
+                gBattleTextBuff2[5] = STRINGID_STATHARSHLY;
+                gBattleTextBuff2[6] = STRINGID_STATHARSHLY >> 8;
+				gBattleTextBuff2[7] = B_BUFF_EOS;
+                index = 1;
             }
             gBattleTextBuff2[index] = B_BUFF_STRING;
             index++;
@@ -11634,6 +11649,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             index++;
             gBattleTextBuff2[index] = STRINGID_STATFELL >> 8;
             index++;
+			if (statValue == -1)
             gBattleTextBuff2[index] = B_BUFF_EOS;
 
             if (gBattleMons[gActiveBattler].statStages[statId] == 0)
@@ -11650,10 +11666,19 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
         index = 1;
         if (statValue == 2)
         {
-            gBattleTextBuff2[1] = B_BUFF_STRING;
-            gBattleTextBuff2[2] = STRINGID_STATSHARPLY;
-            gBattleTextBuff2[3] = STRINGID_STATSHARPLY >> 8;
-            index = 4;
+            gBattleTextBuff2[4] = B_BUFF_STRING;
+            gBattleTextBuff2[5] = STRINGID_STATSHARPLY;
+            gBattleTextBuff2[6] = STRINGID_STATSHARPLY >> 8;
+            gBattleTextBuff2[7] = B_BUFF_EOS;
+            index = 1;
+        }
+		if (statValue >= 3)
+        {
+            gBattleTextBuff2[4] = B_BUFF_STRING;
+            gBattleTextBuff2[5] = STRINGID_STATHARSHLY;
+            gBattleTextBuff2[6] = STRINGID_STATHARSHLY >> 8;
+            gBattleTextBuff2[7] = B_BUFF_EOS;
+            index = 1;
         }
         gBattleTextBuff2[index] = B_BUFF_STRING;
         index++;
@@ -11661,6 +11686,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
         index++;
         gBattleTextBuff2[index] = STRINGID_STATROSE >> 8;
         index++;
+		if (statValue == 1)
         gBattleTextBuff2[index] = B_BUFF_EOS;
 
         if (gBattleMons[gActiveBattler].statStages[statId] == 0xC)

@@ -83,3 +83,4 @@ gAbilityNames:: @ 81FA248
 	.string "HERVÍVORO$", 13
 	.string "PUÑO FÉRREO$", 13
 	.string "SNIPER$", 13
+	.string "SIMPLE$", 13
