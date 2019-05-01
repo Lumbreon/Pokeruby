@@ -87,3 +87,4 @@ gAbilityNames:: @ 81FA248
 	.string "FILTRO$", 13
 	.string "ROCA SÓLIDA$", 13
 	.string "CROMOLENTE$", 13
+	.string "DON FLORAL$", 13

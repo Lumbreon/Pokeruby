@@ -207,7 +207,15 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		attack = (attack * 150) / 100;
 	if (attacker->ability == ABILITY_SNIPER && gCritMultiplier == 2)
 		attack = (attack * 150) / 100;
-
+	if (defender->ability == ABILITY_FLOWER_GIFT && (gBattleWeather & WEATHER_SUN_ANY))
+        spDefense = (150 * spDefense) / 100;
+    if (attacker->ability == ABILITY_FLOWER_GIFT && (gBattleWeather & WEATHER_SUN_ANY))
+        attack = (150 * attack) / 100;
+	if ((gBattleWeather & WEATHER_SUN_ANY) && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_FLOWER_GIFT, 0, 0))
+        spDefense = (150 * spDefense) / 100;
+    if ((gBattleWeather & WEATHER_SUN_ANY) && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_FLOWER_GIFT, 0, 0))
+        attack = (150 * attack) / 100;
+	
     if (TYPE_IS_PHYSICAL(type)) // type < TYPE_MYSTERY
     {
         if (gCritMultiplier == 2)
