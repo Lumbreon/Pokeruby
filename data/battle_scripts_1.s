@@ -4164,18 +4164,6 @@ BattleScript_MoveHPDrain_FullHP:: @ 81D9866
 	orbyte gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE
 	goto BattleScript_MoveEnd
 
-BattleScript_MoveStatDrain_PPLoss::
-	ppreduce
-BattleScript_MoveStatDrain::
-	attackstring
-	pause 0x20
-	setgraphicalstatchangevalues
-	playanimation TARGET, B_ANIM_STATS_CHANGE, sANIM_ARG1
-	waitanimation
-	printfromtable gStatDrainStrings
-	waitmessage 0x40
-	goto BattleScript_MoveEnd
-	
 BattleScript_FlashFireBoost_PPLoss:: @ 81D987B
 	ppreduce
 
