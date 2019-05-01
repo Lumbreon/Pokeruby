@@ -350,3 +350,7 @@
 	enum BATTLE_TEXT_Obtained3
 	enum BATTLE_TEXT_NoEffect
 	enum BATTLE_TEXT_NoEffectOn
+	enum BATTLE_TEXT_BadDreamsDmg
+	enum BATTLE_TEXT_SpeedRaisedUsing
+	enum BATTLE_TEXT_AttackRaisedUsing
+	enum BATTLE_TEXT_SpAttackRaisedUsing

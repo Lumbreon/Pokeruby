@@ -50,7 +50,11 @@ AI_CheckBadMove: @ 81DA09C
 	if_damage_bonus 0, Score_Minus10
 	get_ability TARGET
 	if_equal ABILITY_VOLT_ABSORB, CheckIfVoltAbsorbCancelsElectric
+	if_equal ABILITY_LIGHTNING_ROD, CheckIfVoltAbsorbCancelsElectric
+	if_equal ABILITY_MOTOR_DRIVE, CheckIfVoltAbsorbCancelsElectric
 	if_equal ABILITY_WATER_ABSORB, CheckIfWaterAbsorbCancelsWater
+	if_equal ABILITY_STORM_DRAIN, CheckIfWaterAbsorbCancelsWater
+	if_equal ABILITY_SAP_SIPPER, CheckIfSapSipperCancelsGrass
 	if_equal ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
 	if_equal ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
 	if_equal ABILITY_LEVITATE, CheckIfLevitateCancelsGroundMove
@@ -59,6 +63,11 @@ AI_CheckBadMove: @ 81DA09C
 CheckIfVoltAbsorbCancelsElectric: @ 81DA0CE
 	get_type CURRENT_MOVE
 	if_arg_equal TYPE_ELECTRIC, Score_Minus12
+	jump AI_CheckBadMove_CheckSoundproof
+	
+CheckIfSapSipperCancelsGrass: @ 81DA0CE
+	get_type CURRENT_MOVE
+	if_arg_equal TYPE_GRASS, Score_Minus12
 	jump AI_CheckBadMove_CheckSoundproof
 
 CheckIfWaterAbsorbCancelsWater: @ 81DA0DB

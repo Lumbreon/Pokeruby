@@ -530,6 +530,7 @@ struct SpecialStatus
     u8 moveturnSpecialBank;
     u8 field12;
     u8 field13;
+    u8 stormDrainRedirected : 1;
 };
 
 struct sideTimer
@@ -649,7 +650,7 @@ extern struct Struct20238C8 gUnknown_020238C8;
 
 #define SET_STAT_BUFF_VALUE(n)(((s8)(((s8)(n) << 4)) & 0xF0))
 
-#define SET_STATCHANGER(statId, stage, goesDown)(gBattleScripting.statChanger = (statId) + (stage << 4) + (goesDown << 7))
+#define SET_STATCHANGER(statId, stage, goesDown)(gBattleStruct->statChanger = (statId) + (stage << 4) + (goesDown << 7))
 
 // used in many battle files, it seems as though Hisashi Sogabe wrote
 // some sort of macro to replace the use of actually calling memset.

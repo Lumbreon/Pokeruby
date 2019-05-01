@@ -5196,6 +5196,70 @@ void HandleAction_UseMove(void)
             gBankTarget = gActiveBattler;
         }
     }
+	 else if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+             && gSideTimers[side].followmeTimer == 0
+             && (gBattleMoves[gCurrentMove].power != 0
+                 || gBattleMoves[gCurrentMove].target != MOVE_TARGET_x10)
+             && gBattleMons[ewram16010arr(gBankAttacker)].ability != ABILITY_STORM_DRAIN
+             && gBattleMoves[gCurrentMove].type == TYPE_WATER)
+    {
+        side = GetBattlerSide(gBankAttacker);
+        for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
+        {
+            if (side != GetBattlerSide(gActiveBattler)
+                && ewram16010arr(gBankAttacker) != gActiveBattler
+                && gBattleMons[gActiveBattler].ability == ABILITY_STORM_DRAIN
+                && BankGetTurnOrder(gActiveBattler) < var)
+            {
+                var = BankGetTurnOrder(gActiveBattler);
+            }
+        }
+        if (var == 4)
+        {
+            if (gBattleMoves[gChosenMove].target & MOVE_TARGET_RANDOM)
+            {
+                if (GetBattlerSide(gBankAttacker) == B_SIDE_PLAYER)
+                {
+                    if (Random() & 1)
+                        gBankTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+                    else
+                        gBankTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+                }
+                else
+                {
+                    if (Random() & 1)
+                        gBankTarget = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+                    else
+                        gBankTarget = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+                }
+            }
+            else
+            {
+                gBankTarget = ewram16010arr(gBankAttacker);
+            }
+
+            if (gAbsentBattlerFlags & gBitTable[gBankTarget])
+            {
+                if (GetBattlerSide(gBankAttacker) != GetBattlerSide(gBankTarget))
+                {
+                    gBankTarget = GetBattlerAtPosition(GetBattlerPosition(gBankTarget) ^ BIT_FLANK);
+                }
+                else
+                {
+                    gBankTarget = GetBattlerAtPosition(GetBattlerPosition(gBankAttacker) ^ BIT_SIDE);
+                    if (gAbsentBattlerFlags & gBitTable[gBankTarget])
+                        gBankTarget = GetBattlerAtPosition(GetBattlerPosition(gBankTarget) ^ BIT_FLANK);
+                }
+            }
+        }
+        else
+        {
+            gActiveBattler = gBanksByTurnOrder[var];
+            RecordAbilityBattle(gActiveBattler, gBattleMons[gActiveBattler].ability);
+            gSpecialStatuses[gActiveBattler].stormDrainRedirected = 1;
+            gBankTarget = gActiveBattler;
+        }
+    }
     else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
              && gBattleMoves[gChosenMove].target & MOVE_TARGET_RANDOM)
     {

@@ -235,6 +235,15 @@ gAbilityDescription_AirLock: @ 81FA0F6
 gAbilityDescription_BadDreams: @ 81FA0F6
 	.string "Hurt sleeping foes.$"
 
+gAbilityDescription_StormDrain: @ 81FA0F6
+	.string "Canges water into SP.ATK.$"
+
+gAbilityDescription_MotorDrive: @ 81FA0F6
+	.string "Turns electricity to SP.ATK.$"
+
+gAbilityDescription_SapSipper: @ 81FA0F6
+	.string "Eat GRASS to raise ATK.$"
+
 	.align 2
 gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_None
@@ -316,3 +325,6 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_Cacophony
 	.4byte gAbilityDescription_AirLock
 	.4byte gAbilityDescription_BadDreams
+	.4byte gAbilityDescription_StormDrain
+	.4byte gAbilityDescription_MotorDrive
+	.4byte gAbilityDescription_SapSipper

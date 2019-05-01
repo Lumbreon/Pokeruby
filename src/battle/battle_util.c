@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_util.h"
+#include "battle_message.h"
 #include "data2.h"
 #include "event_data.h"
 #include "ewram.h"
@@ -163,6 +164,8 @@ extern u8 BattleScript_FlashFireBoost[];
 extern u8 BattleScript_FlashFireBoost_PPLoss[];
 extern u8 BattleScript_MoveHPDrain_FullHP[];
 extern u8 BattleScript_MoveHPDrain_FullHP_PPLoss[];
+extern u8 BattleScript_MoveStatDrain_PPLoss[];
+extern u8 BattleScript_MoveStatDrain[];
 extern u8 BattleScript_ColorChangeActivates[];
 extern u8 BattleScript_RoughSkinActivates[];
 extern u8 BattleScript_ApplySecondaryEffect[];
@@ -1695,6 +1698,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
     u16 speciesDef;
     u32 pidAtk;
     u32 pidDef;
+	u8 StatId;
 
     if (gBankAttacker >= gBattlersCount)
         gBankAttacker = bank;
@@ -1952,6 +1956,26 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                         effect = 1;
                     }
                     break;
+			case ABILITY_MOTOR_DRIVE:
+                if (moveType == TYPE_ELECTRIC)
+                    effect = 3, StatId = STAT_STAGE_SPEED;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+                break;
+            case ABILITY_LIGHTNING_ROD:
+                if (moveType == TYPE_ELECTRIC)
+                    effect = 3, StatId = STAT_STAGE_SPATK;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 2;
+                break;
+            case ABILITY_STORM_DRAIN:
+                if (moveType == TYPE_WATER)
+                    effect = 3, StatId = STAT_STAGE_SPATK;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 2;
+                break;
+			case ABILITY_SAP_SIPPER:
+                if (moveType == TYPE_GRASS)
+                    effect = 3, StatId = STAT_STAGE_ATK;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 1;
+                break;
                 case ABILITY_WATER_ABSORB:
                     if (moveType == TYPE_WATER && gBattleMoves[move].power != 0)
                     {
@@ -2004,6 +2028,26 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                         gBattleMoveDamage *= -1;
                     }
                 }
+			else if (effect == 3)
+				{
+                if (gBattleMons[bank].statStages[StatId] == 0xC)
+					{
+                    if ((gProtectStructs[gBankAttacker].notFirstStrike))
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain_FullHP;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain_FullHP_PPLoss;
+					}
+                else
+					{
+                    if (gProtectStructs[gBankAttacker].notFirstStrike)
+                        gBattlescriptCurrInstr = BattleScript_MoveStatDrain;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MoveStatDrain_PPLoss;
+
+                    SET_STATCHANGER(StatId, 1, FALSE);
+                    gBattleMons[bank].statStages[StatId]++;
+					}
+				}
             }
             break;
         case ABILITYEFFECT_CONTACT: // 4
@@ -3401,6 +3445,14 @@ u8 GetMoveTarget(u16 move, u8 useMoveTarget) //get move target
                 targetBank ^= 2;
                 RecordAbilityBattle(targetBank, gBattleMons[targetBank].ability);
                 gSpecialStatuses[targetBank].lightningRodRedirected = 1;
+            }
+			else if (gBattleMoves[move].type == TYPE_WATER
+                && AbilityBattleEffects(ABILITYEFFECT_COUNT_OTHER_SIZE, gBankAttacker, ABILITY_STORM_DRAIN, 0, 0)
+                && gBattleMons[targetBank].ability != ABILITY_STORM_DRAIN)
+            {
+                targetBank ^= 2;
+                RecordAbilityBattle(targetBank, gBattleMons[targetBank].ability);
+                gSpecialStatuses[targetBank].stormDrainRedirected = 1;
             }
         }
         break;

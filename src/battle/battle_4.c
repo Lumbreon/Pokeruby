@@ -1173,6 +1173,14 @@ static void atk00_attackcanceler(void)
         gBattlescriptCurrInstr = BattleScript_TookAttack;
         RecordAbilityBattle(gBankTarget, gLastUsedAbility);
     }
+	else if (gSpecialStatuses[gBankTarget].stormDrainRedirected)
+    {
+        gSpecialStatuses[gBankTarget].stormDrainRedirected = 0;
+        gLastUsedAbility = ABILITY_STORM_DRAIN;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_TookAttack;
+        RecordAbilityBattle(gBankTarget, gLastUsedAbility);
+    }
     else if (TARGET_PROTECT_AFFECTED
      && (gCurrentMove != MOVE_CURSE || (gBattleMons[gBankAttacker].type1 == TYPE_GHOST || gBattleMons[gBankAttacker].type2 == TYPE_GHOST))
      && ((!IsTwoTurnsMove(gCurrentMove) || (gBattleMons[gBankAttacker].status2 & STATUS2_MULTIPLETURNS))))
@@ -6405,12 +6413,15 @@ static void atk47_setgraphicalstatchangevalues(void)
 #ifdef NONMATCHING
 static void atk48_playstatchangeanimation(void)
 {
+    u32 ability;
     int curr_stat = 0;
     u16 stat_animID = 0;
     int changeable_stats = 0;
     u32 stats_to_check;
     u8 arg3;
+    u32 flags = gBattlescriptCurrInstr[3];
 
+    ability = gBattleMons[gActiveBattler].ability;
     gActiveBattler = GetBattleBank(T2_READ_8(gBattlescriptCurrInstr + 1));
     stats_to_check = T2_READ_8(gBattlescriptCurrInstr + 2);
     arg3 = T2_READ_8(gBattlescriptCurrInstr + 3);
@@ -11523,8 +11534,8 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
     if (flags & STAT_CHANGE_NOT_PROTECT_AFFECTED)
         notProtectAffected++;
     flags &= ~(STAT_CHANGE_NOT_PROTECT_AFFECTED);
-
     PREPARE_STAT_BUFFER(gBattleTextBuff1, statId)
+	
 
     if ((statValue << 0x18) < 0) // stat decrease
     {
@@ -15696,6 +15707,17 @@ void atkEF_handleballthrow(void)
         }
     }
 }
+bool32 IsBattlerAlive(u8 battlerId)
+{
+    if (gBattleMons[battlerId].hp == 0)
+        return FALSE;
+    else if (battlerId >= gBattlersCount)
+        return FALSE;
+    else if (gAbsentBattlerFlags & gBitTable[battlerId])
+        return FALSE;
+	else
+		return TRUE;
+}
 
 static void atkF0_givecaughtmon(void)
 {
@@ -15961,15 +15983,4 @@ static void atkF8_trygetbaddreamstarget(void)
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     else
         gBattlescriptCurrInstr += 5;
-}
-bool32 IsBattlerAlive(u8 battlerId)
-{
-    if (gBattleMons[battlerId].hp == 0)
-        return FALSE;
-    else if (battlerId >= gBattlersCount)
-        return FALSE;
-    else if (gAbsentBattlerFlags & gBitTable[battlerId])
-        return FALSE;
-	else
-		return TRUE;
 }
