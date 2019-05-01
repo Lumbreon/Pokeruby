@@ -243,6 +243,12 @@ gAbilityDescription_MotorDrive: @ 81FA0F6
 
 gAbilityDescription_SapSipper: @ 81FA0F6
 	.string "Eat GRASS to raise ATK.$"
+	
+gAbilityDescription_IronFists: @ 81FA0F6
+	.string "Ups punching moves.$"
+	
+gAbilityDescription_Sniper: @ 81FA0F6
+	.string "Boost critical hits.$"
 
 	.align 2
 gAbilityDescriptions:: @ 81FA110
@@ -328,3 +334,5 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_StormDrain
 	.4byte gAbilityDescription_MotorDrive
 	.4byte gAbilityDescription_SapSipper
+	.4byte gAbilityDescription_IronFists
+	.4byte gAbilityDescription_Sniper

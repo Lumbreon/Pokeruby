@@ -81,4 +81,6 @@ gAbilityNames:: @ 81FA248
 	.string "STORM DRAIN$", 13
 	.string "MOTOR DRIVE$", 13
 	.string "SAP SIPPER$", 13
+	.string "IRON FISTS$", 13
+	.string "SNIPER$", 13
 	

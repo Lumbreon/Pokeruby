@@ -206,6 +206,7 @@
 #define F_AFFECTED_BY_SNATCH      (1 << 3)
 #define F_MIRROR_MOVE_COMPATIBLE  (1 << 4)
 #define F_AFFECTED_BY_KINGS_ROCK  (1 << 5)
+#define F_IRON_FIST_BOOST		  (1 << 6)
 
 #define AI_ACTION_DONE          0x0001
 #define AI_ACTION_FLEE          0x0002
