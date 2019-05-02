@@ -89,3 +89,18 @@ gAbilityNames:: @ 81FA248
 	.string "CROMOLENTE$", 13
 	.string "DON FLORAL$", 13
 	.string "IGNORANTE$", 13
+	.string "ADAPTABLE$", 13
+	.string "AUDAZ$", 13
+	.string "ENCADENADO$", 13
+	.string "EXPERTO$", 13
+	.string "GÉLIDO$", 13
+	.string "HIDRATACIÓN$", 13
+	.string "IGNÍFUGO$", 13
+	.string "INDEFENSO$", 13
+	.string "INTRÉPIDO$", 13
+	.string "IRASCIBLE$", 13
+	.string "MANTO NÍVEO$", 13
+	.string "NORMALIDAD$", 13
+	.string "PIEL SECA$", 13
+	.string "RESQUICIO$", 13
+	.string "NEVADA$", 13

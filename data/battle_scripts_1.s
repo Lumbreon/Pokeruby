@@ -4011,10 +4011,23 @@ BattleScript_ItemSteal:: @ 81D96F6
 	printstring BATTLE_TEXT_StoleSomething
 	waitmessage 64
 	return
-
+	
+BattleScript_AngerPointBoost::
+	printstring BATTLE_TEXT_DefenderMaximizesAtk
+	waitmessage 64
+	return
+	
 BattleScript_DrizzleActivates:: @ 81D9704
 	pause 32
 	printstring BATTLE_TEXT_RainMade
+	waitstate
+	playanimation 7, B_ANIM_RAIN_CONTINUES, NULL
+	call BattleScript_WeatherFormChanges
+	end3
+	
+BattleScript_SnowWarningActivates:: @ 81D9704
+	pause 32
+	printstring BATTLE_TEXT_SnowWarningActivate
 	waitstate
 	playanimation 7, B_ANIM_RAIN_CONTINUES, NULL
 	call BattleScript_WeatherFormChanges
@@ -4034,6 +4047,14 @@ BattleScript_TraceActivates:: @ 81D9726
 
 BattleScript_RainDishActivates:: @ 81D9730
 	printstring BATTLE_TEXT_RestoredHPByItem
+	waitmessage 64
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate USER
+	datahpupdate USER
+	end3
+	
+BattleScript_DrySkinActivates:: @ 81D9730
+	printstring BATTLE_TEXT_SelfHurtByAbility
 	waitmessage 64
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate USER

@@ -356,7 +356,10 @@ enum
 	BATTLE_TEXT_BadDreamsDmg,
 	BATTLE_TEXT_SpeedRaisedUsing,
 	BATTLE_TEXT_AttackRaisedUsing,
-	BATTLE_TEXT_SpAttackRaisedUsing
+	BATTLE_TEXT_SpAttackRaisedUsing,
+	BATTLE_TEXT_DefenderMaximizesAtk,
+	BATTLE_TEXT_SelfHurtByAbility,
+	BATTLE_TEXT_SnowWarningActivate
 };
 
 const u8 BattleText_UnknownString[] = _("{STRING 33}");
@@ -848,6 +851,9 @@ const u8 BattleText_BadDreamsDmg[] = _("{DEFENDING_MON} is hurt by.\n{ATTACKING_
 const u8 BattleText_SpeedRaisedUsing[] = _("{DEFENDING_MON} raised its SPEED\nusing its {STRING 22}!");
 const u8 BattleText_AttackRaisedUsing[] = _("{DEFENDING_MON} raised its ATTACK\nusing its {STRING 22}!");
 const u8 BattleText_SpAttackRaisedUsing[] = _("{DEFENDING_MON} raised its SP.ATTACK\nusing its {STRING 22}!");
+const u8 BattleText_DefenderMaximizesAtk[] = _("¡{DEFENDING_MON} maximiza su\nATAQUE por IRASCIBLE!");
+const u8 BattleText_SelfHurtByAbility[] = _("¡{ATTACKING_MON} pierde\nalgunos Ps por {STRING 21}!");
+const u8 BattleText_SnowWarningActivate[] = _("¡{STRING 23} de {STRING 16}\nhizo granizar!");
 
 const u8 *const gUnknown_08400F58[] =
 {
@@ -1227,6 +1233,9 @@ const u8 *const gBattleStringsTable[] =
 	BattleText_SpeedRaisedUsing,
 	BattleText_AttackRaisedUsing,
 	BattleText_SpAttackRaisedUsing,
+	BattleText_DefenderMaximizesAtk,
+	BattleText_SelfHurtByAbility,
+	BattleText_SnowWarningActivate,
 };
 
 // below are lists of battle string enums and NOT pointers to the strings.

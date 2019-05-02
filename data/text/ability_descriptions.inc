@@ -264,7 +264,52 @@ gAbilityDescription_FlowerGift: @ 81FA0F6
 
 gAbilityDescription_Unaware: @ 81FA0F6
 	.string "Ignora cambios de poder.$"
-
+	
+gAbilityDescription_Adaptability: @ 81FA0F6
+	.string "Sube MOV. De su mismo tipo.$"
+	
+gAbilityDescription_Reckless: @ 81FA0F6
+	.string "Sube MOV. Arriesgados.$"
+	
+gAbilityDescription_SkillLink: @ 81FA0F6
+	.string "Mejora MOV. Multigolpe.$"
+	
+gAbilityDescription_Technician: @ 81FA0F6
+	.string "Sube MOV. De baja potencia.$"
+	
+gAbilityDescription_IceBody: @ 81FA0F6
+	.string "Recupera PS. En granizo.$"
+	
+gAbilityDescription_Hydratation: @ 81FA0F6
+	.string "Cura estado en la lluvia.$"
+	
+gAbilityDescription_Heatproof: @ 81FA0F6
+	.string "Atenúa MOV. De fuego.$"
+	
+gAbilityDescription_NoGuard: @ 81FA0F6
+	.string "Los MOV. No fallan.$"
+	
+gAbilityDescription_Scrappy: @ 81FA0F6
+	.string "Golpea fantasmas.$"
+	
+gAbilityDescription_RagePoint: @ 81FA0F6
+	.string "Maximiza el ATAQUE.$"
+	
+gAbilityDescription_SnowCloak: @ 81FA0F6
+	.string "Sube EVASIÓN en granizo.$"
+	
+gAbilityDescription_Normalize: @ 81FA0F6
+	.string "Los MOV. Son tipo NORMAL.$"
+	
+gAbilityDescription_DrySkin: @ 81FA0F6
+	.string "Prefiere la humedad.$"
+	
+gAbilityDescription_Aftermath: @ 81FA0F6
+	.string "Hace daño al debilitarse.$"
+	
+gAbilityDescription_SnowWarning: @ 81FA0F6
+	.string "Hace que granice en combate.$"
+	
 	.align 2
 gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_None
@@ -357,3 +402,18 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_TintedLens
 	.4byte gAbilityDescription_FlowerGift
 	.4byte gAbilityDescription_Unaware
+	.4byte gAbilityDescription_Adaptability
+	.4byte gAbilityDescription_Reckless
+	.4byte gAbilityDescription_SkillLink
+	.4byte gAbilityDescription_Technician
+	.4byte gAbilityDescription_IceBody
+	.4byte gAbilityDescription_Hydratation
+	.4byte gAbilityDescription_Heatproof
+	.4byte gAbilityDescription_NoGuard
+	.4byte gAbilityDescription_Scrappy
+	.4byte gAbilityDescription_RagePoint
+	.4byte gAbilityDescription_SnowCloak
+	.4byte gAbilityDescription_Normalize
+	.4byte gAbilityDescription_DrySkin
+	.4byte gAbilityDescription_Aftermath
+	.4byte gAbilityDescription_SnowWarning

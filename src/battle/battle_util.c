@@ -25,6 +25,11 @@
 
 extern u8 gUnknown_02023A14_50;
 
+extern u8 gCurrentTurnActionNumber;
+extern u8 gLastHitBy[];
+extern u16 gChosenMovesByBanks[4];
+extern u16 gChosenMove;
+extern u8 gCritMultiplier;
 extern const u8* gBattlescriptCurrInstr;
 extern u8 gActiveBattler;
 extern u8 gBattleBufferB[4][0x200];
@@ -151,10 +156,12 @@ extern u8 BattleScript_BideNoEnergyToAttack[];
 
 extern u8 BattleScript_OverworldWeatherStarts[]; //load weather from overworld
 extern u8 BattleScript_DrizzleActivates[];
+extern u8 BattleScript_SnowWarningActivates[];
 extern u8 BattleScript_SandstreamActivates[];
 extern u8 BattleScript_DroughtActivates[];
 extern u8 BattleScript_CastformChange[];
 extern u8 BattleScript_RainDishActivates[];
+extern u8 BattleScript_DrySkinActivates[];
 extern u8 BattleScript_ShedSkinActivates[];
 extern u8 BattleScript_SpeedBoostActivates[];
 extern u8 BattleScript_SoundproofProtected[];
@@ -168,6 +175,7 @@ extern u8 BattleScript_MoveStatDrain_PPLoss[];
 extern u8 BattleScript_MoveStatDrain[];
 extern u8 BattleScript_ColorChangeActivates[];
 extern u8 BattleScript_RoughSkinActivates[];
+extern u8 BattleScript_AngerPointBoost[];
 extern u8 BattleScript_ApplySecondaryEffect[];
 extern u8 BattleScript_CuteCharmActivates[];
 extern u8 BattleScript_AbilityCuredStatus[]; //ability status clear
@@ -604,7 +612,35 @@ u8 IsImprisoned(u8 bank, u16 move)
     }
     return imprisionedMoves;
 }
+static bool32 IsBattleWonForPlayer(void)
+{
+    u32 i;
+    u32 HP_count = 0;
 
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
+        {
+            HP_count += GetMonData(&gEnemyParty[i], MON_DATA_HP);
+        }
+    }
+
+    return (HP_count == 0);
+}
+
+static bool32 HasAttackerFaintedTarget(void)
+{
+    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+        && gBattleMoves[gCurrentMove].power != 0
+        && (gLastHitBy[gBankTarget] == 0xFF || gLastHitBy[gBankTarget] == gBankAttacker)
+        && gBattleStruct->moveTarget[gBankAttacker] == gBankTarget
+        && gBankTarget != gBankAttacker
+        && gCurrentTurnActionNumber == gBanksByTurnOrder[gBankAttacker]
+        && gChosenMove == gChosenMovesByBanks[gBankAttacker])
+        return TRUE;
+    else
+        return FALSE;
+}
 u8 UpdateTurnCounters(void)
 {
     u8 effect = 0;
@@ -1798,6 +1834,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                     effect++;
                 }
                 break;
+            case ABILITY_SNOW_WARNING:
+                if (!(gBattleWeather & WEATHER_HAIL))
+                {
+                    gBattleWeather = WEATHER_HAIL;
+                    BattleScriptPushCursorAndCallback(BattleScript_SnowWarningActivates);
+                    gBattleStruct->scriptingActive = bank;
+                    effect++;
+                }
+                break;
             case ABILITY_SAND_STREAM:
                 if (!(gBattleWeather & WEATHER_SANDSTORM_PERMANENT))
                 {
@@ -1864,6 +1909,28 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                 gBankAttacker = bank;
                 switch (gLastUsedAbility)
                 {
+				case ABILITY_DRY_SKIN:
+                    if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY)
+                     && gBattleMons[bank].maxHP > gBattleMons[bank].hp)
+                    {
+                        gLastUsedAbility = ABILITY_DRY_SKIN; // why
+                        BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
+                        gBattleMoveDamage = gBattleMons[bank].maxHP / 16;
+                        if (gBattleMoveDamage == 0)
+                            gBattleMoveDamage = 1;
+                        gBattleMoveDamage *= -1;
+                        effect++;
+                    }
+                    if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_SUN_ANY) && !(IsBattleWonForPlayer))
+                    {
+                        gLastUsedAbility = ABILITY_DRY_SKIN; // why
+                        BattleScriptPushCursorAndCallback(BattleScript_DrySkinActivates);
+                        gBattleMoveDamage = gBattleMons[bank].maxHP / 16;
+                        if (gBattleMoveDamage == 0)
+                            gBattleMoveDamage = 1;
+                        effect++;
+                    }					
+                    break;
                 case ABILITY_RAIN_DISH:
                     if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY)
                      && gBattleMons[bank].maxHP > gBattleMons[bank].hp)
@@ -1877,13 +1944,52 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                         effect++;
                     }
                     break;
-		case ABILITY_BAD_DREAMS:
-                if (gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP || gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP)
-                {
-                    BattleScriptPushCursorAndCallback(BattleScript_BadDreamsDmg);
-                    effect++;
-                }
+                case ABILITY_ICE_BODY:
+                    if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_HAIL)
+                     && gBattleMons[bank].maxHP > gBattleMons[bank].hp)
+                    {
+                        gLastUsedAbility = ABILITY_ICE_BODY; // why
+                        BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
+                        gBattleMoveDamage = gBattleMons[bank].maxHP / 16;
+                        if (gBattleMoveDamage == 0)
+                            gBattleMoveDamage = 1;
+                        gBattleMoveDamage *= -1;
+                        effect++;
+                    }
+                    break;
+				case ABILITY_BAD_DREAMS:
+					if (gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP || gBattleMons[BATTLE_OPPOSITE(bank)].status1 & STATUS_SLEEP)
+					{
+						BattleScriptPushCursorAndCallback(BattleScript_BadDreamsDmg);
+						effect++;
+					}
                 break;
+                case ABILITY_HYDRATATION:
+                    if ((gBattleMons[bank].status1 & STATUS_ANY) 
+						&& (Random() % 1) == 0
+						&& WEATHER_HAS_EFFECT 
+						&& (gBattleWeather & WEATHER_RAIN_ANY))
+                    {
+                        if (gBattleMons[bank].status1 & (STATUS_POISON | STATUS_TOXIC_POISON))
+                            StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+                        if (gBattleMons[bank].status1 & STATUS_SLEEP)
+                            StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+                        if (gBattleMons[bank].status1 & STATUS_PARALYSIS)
+                            StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+                        if (gBattleMons[bank].status1 & STATUS_BURN)
+                            StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+                        if (gBattleMons[bank].status1 & STATUS_FREEZE)
+                            StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+                        gBattleMons[bank].status1 = 0;
+                        // BUG: The nightmare status does not get cleared here. This was fixed in Emerald.
+                        gBattleMons[bank].status2 &= ~(STATUS2_NIGHTMARE);
+                        gBattleStruct->scriptingActive = gActiveBattler = bank;
+                        BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
+                        EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[bank].status1);
+                        MarkBufferBankForExecution(gActiveBattler);
+                        effect++;
+                    }
+                    break;
                 case ABILITY_SHED_SKIN:
                     if ((gBattleMons[bank].status1 & STATUS_ANY) && (Random() % 3) == 0)
                     {
@@ -1899,7 +2005,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                             StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
                         gBattleMons[bank].status1 = 0;
                         // BUG: The nightmare status does not get cleared here. This was fixed in Emerald.
-                        //gBattleMons[bank].status2 &= ~(STATUS2_NIGHTMARE);
+                        gBattleMons[bank].status2 &= ~(STATUS2_NIGHTMARE);
                         gBattleStruct->scriptingActive = gActiveBattler = bank;
                         BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
                         EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[bank].status1);
@@ -1976,6 +2082,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                     effect = 3, StatId = STAT_STAGE_ATK;
                     gBattleCommunication[MULTISTRING_CHOOSER] = 1;
                 break;
+				case ABILITY_DRY_SKIN:
                 case ABILITY_WATER_ABSORB:
                     if (moveType == TYPE_WATER && gBattleMoves[move].power != 0)
                     {
@@ -2081,6 +2188,27 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
                  && (gBattleMoves[move].flags & F_MAKES_CONTACT))
                 {
                     gBattleMoveDamage = gBattleMons[gBankAttacker].maxHP / 16;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_RoughSkinActivates;
+                    effect++;
+                }
+                break;
+			case ABILITY_RAGE_POINT:
+				if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gCritMultiplier > 1 && !gProtectStructs[gBankAttacker].confusionSelfDmg && gBattleMons[gBankTarget].hp != 0 && (gSpecialStatuses[gBankTarget].moveturnLostHP_physical || gSpecialStatuses[gBankTarget].moveturnLostHP_special))
+                {
+                    gBattleMons[gBankTarget].statStages[STAT_STAGE_ATK] = 12;				
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_AngerPointBoost;
+                    effect++;
+                }
+                break; 
+            case ABILITY_AFTERMATH:
+                if (HasAttackerFaintedTarget
+				&& (gBattleMoves[move].flags & F_MAKES_CONTACT))
+                {
+                    gBattleMoveDamage = gBattleMons[gBankAttacker].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptPushCursor();

@@ -98,7 +98,6 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     s32 damageHelper;
     u8 type;
     u16 attack, defense;
-    u16 spAttack, spDefense;
     u8 defenderHoldEffect;
     u8 defenderHoldEffectParam;
     u8 attackerHoldEffect;
@@ -114,10 +113,16 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     else
         type = typeOverride & 0x3F;
 	
-    attack = attacker->attack;
-    defense = defender->defense;
-    spAttack = attacker->spAttack;
-    spDefense = defender->spDefense;
+    if (TYPE_IS_PHYSICAL(type))
+	{
+		attack = attacker->attack;
+		defense = defender->defense;
+	}
+	else
+	{
+		attack = attacker->attack;
+		defense = defender->defense;
+	}
 	
     if (attacker->item == ITEM_ENIGMA_BERRY)
     {
@@ -144,52 +149,70 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if (attacker->ability == ABILITY_HUGE_POWER || attacker->ability == ABILITY_PURE_POWER)
         attack *= 2;
 
+	if (TYPE_IS_PHYSICAL(type))
+	{
     BADGE_BOOST(1, attack, bankAtk);
     BADGE_BOOST(5, defense, bankDef);
-    BADGE_BOOST(7, spAttack, bankAtk);
-    BADGE_BOOST(7, spDefense, bankDef);
-
+    }
+	else
+	{
+	BADGE_BOOST(7, attack, bankAtk);
+    BADGE_BOOST(7, defense, bankDef);
+	}
+	
     for (i = 0; i < 17; i++)
     {
         if (attackerHoldEffect == gHoldEffectToType[i][0]
             && type == gHoldEffectToType[i][1])
         {
-            if (TYPE_IS_PHYSICAL(type))
                 attack = (attack * (attackerHoldEffectParam + 100)) / 100;
-            else
-                spAttack = (spAttack * (attackerHoldEffectParam + 100)) / 100;
-            break;
         }
     }
-
-    if (attackerHoldEffect == HOLD_EFFECT_CHOICE_BAND)
+if (TYPE_IS_SPECIAL(type))
+{
+	if (attackerHoldEffect == HOLD_EFFECT_SOUL_DEW && !(gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER) && (attacker->species == SPECIES_LATIAS || attacker->species == SPECIES_LATIOS))
         attack = (150 * attack) / 100;
-    if (attackerHoldEffect == HOLD_EFFECT_SOUL_DEW && !(gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER) && (attacker->species == SPECIES_LATIAS || attacker->species == SPECIES_LATIOS))
-        spAttack = (150 * spAttack) / 100;
     if (defenderHoldEffect == HOLD_EFFECT_SOUL_DEW && !(gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER) && (defender->species == SPECIES_LATIAS || defender->species == SPECIES_LATIOS))
-        spDefense = (150 * spDefense) / 100;
-    if (attackerHoldEffect == HOLD_EFFECT_DEEP_SEA_TOOTH && attacker->species == SPECIES_CLAMPERL)
-        spAttack *= 2;
-    if (defenderHoldEffect == HOLD_EFFECT_DEEP_SEA_SCALE && defender->species == SPECIES_CLAMPERL)
-        spDefense *= 2;
-    if (attackerHoldEffect == HOLD_EFFECT_LIGHT_BALL && attacker->species == SPECIES_PIKACHU)
-        spAttack *= 2;
-    if (defenderHoldEffect == HOLD_EFFECT_METAL_POWDER && defender->species == SPECIES_DITTO)
-        defense *= 2;
-    if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK))
+        defense = (150 * defense) / 100;
+	if (attacker->ability == ABILITY_PLUS && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_MINUS, 0, 0))
+        attack = (150 * attack) / 100;
+    if (attacker->ability == ABILITY_MINUS && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_PLUS, 0, 0))
+        attack = (150 * attack) / 100;
+	if (attackerHoldEffect == HOLD_EFFECT_DEEP_SEA_TOOTH && attacker->species == SPECIES_CLAMPERL)
         attack *= 2;
-    if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
-        spAttack /= 2;
+    if (defenderHoldEffect == HOLD_EFFECT_DEEP_SEA_SCALE && defender->species == SPECIES_CLAMPERL)
+        defense *= 2;
+	if ((gBattleWeather & WEATHER_SUN_ANY) && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_FLOWER_GIFT, 0, 0))
+        defense = (150 * defense) / 100;
+	if (defender->ability == ABILITY_FLOWER_GIFT && (gBattleWeather & WEATHER_SUN_ANY))
+        defense = (150 * defense) / 100;
+}
+if (TYPE_IS_PHYSICAL(type))
+{    
+	if (attackerHoldEffect == HOLD_EFFECT_CHOICE_BAND)
+        attack = (150 * attack) / 100;
+	if (defenderHoldEffect == HOLD_EFFECT_METAL_POWDER && defender->species == SPECIES_DITTO)
+        defense *= 2;
+	if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK))
+        attack *= 2;
     if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
-    if (attacker->ability == ABILITY_PLUS && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_MINUS, 0, 0))
-        spAttack = (150 * spAttack) / 100;
-    if (attacker->ability == ABILITY_MINUS && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_PLUS, 0, 0))
-        spAttack = (150 * spAttack) / 100;
     if (attacker->ability == ABILITY_GUTS && attacker->status1)
         attack = (150 * attack) / 100;
     if (defender->ability == ABILITY_MARVEL_SCALE && defender->status1)
         defense = (150 * defense) / 100;
+	if (attacker->ability == ABILITY_FLOWER_GIFT && (gBattleWeather & WEATHER_SUN_ANY))
+        attack = (150 * attack) / 100;
+    if ((gBattleWeather & WEATHER_SUN_ANY) && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_FLOWER_GIFT, 0, 0))
+        attack = (150 * attack) / 100;
+}
+// Bien sea físico o especial
+    if (attackerHoldEffect == HOLD_EFFECT_LIGHT_BALL && attacker->species == SPECIES_PIKACHU)
+        attack *= 2;
+    if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
+        attack /= 2;
+	if (defender->ability == ABILITY_HEATPROOF && type == TYPE_FIRE)
+        attack /= 2;
     if (type == TYPE_ELECTRIC && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, 0xFD, 0))
         gBattleMovePower /= 2;
     if (type == TYPE_FIRE && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, 0xFE, 0))
@@ -202,52 +225,54 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (type == TYPE_BUG && attacker->ability == ABILITY_SWARM && attacker->hp <= (attacker->maxHP / 3))
         gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if (type == TYPE_NORMAL && attacker->ability == ABILITY_NORMALIZE)
+        gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if ((type == attacker->type1 || type == attacker->type2) && attacker->ability == ABILITY_ADAPTABILITY)
+        gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if (gBattleMoves[move].power <= 60 && attacker->ability == ABILITY_TECHNICIAN)
+		gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_RECKLESS 
+	&& (gBattleMoves[move].effect == EFFECT_RECOIL_IF_MISS 
+	|| gBattleMoves[move].effect == EFFECT_RECOIL
+	|| gBattleMoves[move].effect == EFFECT_DOUBLE_EDGE))
+	gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
         defense /= 2;
 	if (attacker->ability == ABILITY_IRON_FISTS && gBattleMoves[gCurrentMove].flags & F_IRON_FIST_BOOST)
 		attack = (attack * 150) / 100;
 	if (attacker->ability == ABILITY_SNIPER && gCritMultiplier == 2)
 		attack = (attack * 150) / 100;
-	if (defender->ability == ABILITY_FLOWER_GIFT && (gBattleWeather & WEATHER_SUN_ANY))
-        spDefense = (150 * spDefense) / 100;
-    if (attacker->ability == ABILITY_FLOWER_GIFT && (gBattleWeather & WEATHER_SUN_ANY))
-        attack = (150 * attack) / 100;
-	if ((gBattleWeather & WEATHER_SUN_ANY) && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_FLOWER_GIFT, 0, 0))
-        spDefense = (150 * spDefense) / 100;
-    if ((gBattleWeather & WEATHER_SUN_ANY) && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_FLOWER_GIFT, 0, 0))
-        attack = (150 * attack) / 100;
+    
 	
-    if (TYPE_IS_PHYSICAL(type)) // type < TYPE_MYSTERY
-    {
-        if (gCritMultiplier == 2)
-        {
-            if (attacker->statStages[STAT_STAGE_ATK] > 6)
-                APPLY_STAT_MOD(damage, attacker, attack, STAT_STAGE_ATK)
-            else
-                damage = attack;
-        }
-		else if (defender->ability == ABILITY_UNAWARE)
-			damage = attack;
-        else
-            APPLY_STAT_MOD(damage, attacker, attack, STAT_STAGE_ATK)
-
-        damage = damage * gBattleMovePower;
-        damage *= (2 * attacker->level / 5 + 2);
-
-        if (gCritMultiplier == 2)
+	if (gCritMultiplier == 2)
         {
             if (defender->statStages[STAT_STAGE_DEF] < 6)
                 APPLY_STAT_MOD(damageHelper, defender, defense, STAT_STAGE_DEF)
             else
                 damageHelper = defense;
+			
+			if (attacker->statStages[STAT_STAGE_ATK] > 6)
+                APPLY_STAT_MOD(damage, attacker, attack, STAT_STAGE_ATK)
+            else
+                damage = attack;
         }
-        else if (attacker->ability == ABILITY_UNAWARE)
-			damageHelper = defense;
+		if (defender->ability == ABILITY_UNAWARE)
+			damage = attack;
+        else
+            APPLY_STAT_MOD(damage, attacker, attack, STAT_STAGE_ATK)
+		
+		if (attacker->ability == ABILITY_UNAWARE)
+			damageHelper = defense;	
         else
             APPLY_STAT_MOD(damageHelper, defender, defense, STAT_STAGE_DEF)
 
-        damage = damage / damageHelper;
+        damage = damage * gBattleMovePower;
+        damage *= (2 * attacker->level / 5 + 2);
+		damage = damage / damageHelper;
         damage /= 50;
+		
+    if (TYPE_IS_PHYSICAL(type)) // type < TYPE_MYSTERY
+    {       
 
         if ((attacker->status1 & STATUS_BURN) && attacker->ability != ABILITY_GUTS)
             damage /= 2;
@@ -262,47 +287,14 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
         if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && gBattleMoves[move].target == 8 && CountAliveMons(2) == 2)
             damage /= 2;
-
+		if ((eFlashFireArr.arr[bankAtk] & 1) && type == TYPE_FIRE)
+            damage = (15 * damage) / 10;
         // moves always do at least 1 damage.
-        if (damage == 0)
-            damage = 1;
+        
     }
-
-    if (type == TYPE_MYSTERY)
-        damage = 0; // is ??? type. does 0 damage.
 
     if (TYPE_IS_SPECIAL(type)) // type > TYPE_MYSTERY
     {
-        if (gCritMultiplier == 2)
-        {
-            if (attacker->statStages[STAT_STAGE_SPATK] > 6)
-                APPLY_STAT_MOD(damage, attacker, spAttack, STAT_STAGE_SPATK)
-            else
-                damage = spAttack;
-        }
-		else if (defender->ability == ABILITY_UNAWARE)
-			damage = spAttack;
-        else
-            APPLY_STAT_MOD(damage, attacker, spAttack, STAT_STAGE_SPATK)
-
-        damage = damage * gBattleMovePower;
-        damage *= (2 * attacker->level / 5 + 2);
-
-        if (gCritMultiplier == 2)
-        {
-            if (defender->statStages[STAT_STAGE_SPDEF] < 6)
-                APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_STAGE_SPDEF)
-            else
-                damageHelper = spDefense;
-        }
-		else if (attacker->ability == ABILITY_UNAWARE)
-			damageHelper = spDefense;
-        else
-            APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_STAGE_SPDEF)
-
-        damage = (damage / damageHelper);
-        damage /= 50;
-
         if ((sideStatus & SIDE_STATUS_LIGHTSCREEN) && gCritMultiplier == 1)
         {
             if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && CountAliveMons(2) == 2)
@@ -354,6 +346,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         if ((eFlashFireArr.arr[bankAtk] & 1) && type == TYPE_FIRE)
             damage = (15 * damage) / 10;
     }
+	if (damage == 0)
+		damage = 1;
 
     return damage + 2;
 }

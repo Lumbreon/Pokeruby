@@ -354,3 +354,6 @@
 	enum BATTLE_TEXT_SpeedRaisedUsing
 	enum BATTLE_TEXT_AttackRaisedUsing
 	enum BATTLE_TEXT_SpAttackRaisedUsing
+	enum BATTLE_TEXT_DefenderMaximizesAtk
+	enum BATTLE_TEXT_SelfHurtByAbility
+	enum BATTLE_TEXT_SnowWarningActivate

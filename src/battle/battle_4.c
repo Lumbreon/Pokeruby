@@ -1279,7 +1279,8 @@ static bool8 AccuracyCalcHelper(u16 move)
     gHitMarker &= ~HITMARKER_IGNORE_UNDERWATER;
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
-     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW))
+    || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW 
+	|| gBattleMons[gBankTarget].ability == ABILITY_NO_GUARD || gBattleMons[gBankAttacker].ability == ABILITY_NO_GUARD))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -1355,6 +1356,8 @@ static void atk01_accuracycheck(void)
             calc = (calc * 130) / 100; // 1.3 compound eyes boost
         if (WEATHER_HAS_EFFECT && gBattleMons[gBankTarget].ability == ABILITY_SAND_VEIL && gBattleWeather & WEATHER_SANDSTORM_ANY)
             calc = (calc * 80) / 100; // 1.2 sand veil loss;
+		if (WEATHER_HAS_EFFECT && gBattleMons[gBankTarget].ability == ABILITY_SNOW_CLOAK && gBattleWeather & WEATHER_HAIL)
+            calc = (calc * 80) / 100; // 1.2 snow cloal loss;
         if (gBattleMons[gBankAttacker].ability == ABILITY_HUSTLE && type < 9)
             calc = (calc * 80) / 100; // 1.2 hustle loss;
 
@@ -1570,6 +1573,12 @@ static void atk06_typecalc(void)
             move_type = gBattleStruct->dynamicMoveType & 0x3F;
         else
             move_type = gBattleMoves[gCurrentMove].type;
+		
+	if (gBattleMons[gBankAttacker].ability == ABILITY_NORMALIZE)
+	{	
+		gBattleStruct->dynamicMoveType = TYPE_NORMAL;
+		move_type = TYPE_NORMAL;
+	}
 	if (effectiveness == NOT_VERY_EFFECTIVE && gBattleMons[gBankAttacker].ability == ABILITY_TINTED_LENS)
 		{
             gBattleMoveDamage = gBattleMoveDamage * 2;
@@ -1601,7 +1610,7 @@ static void atk06_typecalc(void)
             {
                 if (gTypeEffectiveness[i] == TYPE_FORESIGHT)
                 {
-                    if (gBattleMons[gBankTarget].status2 & STATUS2_FORESIGHT)
+                    if (gBattleMons[gBankTarget].status2 & STATUS2_FORESIGHT || gBattleMons[gBankAttacker].ability == ABILITY_SCRAPPY)
                         break;
                     i += 3;
                     continue;
@@ -11784,6 +11793,8 @@ static void atk8D_setmultihitcounter(void)
             gMultiHitCounter = (Random() & 3) + 2;
         else
             gMultiHitCounter += 2;
+		if (gBattleMons[gBankAttacker].ability == ABILITY_SKILL_LINK)
+			gMultiHitCounter = 5;
     }
     gBattlescriptCurrInstr += 2;
 }
@@ -12457,7 +12468,7 @@ static void atk96_weatherdamage(void)
         }
         if (gBattleWeather & WEATHER_HAIL)
         {
-            if (gBattleMons[gBankAttacker].type1 != TYPE_ICE && gBattleMons[gBankAttacker].type2 != TYPE_ICE && !(gStatuses3[gBankAttacker] & STATUS3_UNDERGROUND) && !(gStatuses3[gBankAttacker] & STATUS3_UNDERWATER))
+            if (gBattleMons[gBankAttacker].type1 != TYPE_ICE && gBattleMons[gBankAttacker].type2 != TYPE_ICE && !(gStatuses3[gBankAttacker] & STATUS3_UNDERGROUND) && !(gStatuses3[gBankAttacker] & STATUS3_UNDERWATER) && gBattleMons[gBankAttacker].ability != ABILITY_SNOW_CLOAK)
             {
                 gBattleMoveDamage = gBattleMons[gBankAttacker].maxHP / 16;
                 if (gBattleMoveDamage == 0)
