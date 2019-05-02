@@ -262,6 +262,9 @@ gAbilityDescription_TintedLens: @ 81FA0F6
 gAbilityDescription_FlowerGift: @ 81FA0F6
 	.string "Sube ATQ. Y DEF. ES. En sol.$"
 
+gAbilityDescription_Unaware: @ 81FA0F6
+	.string "Ignora cambios de poder.$"
+
 	.align 2
 gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_None
@@ -353,3 +356,4 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_Filter
 	.4byte gAbilityDescription_TintedLens
 	.4byte gAbilityDescription_FlowerGift
+	.4byte gAbilityDescription_Unaware

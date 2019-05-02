@@ -1322,6 +1322,16 @@ static void atk01_accuracycheck(void)
             u8 acc = gBattleMons[gBankAttacker].statStages[STAT_STAGE_ACC];
             buff = acc;
         }
+		else if (gBattleMons[gBankAttacker].ability == ABILITY_UNAWARE)
+        {
+            u8 acc = gBattleMons[gBankAttacker].statStages[STAT_STAGE_ACC];
+            buff = acc;
+        }
+		else if (gBattleMons[gBankTarget].ability == ABILITY_UNAWARE)
+        {
+            u8 acc = 6;
+            buff = acc + 6 - gBattleMons[gBankTarget].statStages[STAT_STAGE_EVASION];
+        }
         else
         {
             u8 acc = gBattleMons[gBankAttacker].statStages[STAT_STAGE_ACC];

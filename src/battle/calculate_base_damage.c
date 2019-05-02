@@ -75,6 +75,7 @@ u8 GetBattlerSide(u8 bank);
 
 #define APPLY_STAT_MOD(var, mon, stat, statIndex)                                   \
 {                                                                                   \
+	if ((mon)->ability == ABILITY_UNAWARE) 											\
     (var) = (stat) * (gStatStageRatios)[(mon)->statStages[(statIndex)]][0];         \
     (var) /= (gStatStageRatios)[(mon)->statStages[(statIndex)]][1];                 \
 }
@@ -112,12 +113,12 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         type = gBattleMoves[move].type;
     else
         type = typeOverride & 0x3F;
-
+	
     attack = attacker->attack;
     defense = defender->defense;
     spAttack = attacker->spAttack;
     spDefense = defender->spDefense;
-
+	
     if (attacker->item == ITEM_ENIGMA_BERRY)
     {
         attackerHoldEffect = gEnigmaBerries[bankAtk].holdEffect;
@@ -225,6 +226,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             else
                 damage = attack;
         }
+		else if (defender->ability == ABILITY_UNAWARE)
+			damage = attack;
         else
             APPLY_STAT_MOD(damage, attacker, attack, STAT_STAGE_ATK)
 
@@ -238,6 +241,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             else
                 damageHelper = defense;
         }
+        else if (attacker->ability == ABILITY_UNAWARE)
+			damageHelper = defense;
         else
             APPLY_STAT_MOD(damageHelper, defender, defense, STAT_STAGE_DEF)
 
@@ -275,6 +280,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             else
                 damage = spAttack;
         }
+		else if (defender->ability == ABILITY_UNAWARE)
+			damage = spAttack;
         else
             APPLY_STAT_MOD(damage, attacker, spAttack, STAT_STAGE_SPATK)
 
@@ -288,6 +295,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             else
                 damageHelper = spDefense;
         }
+		else if (attacker->ability == ABILITY_UNAWARE)
+			damageHelper = spDefense;
         else
             APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_STAGE_SPDEF)
 

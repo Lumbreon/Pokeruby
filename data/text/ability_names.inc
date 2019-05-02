@@ -88,3 +88,4 @@ gAbilityNames:: @ 81FA248
 	.string "ROCA SÓLIDA$", 13
 	.string "CROMOLENTE$", 13
 	.string "DON FLORAL$", 13
+	.string "IGNORANTE$", 13
