@@ -225,6 +225,14 @@ gBattleScriptsForMoveEffects:: @ 81D6BBC
 	.4byte BattleScript_EffectDragonDance
 	.4byte BattleScript_EffectCamouflage
 
+BattleScript_AttackerAbilityStatRaise::
+	setgraphicalstatchangevalues
+	playanimation USER, B_ANIM_STATS_CHANGE, sANIM_ARG1
+	waitanimation
+	printstring BATTLE_TEXT_AttackerAbilityStatUp
+	waitmessage 0x40
+	end3
+	
 BattleScript_EffectHit: @ 81D6F14
 BattleScript_EffectAccuracyDown2: @ 81D6F14
 BattleScript_EffectAccuracyUp2: @ 81D6F14
@@ -1527,6 +1535,11 @@ BattleScript_EffectThief: @ 81D7CC1
 	setmoveeffect EFFECT_STEAL_ITEM
 	goto BattleScript_EffectHit
 
+BattleScript_SwitchInAbility::
+	printfromtable gSwitchInIds
+	waitmessage 64
+	end3
+	
 BattleScript_EffectMeanLook: @ 81D7CCC
 	attackcanceler
 	attackstring
@@ -3786,8 +3799,13 @@ BattleScript_MonWokeUpInUproar:: @ 81D950F
 	updatestatusicon USER
 	end2
 
+BattleScript_WarnAbilityActivate::
+	printstring BATTLE_TEXT_BewareOf
+	waitmessage 64
+	end3
+	
 BattleScript_PoisonTurnDmg:: @ 81D9518
-	printstring BATTLE_TEXT_PoisonHurt
+	printfromtable gPoisonStrings
 	waitmessage 64
 
 BattleScript_DoStatusTurnDmg: @ 81D951E

@@ -104,3 +104,23 @@ gAbilityNames:: @ 81FA248
 	.string "PIEL SECA$", 13
 	.string "RESQUICIO$", 13
 	.string "NEVADA$", 13
+	.string "PODER SOLAR$", 13
+	.string "REZAGADO$", 13
+	.string "RIVALIDAD$", 13
+	.string "AFORTUNADO$", 13
+	.string "ANTÍDOTO$", 13
+	.string "IMPASIBLE$", 13
+	.string "CACHEO$", 13
+	.string "ALERTA$", 13
+	.string "ANTICIPACIÓN$", 13
+	.string "ZOQUETE$", 13
+	.string "TUMBOS$", 13
+	.string "ROMPEMOLDES$", 13
+	.string "DEFENSA HOJA$", 13
+	.string "INICIO LENTO$", 13
+	.string "GULA$", 13
+	.string "MURO MÁGICO$", 13
+	.string "DESCARGA$", 13
+	.string "LIVIANO$", 13
+	.string "MULTITIPO$", 13
+	.string "RECOGE MIEL$", 13

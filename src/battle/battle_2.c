@@ -66,6 +66,9 @@ struct UnknownStruct8
 
 extern void sub_802BBD4();
 
+u32 GetBattlerHoldEffect(u8 battlerId, bool32 checkNegating);
+u32 GetBattlerHoldEffectParam(u8 battlerId);
+u32 GetBattlerAbility(u8 battlerId);
 extern struct SpriteTemplate gUnknown_02024E8C;
 extern const u8 Str_821F7B8[];
 extern u8 gUnknown_02023A14_50;
@@ -4007,22 +4010,20 @@ u8 CanRunFromBattle(void)
     u8 r6;
     s32 i;
 
-    if (gBattleMons[gActiveBattler].item == ITEM_ENIGMA_BERRY)
-        r2 = gEnigmaBerries[gActiveBattler].holdEffect;
-    else
-        r2 = ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item);
+   
+    r2 = GetBattlerHoldEffect(gActiveBattler, TRUE);
     gStringBank = gActiveBattler;
     if (r2 == HOLD_EFFECT_CAN_ALWAYS_RUN)
         return 0;
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         return 0;
-    if (gBattleMons[gActiveBattler].ability == ABILITY_RUN_AWAY)
+    if (GetBattlerAbility(gActiveBattler) == ABILITY_RUN_AWAY)
         return 0;
     r6 = GetBattlerSide(gActiveBattler);
     for (i = 0; i < gBattlersCount; i++)
     {
         if (r6 != GetBattlerSide(i)
-         && gBattleMons[i].ability == ABILITY_SHADOW_TAG)
+         && GetBattlerAbility(i) == ABILITY_SHADOW_TAG)
         {
             ewram16003 = i;
             gLastUsedAbility = gBattleMons[i].ability;
@@ -4030,10 +4031,10 @@ u8 CanRunFromBattle(void)
             return 2;
         }
         if (r6 != GetBattlerSide(i)
-         && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
+         && GetBattlerAbility(gActiveBattler) != ABILITY_LEVITATE
          && gBattleMons[gActiveBattler].type1 != 2
          && gBattleMons[gActiveBattler].type2 != 2
-         && gBattleMons[i].ability == ABILITY_ARENA_TRAP)
+         && GetBattlerAbility(i) == ABILITY_ARENA_TRAP)
         {
             ewram16003 = i;
             gLastUsedAbility = gBattleMons[i].ability;
@@ -4230,7 +4231,7 @@ void sub_8012324(void)
                             else if ((i = ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_SHADOW_TAG))
                                      || ((i = ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_ARENA_TRAP))
                                          && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
-                                         && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
+                                         && GetBattlerAbility(gActiveBattler) != ABILITY_LEVITATE)
                                      || ((i = AbilityBattleEffects(ABILITYEFFECT_CHECK_FIELD_EXCEPT_BATTLER, gActiveBattler, ABILITY_MAGNET_PULL, 0, 0))
                                          && IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL)))
                             {
@@ -4483,38 +4484,38 @@ u8 GetWhoStrikesFirst(u8 bank1, u8 bank2, bool8 ignoreMovePriorities)
     // Check for abilities that boost speed in weather.
     if (WEATHER_HAS_EFFECT)
     {
-        if ((gBattleMons[bank1].ability == ABILITY_SWIFT_SWIM && (gBattleWeather & WEATHER_RAIN_ANY))
-            || (gBattleMons[bank1].ability == ABILITY_CHLOROPHYLL && (gBattleWeather & WEATHER_SUN_ANY)))
+        if ((GetBattlerAbility(bank1) == ABILITY_SWIFT_SWIM && (gBattleWeather & WEATHER_RAIN_ANY))
+            || (GetBattlerAbility(bank1) == ABILITY_CHLOROPHYLL && (gBattleWeather & WEATHER_SUN_ANY)))
             bank1SpeedMultiplier = 2;
         else
             bank1SpeedMultiplier = 1;
 
-        if ((gBattleMons[bank2].ability == ABILITY_SWIFT_SWIM && (gBattleWeather & WEATHER_RAIN_ANY))
-            || (gBattleMons[bank2].ability == ABILITY_CHLOROPHYLL && (gBattleWeather & WEATHER_SUN_ANY)))
+        if ((GetBattlerAbility(bank2) == ABILITY_SWIFT_SWIM && (gBattleWeather & WEATHER_RAIN_ANY))
+            || (GetBattlerAbility(bank2) == ABILITY_CHLOROPHYLL && (gBattleWeather & WEATHER_SUN_ANY)))
             bank2SpeedMultiplier = 2;
         else
             bank2SpeedMultiplier = 1;
     }
-    else
+	else
     {
         bank1SpeedMultiplier = 1;
         bank2SpeedMultiplier = 1;
     }
+	
+	if (GetBattlerAbility(bank1) == ABILITY_UNBURDEN && gDisableStructs[bank1].unburden == 1)
+		bank1SpeedMultiplier = 2;
+	if (GetBattlerAbility(bank2) == ABILITY_UNBURDEN && gDisableStructs[bank2].unburden == 1)
+		bank2SpeedMultiplier = 2; 
+    
 
     // Calculate adjusted speed for first mon.
     bank1AdjustedSpeed = (gBattleMons[bank1].speed * bank1SpeedMultiplier)
         * gStatStageRatios[gBattleMons[bank1].statStages[STAT_STAGE_SPEED]][0] / gStatStageRatios[gBattleMons[bank1].statStages[STAT_STAGE_SPEED]][1];
 
-    if (gBattleMons[bank1].item == ITEM_ENIGMA_BERRY)
-    {
-        heldItemEffect = gEnigmaBerries[bank1].holdEffect;
-        heldItemEffectParam = gEnigmaBerries[bank1].holdEffectParam;
-    }
-    else
-    {
-        heldItemEffect = ItemId_GetHoldEffect(gBattleMons[bank1].item);
-        heldItemEffectParam = ItemId_GetHoldEffectParam(gBattleMons[bank1].item);
-    }
+    
+        heldItemEffect = GetBattlerHoldEffect(bank1, TRUE);
+        heldItemEffectParam = GetBattlerHoldEffectParam(bank1);
+    
 
     // Only give badge speed boost to the player's mon.
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && FlagGet(FLAG_BADGE03_GET) && GetBattlerSide(bank1) == 0)
@@ -4528,21 +4529,21 @@ u8 GetWhoStrikesFirst(u8 bank1, u8 bank2, bool8 ignoreMovePriorities)
 
     if (heldItemEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (heldItemEffectParam * 0xFFFF) / 100)
         bank1AdjustedSpeed = UINT_MAX;
+	
+	if (GetBattlerAbility(bank1) == ABILITY_STALL)
+        bank1AdjustedSpeed /= 100;
+	
+	if (GetBattlerAbility(bank1) == ABILITY_SLOW_START && gDisableStructs[bank1].slowStartTimer != 0)
+		bank1AdjustedSpeed /= 2;
 
     // Calculate adjusted speed for second mon.
     bank2AdjustedSpeed = gBattleMons[bank2].speed * bank2SpeedMultiplier
         * gStatStageRatios[gBattleMons[bank2].statStages[STAT_STAGE_SPEED]][0] / gStatStageRatios[gBattleMons[bank2].statStages[STAT_STAGE_SPEED]][1];
 
-    if (gBattleMons[bank2].item == ITEM_ENIGMA_BERRY)
-    {
-        heldItemEffect = gEnigmaBerries[bank2].holdEffect;
-        heldItemEffectParam = gEnigmaBerries[bank2].holdEffectParam;
-    }
-    else
-    {
-        heldItemEffect = ItemId_GetHoldEffect(gBattleMons[bank2].item);
-        heldItemEffectParam = ItemId_GetHoldEffectParam(gBattleMons[bank2].item);
-    }
+    
+    heldItemEffect = GetBattlerHoldEffect(bank2, TRUE);
+    heldItemEffectParam = GetBattlerHoldEffectParam(bank2);
+    
 
     // Only give badge speed boost to the player's mon.
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && FlagGet(FLAG_BADGE03_GET) && GetBattlerSide(bank2) == 0)
@@ -4559,6 +4560,12 @@ u8 GetWhoStrikesFirst(u8 bank1, u8 bank2, bool8 ignoreMovePriorities)
     if (heldItemEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (heldItemEffectParam * 0xFFFF) / 100)
         bank2AdjustedSpeed = UINT_MAX;
 
+	if (GetBattlerAbility(bank2) == ABILITY_STALL)
+        bank2AdjustedSpeed /= 100;
+	
+	if (GetBattlerAbility(bank2) == ABILITY_SLOW_START && gDisableStructs[bank2].slowStartTimer != 0)
+		bank2AdjustedSpeed /= 2;
+	
     if (ignoreMovePriorities)
     {
         bank1Move = MOVE_NONE;
@@ -5136,7 +5143,7 @@ void HandleAction_UseMove(void)
              && gSideTimers[side].followmeTimer == 0
              && (gBattleMoves[gCurrentMove].power != 0
                  || gBattleMoves[gCurrentMove].target != MOVE_TARGET_x10)
-             && gBattleMons[ewram16010arr(gBankAttacker)].ability != ABILITY_LIGHTNING_ROD
+             && GetBattlerAbility(ewram16010arr(gBankAttacker)) != ABILITY_LIGHTNING_ROD
              && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
     {
         side = GetBattlerSide(gBankAttacker);
@@ -5144,7 +5151,7 @@ void HandleAction_UseMove(void)
         {
             if (side != GetBattlerSide(gActiveBattler)
                 && ewram16010arr(gBankAttacker) != gActiveBattler
-                && gBattleMons[gActiveBattler].ability == ABILITY_LIGHTNING_ROD
+                && GetBattlerAbility(gActiveBattler) == ABILITY_LIGHTNING_ROD
                 && BankGetTurnOrder(gActiveBattler) < var)
             {
                 var = BankGetTurnOrder(gActiveBattler);
@@ -5200,7 +5207,7 @@ void HandleAction_UseMove(void)
              && gSideTimers[side].followmeTimer == 0
              && (gBattleMoves[gCurrentMove].power != 0
                  || gBattleMoves[gCurrentMove].target != MOVE_TARGET_x10)
-             && gBattleMons[ewram16010arr(gBankAttacker)].ability != ABILITY_STORM_DRAIN
+             && GetBattlerAbility(ewram16010arr(gBankAttacker)) != ABILITY_STORM_DRAIN
              && gBattleMoves[gCurrentMove].type == TYPE_WATER)
     {
         side = GetBattlerSide(gBankAttacker);
@@ -5208,7 +5215,7 @@ void HandleAction_UseMove(void)
         {
             if (side != GetBattlerSide(gActiveBattler)
                 && ewram16010arr(gBankAttacker) != gActiveBattler
-                && gBattleMons[gActiveBattler].ability == ABILITY_STORM_DRAIN
+                && GetBattlerAbility(gActiveBattler) == ABILITY_STORM_DRAIN
                 && BankGetTurnOrder(gActiveBattler) < var)
             {
                 var = BankGetTurnOrder(gActiveBattler);
@@ -5408,10 +5415,7 @@ bool8 TryRunFromBattle(u8 bank)
     u8 holdEffect;
     u8 speedVar;
 
-    if (gBattleMons[bank].item == ITEM_ENIGMA_BERRY)
-        holdEffect = gEnigmaBerries[bank].holdEffect;
-    else
-        holdEffect = ItemId_GetHoldEffect(gBattleMons[bank].item);
+    holdEffect = GetBattlerHoldEffect(bank, TRUE);
 
     gStringBank = bank;
 
@@ -5421,7 +5425,7 @@ bool8 TryRunFromBattle(u8 bank)
         gProtectStructs[bank].fleeFlag = 1;
         effect++;
     }
-    else if (gBattleMons[bank].ability == ABILITY_RUN_AWAY)
+    else if (GetBattlerAbility(bank) == ABILITY_RUN_AWAY)
     {
         gLastUsedAbility = ABILITY_RUN_AWAY;
         gProtectStructs[bank].fleeFlag = 2;

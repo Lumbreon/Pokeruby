@@ -357,3 +357,11 @@
 	enum BATTLE_TEXT_DefenderMaximizesAtk
 	enum BATTLE_TEXT_SelfHurtByAbility
 	enum BATTLE_TEXT_SnowWarningActivate
+	enum BATTLE_TEXT_PoisonHeal
+	enum BATTLE_TEXT_BewareOf
+	enum BATTLE_TEXT_MoldBreakerEnter
+	enum BATTLE_TEXT_SlowStartEnter
+	enum BATTLE_TEXT_TurboBlazeEnter
+	enum BATTLE_TEXT_TeravoltEnter
+	enum BATTLE_TEXT_SlowStartEnd
+	enum BATTLE_TEXT_AttackerAbilityStatUp

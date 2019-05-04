@@ -359,7 +359,15 @@ enum
 	BATTLE_TEXT_SpAttackRaisedUsing,
 	BATTLE_TEXT_DefenderMaximizesAtk,
 	BATTLE_TEXT_SelfHurtByAbility,
-	BATTLE_TEXT_SnowWarningActivate
+	BATTLE_TEXT_SnowWarningActivate,
+	BATTLE_TEXT_PoisonHeal,
+	BATTLE_TEXT_BewareOf, 
+	BATTLE_TEXT_MoldBreakerEnter,
+	BATTLE_TEXT_SlowStartEnter,
+	BATTLE_TEXT_TurboBlazeEnter,
+	BATTLE_TEXT_TeravoltEnter,
+	BATTLE_TEXT_SlowStartEnd,
+	BATTLE_TEXT_AttackerAbilityStatUp
 };
 
 const u8 BattleText_UnknownString[] = _("{STRING 33}");
@@ -398,6 +406,7 @@ const u8 BattleText_WasntAffected[] = _("¡{DEFENDING_MON}\nno le afectó!");
 const u8 BattleText_Poisoned[] = _("¡{STRING 14}\nfue envenenado!");
 const u8 BattleText_Poisoned2[] = _("¡{STRING 23} de {STRING 16}\nenvenenó a {STRING 14}!");
 const u8 BattleText_PoisonHurt[] = _("¡El veneno resta salud\na {ATTACKING_MON}!");
+const u8 BattleText_PoisonHeal[] = _("{ATTACKING_MON} recupera\nsalud por el veneno!");
 const u8 BattleText_AlreadyPoisoned[] = _("{DEFENDING_MON}\nestá envenenado.");
 const u8 BattleText_BadlyPoisoned[] = _("¡{STRING 14} fue\ngravemente envenenado!");
 const u8 BattleText_EnergyDrained[] = _("¡{DEFENDING_MON} ha perdido\nenergía!");
@@ -789,7 +798,7 @@ const u8 BattleText_OtherMenu[] = _("¿Qué debería hacer\n{STRING 15}?");
 const u8 BattleText_PlayerMenu[] = _("¿Qué debería hacer\n{STRING 32}?");
 const u8 BattleText_WallyMenu[] = _("¿Qué debería\nhacer BLASCO?");
 const u8 BattleText_LinkStandby[] = _("{PAUSE 16}Espera...");
-const u8 BattleText_MenuOptions[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW SKY_BLUE LIGHT_BLUE WHITE2}LUCHA{CLEAR_TO 0x2E}MOCHILA\nPokémon{CLEAR_TO 0x2E}HUIR");
+const u8 BattleText_MenuOptions[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW SKY_BLUE LIGHT_BLUE WHITE2}LUCHA{CLEAR_TO 0x2E}MOCHILA\nPOKéMON{CLEAR_TO 0x2E}HUIR");
 const u8 BattleText_MenuOptionsSafari[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW SKY_BLUE LIGHT_BLUE WHITE2}BALL{CLEAR_TO 0x2E}{POKEBLOCK}\n+ CERCA{CLEAR_TO 0x2E}HUIR");
 const u8 BattleText_PP[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW SKY_BLUE LIGHT_BLUE WHITE2}PP\nTYPE/");
 const u8 BattleText_Format[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW SKY_BLUE LIGHT_BLUE WHITE2}"); // cant think of a better name
@@ -801,8 +810,8 @@ const u8 BattleText_RightArrow[] = _("{RIGHT_ARROW}");
 const u8 BattleText_Plus[] = _("+");
 const u8 BattleText_Dash[] = _("-");
 const u8 BattleText_HP[] = _("Ps     ");
-const u8 BattleText_Attack[] = _("Ataque ");
-const u8 BattleText_Defense[] = _("Defensa");
+const u8 BattleText_Attack[] = _("ATAQUE");
+const u8 BattleText_Defense[] = _("DEFENSA");
 const u8 BattleText_SpAtk[] = _("AT.ESP");
 const u8 BattleText_SpDef[] = _("DEF.ESP");
 const u8 BattleText_SafariBalls[] = _("{HIGHLIGHT RED}SAFARI BALLS");
@@ -854,6 +863,13 @@ const u8 BattleText_SpAttackRaisedUsing[] = _("{DEFENDING_MON} raised its SP.ATT
 const u8 BattleText_DefenderMaximizesAtk[] = _("¡{DEFENDING_MON} maximiza su\nATAQUE por IRASCIBLE!");
 const u8 BattleText_SelfHurtByAbility[] = _("¡{ATTACKING_MON} pierde\nalgunos Ps por {STRING 21}!");
 const u8 BattleText_SnowWarningActivate[] = _("¡{STRING 23} de {STRING 16}\nhizo granizar!");
+const u8 BattleText_BewareOf[] = _("¡Cuidado con {STRING 0} de\n{STRING 1} enemigo!");
+const u8 BattleText_MoldBreakerEnter[] = _("¡{STRING 16} rompe\nel molde!");
+const u8 BattleText_SlowStartEnter[] = _("¡{STRING 16} empieza con\npoca energía!");
+const u8 BattleText_TeravoltEnter[] = _("¡{STRING 16} desprende un\naura chizpeante!");
+const u8 BattleText_TurboBlazeEnter[] = _("¡{STRING 16} desprende un\ncalor tremendo!");
+const u8 BattleText_SlowStartEnd[] = _("¡{STRING 16} ya está\npeleando al máximo!");
+const u8 BattleText_AttackerAbilityStatUp[] = _("¡{ATTACKING_MON} subió su\n{STRING 0} por {STRING 23}!");
 
 const u8 *const gUnknown_08400F58[] =
 {
@@ -1236,6 +1252,14 @@ const u8 *const gBattleStringsTable[] =
 	BattleText_DefenderMaximizesAtk,
 	BattleText_SelfHurtByAbility,
 	BattleText_SnowWarningActivate,
+	BattleText_PoisonHeal,
+	BattleText_BewareOf,
+	BattleText_MoldBreakerEnter,
+	BattleText_SlowStartEnter,
+	BattleText_TurboBlazeEnter,
+	BattleText_TeravoltEnter,
+	BattleText_SlowStartEnd,
+	BattleText_AttackerAbilityStatUp,
 };
 
 // below are lists of battle string enums and NOT pointers to the strings.
@@ -1246,6 +1270,15 @@ const u16 gMissStringIds[] =
     BATTLE_TEXT_AvoidedAttack,
     BATTLE_TEXT_AvoidedDamage,
     BATTLE_TEXT_GroundMoveNegate,
+};
+
+const u16 gSwitchInIds[] =
+{
+    BATTLE_TEXT_MoldBreakerEnter,
+	BATTLE_TEXT_SlowStartEnter,
+	BATTLE_TEXT_TurboBlazeEnter,
+	BATTLE_TEXT_TeravoltEnter,
+	BATTLE_TEXT_SlowStartEnd,
 };
 
 const u16 gNoEscapeStringIds[] =
@@ -1531,6 +1564,12 @@ const u16 gInobedientStringIds[] =
     BATTLE_TEXT_WontObey, 
     BATTLE_TEXT_TurnedAway, 
     BATTLE_TEXT_NotNotice, 
+};
+
+const u16 gPoisonStrings[] =
+{
+    BATTLE_TEXT_PoisonHurt,
+    BATTLE_TEXT_PoisonHeal,
 };
 
 const u16 gSafariGetNearStringIds[] =

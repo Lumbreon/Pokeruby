@@ -310,6 +310,66 @@ gAbilityDescription_Aftermath: @ 81FA0F6
 gAbilityDescription_SnowWarning: @ 81FA0F6
 	.string "Hace que granice en combate.$"
 	
+gAbilityDescription_SolarPower: @ 81FA0F6
+	.string "Sube ATQ. ESP. En el sol.$"
+	
+gAbilityDescription_Stall: @ 81FA0F6
+	.string "Siempre ataca ultimo.$"
+	
+gAbilityDescription_Rivalry: @ 81FA0F6
+	.string "Es competitivo.$"
+	
+gAbilityDescription_SuperLucky: @ 81FA0F6
+	.string "Suele acertar críticos.$"
+	
+gAbilityDescription_PoisonHeal: @ 81FA0F6
+	.string "Se cura si está envenenado.$"
+	
+gAbilityDescription_SteadFast: @ 81FA0F6
+	.string "Sube VELOCIDAD al retroceder.$"
+		
+gAbilityDescription_Frisk: @ 81FA0F6
+	.string "Ve el objeto del rival.$"
+		
+gAbilityDescription_Forewarn: @ 81FA0F6
+	.string "Sabe la HABILIDAD del rival.$"
+		
+gAbilityDescription_Anticipation: @ 81FA0F6
+	.string "Conoce 1 MOVIMIENTO del rival.$"
+		
+gAbilityDescription_Klutz: @ 81FA0F6
+	.string "No puede usar objetos.$"
+		
+gAbilityDescription_TangledFeet: @ 81FA0F6
+	.string "Sube EVASIÓN si está confuso.$"
+		
+gAbilityDescription_MoldBreaker: @ 81FA0F6
+	.string "Ataca ignorando HABILIDADES.$"
+			
+gAbilityDescription_LeafGuard: @ 81FA0F6
+	.string "Previene problemas de estado.$"
+	
+gAbilityDescription_SlowStart: @ 81FA0F6
+	.string "Tarda en pelear en serio.$"
+				
+gAbilityDescription_Gluttony: @ 81FA0F6
+	.string "Come bayas antes.$"
+	
+gAbilityDescription_MagicGuard: @ 81FA0F6
+	.string "Solo recibe daño rival.$"
+			
+gAbilityDescription_Download: @ 81FA0F6
+	.string "Adapta su fuerza al rival.$"
+	
+gAbilityDescription_Unburden: @ 81FA0F6
+	.string "Sube VELOCIDAD sin objeto.$"
+
+gAbilityDescription_Multitype: @ 81FA0F6
+	.string "Toma el TIPO de la tabla.$"
+	
+gAbilityDescription_Honey: @ 81FA0F6
+	.string "A veces recoge miel.$"
+	
 	.align 2
 gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_None
@@ -417,3 +477,23 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_DrySkin
 	.4byte gAbilityDescription_Aftermath
 	.4byte gAbilityDescription_SnowWarning
+	.4byte gAbilityDescription_SolarPower
+	.4byte gAbilityDescription_Stall
+	.4byte gAbilityDescription_Rivalry
+	.4byte gAbilityDescription_SuperLucky
+	.4byte gAbilityDescription_PoisonHeal
+	.4byte gAbilityDescription_SteadFast
+	.4byte gAbilityDescription_Frisk
+	.4byte gAbilityDescription_Forewarn
+	.4byte gAbilityDescription_Anticipation
+	.4byte gAbilityDescription_Klutz
+	.4byte gAbilityDescription_TangledFeet
+	.4byte gAbilityDescription_MoldBreaker
+	.4byte gAbilityDescription_LeafGuard
+	.4byte gAbilityDescription_SlowStart
+	.4byte gAbilityDescription_Gluttony
+	.4byte gAbilityDescription_MagicGuard
+	.4byte gAbilityDescription_Download
+	.4byte gAbilityDescription_Unburden
+	.4byte gAbilityDescription_Multitype
+	.4byte gAbilityDescription_Honey
