@@ -44,8 +44,8 @@
 #define TYPE_ENDTABLE   0xFF
 
 // physical/special types
-#define TYPE_IS_PHYSICAL(type) ((type) < TYPE_MYSTERY)
-#define TYPE_IS_SPECIAL(type) ((type) > TYPE_MYSTERY)
+#define MOVE_IS_PHYSICAL(move) (gBattleMoves[(move)].split == SPLIT_PHYSICAL)
+#define MOVE_IS_SPECIAL(move) (gBattleMoves[(move)].split == SPLIT_SPECIAL)
 
 enum
 {
@@ -347,6 +347,7 @@ struct BattleStruct /* 0x2000000 */
     /*0x1611D*/ u8 unk1611D;
     /*0x1611E*/ u8 unk1611E;
     /*0x1611F*/ u8 unk1611F;
+				u8 roostTypes[MAX_BATTLERS_COUNT][3];
 
     //u8 filler2[0x72E];
     /* 0x16A00 */ struct BattleHistory unk_2016A00_2;
@@ -396,6 +397,10 @@ struct DisableStruct
     /*0x18*/ u8 unk18_b : 4;
     /*0x19*/ u8 rechargeCounter;
     /*0x1A*/ u8 unk1A[2];
+	/*0x1B*/ u8 unburden;
+	/*0x1C*/ u8 roostSet;
+	/*0x1D*/ u8 magnetRiseTimer;
+	/*0x1E*/ u8 slowStartTimer;
 };
 
 struct BattleResults
@@ -530,6 +535,7 @@ struct SpecialStatus
     u8 moveturnSpecialBank;
     u8 field12;
     u8 field13;
+    u8 stormDrainRedirected : 1;
 };
 
 struct sideTimer
@@ -545,6 +551,14 @@ struct sideTimer
     u8 followmeTarget;      //0x9
     u8 fieldA;              //0xA
     u8 fieldB;              //0xB
+    u8 tailwindTimer;       //0xC
+    u8 luckyChantTimer;     //0xD
+};
+
+struct fieldTimer
+{
+	u8 gravityTimer;
+	u8 trickRoomTimer;
 };
 
 struct WishFutureKnock
@@ -565,6 +579,7 @@ extern struct BattleResults gBattleResults;
 extern struct ProtectStruct gProtectStructs[MAX_BATTLERS_COUNT];
 extern struct SpecialStatus gSpecialStatuses[MAX_BATTLERS_COUNT];
 extern struct sideTimer gSideTimers[2];
+extern struct fieldTimer gFieldTimers;
 extern struct WishFutureKnock gWishFutureKnock;
 extern struct AI_ThinkingStruct gAIThinkingSpace;
 extern struct Struct20238C8 gUnknown_020238C8;
@@ -649,7 +664,12 @@ extern struct Struct20238C8 gUnknown_020238C8;
 
 #define SET_STAT_BUFF_VALUE(n)(((s8)(((s8)(n) << 4)) & 0xF0))
 
-#define SET_STATCHANGER(statId, stage, goesDown)(gBattleScripting.statChanger = (statId) + (stage << 4) + (goesDown << 7))
+#define SET_STATCHANGER(statId, stage, goesDown)(gBattleStruct->statChanger = (statId) + (stage << 4) + (goesDown << 7))
+
+#define SWAP(var, arg1, arg2)				  \
+(var) = (arg1); 							  \
+(arg1) = (arg2); 							  \
+(arg2) = (var);								  \
 
 // used in many battle files, it seems as though Hisashi Sogabe wrote
 // some sort of macro to replace the use of actually calling memset.

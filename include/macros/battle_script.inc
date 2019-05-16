@@ -1222,8 +1222,35 @@
 	.byte 0xf7
 	.endm
 
-	.macro trainerslideout bank
+	.macro trygetbaddreamstarget address
 	.byte 0xf8
+	.4byte \address
+	.endm
+	
+	.macro healtargetstatus
+	.byte 0xf9
+	.endm
+	
+	.macro metalburstdamagecalculator address
+	.byte 0xfa
+	.4byte \address
+	.endm
+	
+	.macro setflingmoveeffect address
+	.byte 0xfb
+	.4byte \address
+	.endm
+
+	.macro swaparguments
+	.byte 0xfc
+	.endm
+	
+	.macro seteffectfromargument
+	.byte 0xfd
+	.endm
+	
+	.macro trainerslideout bank
+	.byte 0xfe
 	.byte \bank
 	.endm
 
@@ -1256,24 +1283,28 @@
 	various \bank, VARIOUS_UPDATE_CHOICE_MOVE_ON_LVL_UP
 	.endm
 
-	.macro various7 bank
-	various \bank, 7
+	.macro clearstatus bank
+	various \bank, VARIOUS_CLEAR_STATUS
 	.endm
 
-	.macro various8 bank
-	various \bank, 8
+	.macro suckerpunchcheck address
+	various USER, VARIOUS_SUCKER_PUNCH_CHECK
+	.4byte \address
 	.endm
 
-	.macro various9 bank
-	various \bank, 9
+	.macro tryaccupressure bank, address
+	various \bank, VARIOUS_ACUPRESSURE
+	.4byte \address
 	.endm
 
-	.macro various10 bank
-	various \bank, 10
+	.macro trymefirst address
+	various USER, VARIOUS_TRY_ME_FIRST
+	.4byte \address
 	.endm
 
-	.macro various11 bank
-	various \bank, 11
+	.macro trycopycat address
+	various USER, VARIOUS_TRY_COPYCAT
+	.4byte \address
 	.endm
 
 	.macro various12 bank

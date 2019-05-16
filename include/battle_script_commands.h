@@ -29,6 +29,11 @@
 #define VARIOUS_GET_MOVE_TARGET                 3
 #define VARIOUS_RESET_INTIMIDATE_TRACE_BITS     5
 #define VARIOUS_UPDATE_CHOICE_MOVE_ON_LVL_UP    6
+#define VARIOUS_CLEAR_STATUS    				7
+#define VARIOUS_SUCKER_PUNCH_CHECK    			8
+#define VARIOUS_ACUPRESSURE		    			9
+#define VARIOUS_TRY_ME_FIRST	    			10
+#define VARIOUS_TRY_COPYCAT		    			11
 #define VARIOUS_EMIT_YESNOBOX                   13
 #define VARIOUS_WAIT_CRY                        18
 #define VARIOUS_RETURN_OPPONENT_MON1            19

@@ -15,7 +15,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_POUND] = {
         .effect = EFFECT_HIT,
@@ -27,7 +28,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_KARATE_CHOP] = {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -39,7 +41,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DOUBLE_SLAP] = {
         .effect = EFFECT_MULTI_HIT,
@@ -51,7 +54,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_COMET_PUNCH] = {
         .effect = EFFECT_MULTI_HIT,
@@ -62,8 +66,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MEGA_PUNCH] = {
         .effect = EFFECT_HIT,
@@ -74,8 +79,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_PAY_DAY] = {
         .effect = EFFECT_PAY_DAY,
@@ -87,7 +93,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FIRE_PUNCH] = {
         .effect = EFFECT_BURN_HIT,
@@ -98,8 +105,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 10,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ICE_PUNCH] = {
         .effect = EFFECT_FREEZE_HIT,
@@ -110,8 +118,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 10,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_THUNDER_PUNCH] = {
         .effect = EFFECT_PARALYZE_HIT,
@@ -122,8 +131,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 10,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SCRATCH] = {
         .effect = EFFECT_HIT,
@@ -135,7 +145,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_VICE_GRIP] = {
         .effect = EFFECT_HIT,
@@ -147,7 +158,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_GUILLOTINE] = {
         .effect = EFFECT_OHKO,
@@ -159,7 +171,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_RAZOR_WIND] = {
         .effect = EFFECT_RAZOR_WIND,
@@ -171,7 +184,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SWORDS_DANCE] = {
         .effect = EFFECT_ATTACK_UP_2,
@@ -183,7 +197,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CUT] = {
         .effect = EFFECT_HIT,
@@ -195,7 +210,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_GUST] = {
         .effect = EFFECT_GUST,
@@ -207,7 +223,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_WING_ATTACK] = {
         .effect = EFFECT_HIT,
@@ -219,7 +236,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_WHIRLWIND] = {
         .effect = EFFECT_ROAR,
@@ -231,7 +249,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = -6,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FLY] = {
         .effect = EFFECT_FLY,
@@ -243,7 +262,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_BIND] = {
         .effect = EFFECT_TRAP,
@@ -255,7 +275,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SLAM] = {
         .effect = EFFECT_HIT,
@@ -267,7 +288,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_VINE_WHIP] = {
         .effect = EFFECT_HIT,
@@ -279,7 +301,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_STOMP] = {
         .effect = EFFECT_FLINCH_HIT_2,
@@ -291,7 +314,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DOUBLE_KICK] = {
         .effect = EFFECT_DOUBLE_HIT,
@@ -303,7 +327,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MEGA_KICK] = {
         .effect = EFFECT_HIT,
@@ -315,7 +340,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_JUMP_KICK] = {
         .effect = EFFECT_RECOIL_IF_MISS,
@@ -326,8 +352,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_RECKLESS_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ROLLING_KICK] = {
         .effect = EFFECT_FLINCH_HIT,
@@ -339,7 +366,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SAND_ATTACK] = {
         .effect = EFFECT_ACCURACY_DOWN,
@@ -351,7 +379,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HEADBUTT] = {
         .effect = EFFECT_FLINCH_HIT,
@@ -363,7 +392,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_HORN_ATTACK] = {
         .effect = EFFECT_HIT,
@@ -375,7 +405,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FURY_ATTACK] = {
         .effect = EFFECT_MULTI_HIT,
@@ -387,7 +418,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_HORN_DRILL] = {
         .effect = EFFECT_OHKO,
@@ -399,7 +431,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_TACKLE] = {
         .effect = EFFECT_HIT,
@@ -411,7 +444,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_BODY_SLAM] = {
         .effect = EFFECT_PARALYZE_HIT,
@@ -423,7 +457,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_WRAP] = {
         .effect = EFFECT_TRAP,
@@ -435,7 +470,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_TAKE_DOWN] = {
         .effect = EFFECT_RECOIL,
@@ -446,8 +482,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_RECKLESS_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_THRASH] = {
         .effect = EFFECT_RAMPAGE,
@@ -459,7 +496,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_RANDOM,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DOUBLE_EDGE] = {
         .effect = EFFECT_DOUBLE_EDGE,
@@ -470,8 +508,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_RECKLESS_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_TAIL_WHIP] = {
         .effect = EFFECT_DEFENSE_DOWN,
@@ -483,7 +522,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_POISON_STING] = {
         .effect = EFFECT_POISON_HIT,
@@ -495,7 +535,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_TWINEEDLE] = {
         .effect = EFFECT_TWINEEDLE,
@@ -507,7 +548,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_PIN_MISSILE] = {
         .effect = EFFECT_MULTI_HIT,
@@ -519,7 +561,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_LEER] = {
         .effect = EFFECT_DEFENSE_DOWN,
@@ -531,7 +574,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BITE] = {
         .effect = EFFECT_FLINCH_HIT,
@@ -543,7 +587,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_GROWL] = {
         .effect = EFFECT_ATTACK_DOWN,
@@ -555,7 +600,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ROAR] = {
         .effect = EFFECT_ROAR,
@@ -567,7 +613,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = -6,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SING] = {
         .effect = EFFECT_SLEEP,
@@ -579,7 +626,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SUPERSONIC] = {
         .effect = EFFECT_CONFUSE,
@@ -591,7 +639,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SONIC_BOOM] = {
         .effect = EFFECT_SONICBOOM,
@@ -603,7 +652,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_DISABLE] = {
         .effect = EFFECT_DISABLE,
@@ -615,7 +665,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ACID] = {
         .effect = EFFECT_DEFENSE_DOWN_HIT,
@@ -627,7 +678,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_EMBER] = {
         .effect = EFFECT_BURN_HIT,
@@ -639,7 +691,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_FLAMETHROWER] = {
         .effect = EFFECT_BURN_HIT,
@@ -651,7 +704,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_MIST] = {
         .effect = EFFECT_MIST,
@@ -663,7 +717,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_WATER_GUN] = {
         .effect = EFFECT_HIT,
@@ -675,7 +730,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_HYDRO_PUMP] = {
         .effect = EFFECT_HIT,
@@ -687,7 +743,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SURF] = {
         .effect = EFFECT_HIT,
@@ -699,7 +756,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_ICE_BEAM] = {
         .effect = EFFECT_FREEZE_HIT,
@@ -711,7 +769,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_BLIZZARD] = {
         .effect = EFFECT_FREEZE_HIT,
@@ -723,7 +782,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_PSYBEAM] = {
         .effect = EFFECT_CONFUSE_HIT,
@@ -735,7 +795,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_BUBBLE_BEAM] = {
         .effect = EFFECT_SPEED_DOWN_HIT,
@@ -747,7 +808,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_AURORA_BEAM] = {
         .effect = EFFECT_ATTACK_DOWN_HIT,
@@ -759,7 +821,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_HYPER_BEAM] = {
         .effect = EFFECT_RECHARGE,
@@ -771,7 +834,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_PECK] = {
         .effect = EFFECT_HIT,
@@ -783,7 +847,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DRILL_PECK] = {
         .effect = EFFECT_HIT,
@@ -795,7 +860,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SUBMISSION] = {
         .effect = EFFECT_RECOIL,
@@ -806,8 +872,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_RECKLESS_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_LOW_KICK] = {
         .effect = EFFECT_LOW_KICK,
@@ -819,7 +886,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_COUNTER] = {
         .effect = EFFECT_COUNTER,
@@ -831,7 +899,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = -5,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SEISMIC_TOSS] = {
         .effect = EFFECT_LEVEL_DAMAGE,
@@ -843,7 +912,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_STRENGTH] = {
         .effect = EFFECT_HIT,
@@ -855,7 +925,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ABSORB] = {
         .effect = EFFECT_ABSORB,
@@ -867,7 +938,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_MEGA_DRAIN] = {
         .effect = EFFECT_ABSORB,
@@ -879,7 +951,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_LEECH_SEED] = {
         .effect = EFFECT_LEECH_SEED,
@@ -891,7 +964,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_GROWTH] = {
         .effect = EFFECT_SPECIAL_ATTACK_UP,
@@ -903,7 +977,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_RAZOR_LEAF] = {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -915,7 +990,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SOLAR_BEAM] = {
         .effect = EFFECT_SOLARBEAM,
@@ -927,7 +1003,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_POISON_POWDER] = {
         .effect = EFFECT_POISON,
@@ -939,7 +1016,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_STUN_SPORE] = {
         .effect = EFFECT_PARALYZE,
@@ -951,7 +1029,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SLEEP_POWDER] = {
         .effect = EFFECT_SLEEP,
@@ -963,7 +1042,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_PETAL_DANCE] = {
         .effect = EFFECT_RAMPAGE,
@@ -975,7 +1055,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_RANDOM,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_STRING_SHOT] = {
         .effect = EFFECT_SPEED_DOWN,
@@ -987,7 +1068,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_DRAGON_RAGE] = {
         .effect = EFFECT_DRAGON_RAGE,
@@ -999,7 +1081,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_FIRE_SPIN] = {
         .effect = EFFECT_TRAP,
@@ -1011,7 +1094,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_THUNDER_SHOCK] = {
         .effect = EFFECT_PARALYZE_HIT,
@@ -1023,7 +1107,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_THUNDERBOLT] = {
         .effect = EFFECT_PARALYZE_HIT,
@@ -1035,7 +1120,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_THUNDER_WAVE] = {
         .effect = EFFECT_PARALYZE,
@@ -1047,7 +1133,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_THUNDER] = {
         .effect = EFFECT_THUNDER,
@@ -1059,7 +1146,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_ROCK_THROW] = {
         .effect = EFFECT_HIT,
@@ -1071,7 +1159,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_EARTHQUAKE] = {
         .effect = EFFECT_EARTHQUAKE,
@@ -1083,7 +1172,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_ALL_EXCEPT_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FISSURE] = {
         .effect = EFFECT_OHKO,
@@ -1095,7 +1185,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DIG] = {
         .effect = EFFECT_FLY,
@@ -1107,7 +1198,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_TOXIC] = {
         .effect = EFFECT_TOXIC,
@@ -1119,7 +1211,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CONFUSION] = {
         .effect = EFFECT_CONFUSE_HIT,
@@ -1131,7 +1224,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_PSYCHIC] = {
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
@@ -1143,7 +1237,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_HYPNOSIS] = {
         .effect = EFFECT_SLEEP,
@@ -1155,7 +1250,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_MEDITATE] = {
         .effect = EFFECT_ATTACK_UP,
@@ -1167,7 +1263,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_AGILITY] = {
         .effect = EFFECT_SPEED_UP_2,
@@ -1179,7 +1276,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_QUICK_ATTACK] = {
         .effect = EFFECT_QUICK_ATTACK,
@@ -1191,7 +1289,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 1,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_RAGE] = {
         .effect = EFFECT_RAGE,
@@ -1203,7 +1302,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_TELEPORT] = {
         .effect = EFFECT_TELEPORT,
@@ -1215,7 +1315,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_NIGHT_SHADE] = {
         .effect = EFFECT_LEVEL_DAMAGE,
@@ -1227,7 +1328,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_MIMIC] = {
         .effect = EFFECT_MIMIC,
@@ -1239,7 +1341,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SCREECH] = {
         .effect = EFFECT_DEFENSE_DOWN_2,
@@ -1251,7 +1354,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_DOUBLE_TEAM] = {
         .effect = EFFECT_EVASION_UP,
@@ -1263,7 +1367,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_RECOVER] = {
         .effect = EFFECT_RESTORE_HP,
@@ -1275,7 +1380,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HARDEN] = {
         .effect = EFFECT_DEFENSE_UP,
@@ -1287,7 +1393,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_MINIMIZE] = {
         .effect = EFFECT_MINIMIZE,
@@ -1299,7 +1406,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SMOKESCREEN] = {
         .effect = EFFECT_ACCURACY_DOWN,
@@ -1311,7 +1419,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CONFUSE_RAY] = {
         .effect = EFFECT_CONFUSE,
@@ -1323,7 +1432,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_WITHDRAW] = {
         .effect = EFFECT_DEFENSE_UP,
@@ -1335,7 +1445,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_DEFENSE_CURL] = {
         .effect = EFFECT_DEFENSE_CURL,
@@ -1347,7 +1458,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BARRIER] = {
         .effect = EFFECT_DEFENSE_UP_2,
@@ -1359,7 +1471,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_LIGHT_SCREEN] = {
         .effect = EFFECT_LIGHT_SCREEN,
@@ -1371,7 +1484,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HAZE] = {
         .effect = EFFECT_HAZE,
@@ -1383,7 +1497,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_REFLECT] = {
         .effect = EFFECT_REFLECT,
@@ -1395,7 +1510,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FOCUS_ENERGY] = {
         .effect = EFFECT_FOCUS_ENERGY,
@@ -1407,7 +1523,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BIDE] = {
         .effect = EFFECT_BIDE,
@@ -1419,7 +1536,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_METRONOME] = {
         .effect = EFFECT_METRONOME,
@@ -1431,7 +1549,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_MIRROR_MOVE] = {
         .effect = EFFECT_MIRROR_MOVE,
@@ -1443,7 +1562,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SELF_DESTRUCT] = {
         .effect = EFFECT_EXPLOSION,
@@ -1455,7 +1575,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_ALL_EXCEPT_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_EGG_BOMB] = {
         .effect = EFFECT_HIT,
@@ -1467,7 +1588,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_LICK] = {
         .effect = EFFECT_PARALYZE_HIT,
@@ -1479,7 +1601,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SMOG] = {
         .effect = EFFECT_POISON_HIT,
@@ -1491,7 +1614,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SLUDGE] = {
         .effect = EFFECT_POISON_HIT,
@@ -1503,7 +1627,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_BONE_CLUB] = {
         .effect = EFFECT_FLINCH_HIT,
@@ -1515,7 +1640,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FIRE_BLAST] = {
         .effect = EFFECT_BURN_HIT,
@@ -1527,7 +1653,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_WATERFALL] = {
         .effect = EFFECT_HIT,
@@ -1539,7 +1666,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_CLAMP] = {
         .effect = EFFECT_TRAP,
@@ -1551,7 +1679,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SWIFT] = {
         .effect = EFFECT_ALWAYS_HIT,
@@ -1563,7 +1692,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SKULL_BASH] = {
         .effect = EFFECT_SKULL_BASH,
@@ -1575,7 +1705,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SPIKE_CANNON] = {
         .effect = EFFECT_MULTI_HIT,
@@ -1587,7 +1718,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_CONSTRICT] = {
         .effect = EFFECT_SPEED_DOWN_HIT,
@@ -1599,7 +1731,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_AMNESIA] = {
         .effect = EFFECT_SPECIAL_DEFENSE_UP_2,
@@ -1611,7 +1744,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_KINESIS] = {
         .effect = EFFECT_ACCURACY_DOWN,
@@ -1623,7 +1757,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SOFT_BOILED] = {
         .effect = EFFECT_SOFTBOILED,
@@ -1635,7 +1770,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HI_JUMP_KICK] = {
         .effect = EFFECT_RECOIL_IF_MISS,
@@ -1646,8 +1782,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_RECKLESS_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_GLARE] = {
         .effect = EFFECT_PARALYZE,
@@ -1659,7 +1796,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_DREAM_EATER] = {
         .effect = EFFECT_DREAM_EATER,
@@ -1671,7 +1809,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_POISON_GAS] = {
         .effect = EFFECT_POISON,
@@ -1683,7 +1822,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BARRAGE] = {
         .effect = EFFECT_MULTI_HIT,
@@ -1695,7 +1835,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_LEECH_LIFE] = {
         .effect = EFFECT_ABSORB,
@@ -1707,7 +1848,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_LOVELY_KISS] = {
         .effect = EFFECT_SLEEP,
@@ -1719,7 +1861,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SKY_ATTACK] = {
         .effect = EFFECT_SKY_ATTACK,
@@ -1731,7 +1874,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_TRANSFORM] = {
         .effect = EFFECT_TRANSFORM,
@@ -1743,7 +1887,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BUBBLE] = {
         .effect = EFFECT_SPEED_DOWN_HIT,
@@ -1755,7 +1900,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_DIZZY_PUNCH] = {
         .effect = EFFECT_CONFUSE_HIT,
@@ -1766,8 +1912,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 20,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SPORE] = {
         .effect = EFFECT_SLEEP,
@@ -1779,7 +1926,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FLASH] = {
         .effect = EFFECT_ACCURACY_DOWN,
@@ -1791,7 +1939,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_PSYWAVE] = {
         .effect = EFFECT_PSYWAVE,
@@ -1803,7 +1952,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SPLASH] = {
         .effect = EFFECT_SPLASH,
@@ -1815,7 +1965,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ACID_ARMOR] = {
         .effect = EFFECT_DEFENSE_UP_2,
@@ -1827,7 +1978,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CRABHAMMER] = {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -1839,7 +1991,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_EXPLOSION] = {
         .effect = EFFECT_EXPLOSION,
@@ -1851,7 +2004,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_ALL_EXCEPT_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FURY_SWIPES] = {
         .effect = EFFECT_MULTI_HIT,
@@ -1863,7 +2017,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_BONEMERANG] = {
         .effect = EFFECT_DOUBLE_HIT,
@@ -1875,7 +2030,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_REST] = {
         .effect = EFFECT_REST,
@@ -1887,7 +2043,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ROCK_SLIDE] = {
         .effect = EFFECT_FLINCH_HIT,
@@ -1899,7 +2056,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_HYPER_FANG] = {
         .effect = EFFECT_FLINCH_HIT,
@@ -1911,7 +2069,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SHARPEN] = {
         .effect = EFFECT_ATTACK_UP,
@@ -1923,7 +2082,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CONVERSION] = {
         .effect = EFFECT_CONVERSION,
@@ -1935,7 +2095,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_TRI_ATTACK] = {
         .effect = EFFECT_TRI_ATTACK,
@@ -1947,7 +2108,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SUPER_FANG] = {
         .effect = EFFECT_SUPER_FANG,
@@ -1959,7 +2121,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SLASH] = {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -1971,7 +2134,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SUBSTITUTE] = {
         .effect = EFFECT_SUBSTITUTE,
@@ -1983,7 +2147,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_STRUGGLE] = {
         .effect = EFFECT_RECOIL,
@@ -1995,7 +2160,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SKETCH] = {
         .effect = EFFECT_SKETCH,
@@ -2007,7 +2173,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_TRIPLE_KICK] = {
         .effect = EFFECT_TRIPLE_KICK,
@@ -2019,7 +2186,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_THIEF] = {
         .effect = EFFECT_THIEF,
@@ -2031,7 +2199,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SPIDER_WEB] = {
         .effect = EFFECT_MEAN_LOOK,
@@ -2043,7 +2212,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_MIND_READER] = {
         .effect = EFFECT_LOCK_ON,
@@ -2055,7 +2225,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_NIGHTMARE] = {
         .effect = EFFECT_NIGHTMARE,
@@ -2067,7 +2238,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FLAME_WHEEL] = {
         .effect = EFFECT_THAW_HIT,
@@ -2079,7 +2251,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SNORE] = {
         .effect = EFFECT_SNORE,
@@ -2091,7 +2264,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_CURSE] = {
         .effect = EFFECT_CURSE,
@@ -2103,7 +2277,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FLAIL] = {
         .effect = EFFECT_FLAIL,
@@ -2115,7 +2290,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_CONVERSION_2] = {
         .effect = EFFECT_CONVERSION_2,
@@ -2127,7 +2303,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_AEROBLAST] = {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -2139,7 +2316,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_COTTON_SPORE] = {
         .effect = EFFECT_SPEED_DOWN_2,
@@ -2151,7 +2329,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_REVERSAL] = {
         .effect = EFFECT_FLAIL,
@@ -2163,7 +2342,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SPITE] = {
         .effect = EFFECT_SPITE,
@@ -2175,7 +2355,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_POWDER_SNOW] = {
         .effect = EFFECT_FREEZE_HIT,
@@ -2187,7 +2368,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_PROTECT] = {
         .effect = EFFECT_PROTECT,
@@ -2199,7 +2381,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 3,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_MACH_PUNCH] = {
         .effect = EFFECT_QUICK_ATTACK,
@@ -2210,8 +2393,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 1,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SCARY_FACE] = {
         .effect = EFFECT_SPEED_DOWN_2,
@@ -2223,7 +2407,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FAINT_ATTACK] = {
         .effect = EFFECT_ALWAYS_HIT,
@@ -2235,7 +2420,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SWEET_KISS] = {
         .effect = EFFECT_CONFUSE,
@@ -2247,7 +2433,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BELLY_DRUM] = {
         .effect = EFFECT_BELLY_DRUM,
@@ -2259,7 +2446,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SLUDGE_BOMB] = {
         .effect = EFFECT_POISON_HIT,
@@ -2271,7 +2459,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_MUD_SLAP] = {
         .effect = EFFECT_ACCURACY_DOWN_HIT,
@@ -2283,7 +2472,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_OCTAZOOKA] = {
         .effect = EFFECT_ACCURACY_DOWN_HIT,
@@ -2295,7 +2485,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SPIKES] = {
         .effect = EFFECT_SPIKES,
@@ -2307,7 +2498,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_ENEMY_SIDE,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ZAP_CANNON] = {
         .effect = EFFECT_PARALYZE_HIT,
@@ -2319,7 +2511,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_FORESIGHT] = {
         .effect = EFFECT_FORESIGHT,
@@ -2331,7 +2524,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_DESTINY_BOND] = {
         .effect = EFFECT_DESTINY_BOND,
@@ -2343,7 +2537,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_PERISH_SONG] = {
         .effect = EFFECT_PERISH_SONG,
@@ -2355,7 +2550,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ICY_WIND] = {
         .effect = EFFECT_SPEED_DOWN_HIT,
@@ -2367,7 +2563,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_DETECT] = {
         .effect = EFFECT_PROTECT,
@@ -2379,7 +2576,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 3,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BONE_RUSH] = {
         .effect = EFFECT_MULTI_HIT,
@@ -2391,7 +2589,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_LOCK_ON] = {
         .effect = EFFECT_LOCK_ON,
@@ -2403,7 +2602,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_OUTRAGE] = {
         .effect = EFFECT_RAMPAGE,
@@ -2415,7 +2615,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_RANDOM,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SANDSTORM] = {
         .effect = EFFECT_SANDSTORM,
@@ -2427,7 +2628,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_GIGA_DRAIN] = {
         .effect = EFFECT_ABSORB,
@@ -2439,7 +2641,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_ENDURE] = {
         .effect = EFFECT_ENDURE,
@@ -2451,7 +2654,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 3,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CHARM] = {
         .effect = EFFECT_ATTACK_DOWN_2,
@@ -2463,7 +2667,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ROLLOUT] = {
         .effect = EFFECT_ROLLOUT,
@@ -2475,7 +2680,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FALSE_SWIPE] = {
         .effect = EFFECT_FALSE_SWIPE,
@@ -2487,7 +2693,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SWAGGER] = {
         .effect = EFFECT_SWAGGER,
@@ -2499,7 +2706,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_MILK_DRINK] = {
         .effect = EFFECT_SOFTBOILED,
@@ -2511,7 +2719,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SPARK] = {
         .effect = EFFECT_PARALYZE_HIT,
@@ -2523,7 +2732,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FURY_CUTTER] = {
         .effect = EFFECT_FURY_CUTTER,
@@ -2535,7 +2745,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_STEEL_WING] = {
         .effect = EFFECT_DEFENSE_UP_HIT,
@@ -2547,7 +2758,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MEAN_LOOK] = {
         .effect = EFFECT_MEAN_LOOK,
@@ -2559,7 +2771,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ATTRACT] = {
         .effect = EFFECT_ATTRACT,
@@ -2571,7 +2784,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SLEEP_TALK] = {
         .effect = EFFECT_SLEEP_TALK,
@@ -2583,7 +2797,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HEAL_BELL] = {
         .effect = EFFECT_HEAL_BELL,
@@ -2595,7 +2810,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_RETURN] = {
         .effect = EFFECT_RETURN,
@@ -2607,7 +2823,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_PRESENT] = {
         .effect = EFFECT_PRESENT,
@@ -2619,7 +2836,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FRUSTRATION] = {
         .effect = EFFECT_FRUSTRATION,
@@ -2631,7 +2849,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SAFEGUARD] = {
         .effect = EFFECT_SAFEGUARD,
@@ -2643,7 +2862,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_PAIN_SPLIT] = {
         .effect = EFFECT_PAIN_SPLIT,
@@ -2655,7 +2875,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SACRED_FIRE] = {
         .effect = EFFECT_THAW_HIT,
@@ -2667,7 +2888,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_MAGNITUDE] = {
         .effect = EFFECT_MAGNITUDE,
@@ -2679,7 +2901,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_ALL_EXCEPT_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DYNAMIC_PUNCH] = {
         .effect = EFFECT_CONFUSE_HIT,
@@ -2690,8 +2913,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 100,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MEGAHORN] = {
         .effect = EFFECT_HIT,
@@ -2703,7 +2927,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DRAGON_BREATH] = {
         .effect = EFFECT_PARALYZE_HIT,
@@ -2715,7 +2940,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_BATON_PASS] = {
         .effect = EFFECT_BATON_PASS,
@@ -2727,7 +2953,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ENCORE] = {
         .effect = EFFECT_ENCORE,
@@ -2739,7 +2966,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_PURSUIT] = {
         .effect = EFFECT_PURSUIT,
@@ -2751,7 +2979,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_RAPID_SPIN] = {
         .effect = EFFECT_RAPID_SPIN,
@@ -2763,7 +2992,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SWEET_SCENT] = {
         .effect = EFFECT_EVASION_DOWN,
@@ -2775,7 +3005,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_IRON_TAIL] = {
         .effect = EFFECT_DEFENSE_DOWN_HIT,
@@ -2787,7 +3018,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_METAL_CLAW] = {
         .effect = EFFECT_ATTACK_UP_HIT,
@@ -2799,7 +3031,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_VITAL_THROW] = {
         .effect = EFFECT_VITAL_THROW,
@@ -2811,7 +3044,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = -1,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MORNING_SUN] = {
         .effect = EFFECT_MORNING_SUN,
@@ -2823,7 +3057,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SYNTHESIS] = {
         .effect = EFFECT_SYNTHESIS,
@@ -2835,7 +3070,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_MOONLIGHT] = {
         .effect = EFFECT_MOONLIGHT,
@@ -2847,7 +3083,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HIDDEN_POWER] = {
         .effect = EFFECT_HIDDEN_POWER,
@@ -2859,7 +3096,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_CROSS_CHOP] = {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -2871,7 +3109,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_TWISTER] = {
         .effect = EFFECT_TWISTER,
@@ -2883,7 +3122,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_RAIN_DANCE] = {
         .effect = EFFECT_RAIN_DANCE,
@@ -2895,7 +3135,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SUNNY_DAY] = {
         .effect = EFFECT_SUNNY_DAY,
@@ -2907,7 +3148,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CRUNCH] = {
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
@@ -2919,7 +3161,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MIRROR_COAT] = {
         .effect = EFFECT_MIRROR_COAT,
@@ -2931,7 +3174,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = -5,
         .flags = F_MIRROR_MOVE_COMPATIBLE,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_PSYCH_UP] = {
         .effect = EFFECT_PSYCH_UP,
@@ -2943,7 +3187,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_EXTREME_SPEED] = {
         .effect = EFFECT_QUICK_ATTACK,
@@ -2955,7 +3200,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 1,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ANCIENT_POWER] = {
         .effect = EFFECT_ALL_STATS_UP_HIT,
@@ -2967,7 +3213,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SHADOW_BALL] = {
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
@@ -2979,7 +3226,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_FUTURE_SIGHT] = {
         .effect = EFFECT_FUTURE_SIGHT,
@@ -2991,7 +3239,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_ROCK_SMASH] = {
         .effect = EFFECT_DEFENSE_DOWN_HIT,
@@ -3003,7 +3252,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_WHIRLPOOL] = {
         .effect = EFFECT_TRAP,
@@ -3015,7 +3265,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_BEAT_UP] = {
         .effect = EFFECT_BEAT_UP,
@@ -3027,7 +3278,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FAKE_OUT] = {
         .effect = EFFECT_FAKE_OUT,
@@ -3039,7 +3291,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 1,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_UPROAR] = {
         .effect = EFFECT_UPROAR,
@@ -3051,7 +3304,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_RANDOM,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_STOCKPILE] = {
         .effect = EFFECT_STOCKPILE,
@@ -3063,7 +3317,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SPIT_UP] = {
         .effect = EFFECT_SPIT_UP,
@@ -3075,7 +3330,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SWALLOW] = {
         .effect = EFFECT_SWALLOW,
@@ -3087,7 +3343,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HEAT_WAVE] = {
         .effect = EFFECT_BURN_HIT,
@@ -3099,7 +3356,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_HAIL] = {
         .effect = EFFECT_HAIL,
@@ -3111,7 +3369,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_TORMENT] = {
         .effect = EFFECT_TORMENT,
@@ -3123,7 +3382,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FLATTER] = {
         .effect = EFFECT_FLATTER,
@@ -3135,7 +3395,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_WILL_O_WISP] = {
         .effect = EFFECT_WILL_O_WISP,
@@ -3147,7 +3408,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_MEMENTO] = {
         .effect = EFFECT_MEMENTO,
@@ -3159,7 +3421,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FACADE] = {
         .effect = EFFECT_FACADE,
@@ -3171,7 +3434,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FOCUS_PUNCH] = {
         .effect = EFFECT_FOCUS_PUNCH,
@@ -3182,8 +3446,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = -3,
-        .flags = F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SMELLING_SALT] = {
         .effect = EFFECT_SMELLINGSALT,
@@ -3195,7 +3460,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FOLLOW_ME] = {
         .effect = EFFECT_FOLLOW_ME,
@@ -3207,7 +3473,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 3,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_NATURE_POWER] = {
         .effect = EFFECT_NATURE_POWER,
@@ -3219,7 +3486,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CHARGE] = {
         .effect = EFFECT_CHARGE,
@@ -3231,7 +3499,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_TAUNT] = {
         .effect = EFFECT_TAUNT,
@@ -3243,7 +3512,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HELPING_HAND] = {
         .effect = EFFECT_HELPING_HAND,
@@ -3255,7 +3525,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 5,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_TRICK] = {
         .effect = EFFECT_TRICK,
@@ -3267,7 +3538,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ROLE_PLAY] = {
         .effect = EFFECT_ROLE_PLAY,
@@ -3279,7 +3551,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_WISH] = {
         .effect = EFFECT_WISH,
@@ -3291,7 +3564,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ASSIST] = {
         .effect = EFFECT_ASSIST,
@@ -3303,7 +3577,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_INGRAIN] = {
         .effect = EFFECT_INGRAIN,
@@ -3315,7 +3590,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SUPERPOWER] = {
         .effect = EFFECT_SUPERPOWER,
@@ -3327,7 +3603,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MAGIC_COAT] = {
         .effect = EFFECT_MAGIC_COAT,
@@ -3339,7 +3616,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = 4,
         .flags = 0,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_RECYCLE] = {
         .effect = EFFECT_RECYCLE,
@@ -3351,7 +3629,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_REVENGE] = {
         .effect = EFFECT_REVENGE,
@@ -3363,7 +3642,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = -4,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_BRICK_BREAK] = {
         .effect = EFFECT_BRICK_BREAK,
@@ -3375,7 +3655,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_YAWN] = {
         .effect = EFFECT_YAWN,
@@ -3387,7 +3668,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_KNOCK_OFF] = {
         .effect = EFFECT_KNOCK_OFF,
@@ -3399,7 +3681,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ENDEAVOR] = {
         .effect = EFFECT_ENDEAVOR,
@@ -3411,7 +3694,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ERUPTION] = {
         .effect = EFFECT_ERUPTION,
@@ -3423,7 +3707,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SKILL_SWAP] = {
         .effect = EFFECT_SKILL_SWAP,
@@ -3435,7 +3720,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_IMPRISON] = {
         .effect = EFFECT_IMPRISON,
@@ -3447,7 +3733,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_REFRESH] = {
         .effect = EFFECT_REFRESH,
@@ -3459,7 +3746,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_GRUDGE] = {
         .effect = EFFECT_GRUDGE,
@@ -3471,7 +3759,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SNATCH] = {
         .effect = EFFECT_SNATCH,
@@ -3483,7 +3772,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SPECIAL,
         .priority = 4,
         .flags = F_MIRROR_MOVE_COMPATIBLE,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_SECRET_POWER] = {
         .effect = EFFECT_SECRET_POWER,
@@ -3495,7 +3785,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DIVE] = {
         .effect = EFFECT_FLY,
@@ -3507,7 +3798,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ARM_THRUST] = {
         .effect = EFFECT_MULTI_HIT,
@@ -3519,7 +3811,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_CAMOUFLAGE] = {
         .effect = EFFECT_CAMOUFLAGE,
@@ -3531,7 +3824,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_TAIL_GLOW] = {
         .effect = EFFECT_SPECIAL_ATTACK_UP_2,
@@ -3543,7 +3837,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_LUSTER_PURGE] = {
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
@@ -3555,7 +3850,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_MIST_BALL] = {
         .effect = EFFECT_SPECIAL_ATTACK_DOWN_HIT,
@@ -3567,7 +3863,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_FEATHER_DANCE] = {
         .effect = EFFECT_ATTACK_DOWN_2,
@@ -3579,7 +3876,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_TEETER_DANCE] = {
         .effect = EFFECT_TEETER_DANCE,
@@ -3591,7 +3889,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_ALL_EXCEPT_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BLAZE_KICK] = {
         .effect = EFFECT_BLAZE_KICK,
@@ -3603,7 +3902,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MUD_SPORT] = {
         .effect = EFFECT_MUD_SPORT,
@@ -3615,7 +3915,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ICE_BALL] = {
         .effect = EFFECT_ROLLOUT,
@@ -3627,7 +3928,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_NEEDLE_ARM] = {
         .effect = EFFECT_FLINCH_HIT_2,
@@ -3639,7 +3941,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SLACK_OFF] = {
         .effect = EFFECT_RESTORE_HP,
@@ -3651,7 +3954,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HYPER_VOICE] = {
         .effect = EFFECT_HIT,
@@ -3663,7 +3967,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_POISON_FANG] = {
         .effect = EFFECT_POISON_FANG,
@@ -3675,7 +3980,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_CRUSH_CLAW] = {
         .effect = EFFECT_DEFENSE_DOWN_HIT,
@@ -3687,7 +3993,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_BLAST_BURN] = {
         .effect = EFFECT_RECHARGE,
@@ -3699,7 +4006,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_HYDRO_CANNON] = {
         .effect = EFFECT_RECHARGE,
@@ -3711,7 +4019,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_METEOR_MASH] = {
         .effect = EFFECT_ATTACK_UP_HIT,
@@ -3723,7 +4032,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ASTONISH] = {
         .effect = EFFECT_FLINCH_HIT_2,
@@ -3735,7 +4045,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_WEATHER_BALL] = {
         .effect = EFFECT_WEATHER_BALL,
@@ -3747,7 +4058,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_AROMATHERAPY] = {
         .effect = EFFECT_HEAL_BELL,
@@ -3759,7 +4071,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_FAKE_TEARS] = {
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN_2,
@@ -3771,7 +4084,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_AIR_CUTTER] = {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -3783,7 +4097,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_OVERHEAT] = {
         .effect = EFFECT_OVERHEAT,
@@ -3795,7 +4110,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_ODOR_SLEUTH] = {
         .effect = EFFECT_FORESIGHT,
@@ -3807,7 +4123,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ROCK_TOMB] = {
         .effect = EFFECT_SPEED_DOWN_HIT,
@@ -3819,7 +4136,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SILVER_WIND] = {
         .effect = EFFECT_ALL_STATS_UP_HIT,
@@ -3831,7 +4149,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_METAL_SOUND] = {
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN_2,
@@ -3843,7 +4162,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_GRASS_WHISTLE] = {
         .effect = EFFECT_SLEEP,
@@ -3855,7 +4175,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_TICKLE] = {
         .effect = EFFECT_TICKLE,
@@ -3867,7 +4188,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_COSMIC_POWER] = {
         .effect = EFFECT_COSMIC_POWER,
@@ -3879,7 +4201,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_WATER_SPOUT] = {
         .effect = EFFECT_ERUPTION,
@@ -3891,7 +4214,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SIGNAL_BEAM] = {
         .effect = EFFECT_CONFUSE_HIT,
@@ -3903,7 +4227,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SHADOW_PUNCH] = {
         .effect = EFFECT_ALWAYS_HIT,
@@ -3914,8 +4239,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_EXTRASENSORY] = {
         .effect = EFFECT_FLINCH_HIT_2,
@@ -3927,7 +4253,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SKY_UPPERCUT] = {
         .effect = EFFECT_SKY_UPPERCUT,
@@ -3938,8 +4265,9 @@ const struct BattleMove gBattleMoves[] = {
         .secondaryEffectChance = 0,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_IRON_FIST_BOOST,
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SAND_TOMB] = {
         .effect = EFFECT_TRAP,
@@ -3951,7 +4279,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_SHEER_COLD] = {
         .effect = EFFECT_OHKO,
@@ -3963,7 +4292,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_MUDDY_WATER] = {
         .effect = EFFECT_ACCURACY_DOWN_HIT,
@@ -3975,7 +4305,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_BOTH_ENEMIES,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_BULLET_SEED] = {
         .effect = EFFECT_MULTI_HIT,
@@ -3987,7 +4318,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_AERIAL_ACE] = {
         .effect = EFFECT_ALWAYS_HIT,
@@ -3999,7 +4331,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_ICICLE_SPEAR] = {
         .effect = EFFECT_MULTI_HIT,
@@ -4011,7 +4344,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_IRON_DEFENSE] = {
         .effect = EFFECT_DEFENSE_UP_2,
@@ -4023,7 +4357,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BLOCK] = {
         .effect = EFFECT_MEAN_LOOK,
@@ -4035,7 +4370,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_MAGIC_COAT | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_HOWL] = {
         .effect = EFFECT_ATTACK_UP,
@@ -4047,7 +4383,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_DRAGON_CLAW] = {
         .effect = EFFECT_HIT,
@@ -4059,7 +4396,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_FRENZY_PLANT] = {
         .effect = EFFECT_RECHARGE,
@@ -4071,7 +4409,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_BULK_UP] = {
         .effect = EFFECT_BULK_UP,
@@ -4083,7 +4422,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_BOUNCE] = {
         .effect = EFFECT_FLY,
@@ -4095,7 +4435,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_MUD_SHOT] = {
         .effect = EFFECT_SPEED_DOWN_HIT,
@@ -4107,7 +4448,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_POISON_TAIL] = {
         .effect = EFFECT_POISON_TAIL,
@@ -4119,7 +4461,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_COVET] = {
         .effect = EFFECT_THIEF,
@@ -4131,19 +4474,22 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_VOLT_TACKLE] = {
-        .effect = EFFECT_DOUBLE_EDGE,
+        .effect = EFFECT_RECOIL_33_STATUS,
         .power = 120,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 10,
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
-        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+        .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT | F_RECKLESS_BOOST,
+		.split = SPLIT_PHYSICAL,
+		.argument = STATUS_PARALYSIS,
+	},
 
     [MOVE_MAGICAL_LEAF] = {
         .effect = EFFECT_ALWAYS_HIT,
@@ -4155,7 +4501,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_WATER_SPORT] = {
         .effect = EFFECT_WATER_SPORT,
@@ -4167,7 +4514,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_CALM_MIND] = {
         .effect = EFFECT_CALM_MIND,
@@ -4179,7 +4527,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_LEAF_BLADE] = {
         .effect = EFFECT_HIGH_CRITICAL,
@@ -4191,7 +4540,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT | F_MAKES_CONTACT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_DRAGON_DANCE] = {
         .effect = EFFECT_DRAGON_DANCE,
@@ -4203,7 +4553,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_USER,
         .priority = 0,
         .flags = F_AFFECTED_BY_SNATCH,
-    },
+		.split = SPLIT_STATUS,
+	},
 
     [MOVE_ROCK_BLAST] = {
         .effect = EFFECT_MULTI_HIT,
@@ -4215,7 +4566,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_PHYSICAL,
+	},
 
     [MOVE_SHOCK_WAVE] = {
         .effect = EFFECT_ALWAYS_HIT,
@@ -4227,7 +4579,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_WATER_PULSE] = {
         .effect = EFFECT_CONFUSE_HIT,
@@ -4239,7 +4592,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_DOOM_DESIRE] = {
         .effect = EFFECT_FUTURE_SIGHT,
@@ -4251,7 +4605,8 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = 0,
-    },
+		.split = SPLIT_SPECIAL,
+	},
 
     [MOVE_PSYCHO_BOOST] = {
         .effect = EFFECT_OVERHEAT,
@@ -4263,6 +4618,1590 @@ const struct BattleMove gBattleMoves[] = {
         .target = TARGET_SELECTED_POKEMON,
         .priority = 0,
         .flags = F_AFFECTED_BY_KINGS_ROCK | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
+		.split = SPLIT_SPECIAL,
+	},
+	
+	[MOVE_ROOST] = {
+        .effect = EFFECT_ROOST,
+        .power = 0,
+        .type = TYPE_FLYING,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = 0,
+		.split = SPLIT_STATUS,
+	},
+	
+	[MOVE_GRAVITY] = {
+        .effect = EFFECT_GRAVITY,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
+		.split = SPLIT_STATUS,
+	},
+	
+	[MOVE_MIRACLE_EYE] = {
+        .effect = EFFECT_MIRACLE_EYE,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_PROTECT,
+		.split = SPLIT_STATUS,
+	},
+	
+	[MOVE_WAKE_UP_SLAP] =
+    {
+        .effect = EFFECT_WAKE_UP_SLAP,
+        .power = 70,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = TARGET_BOTH_ENEMIES,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+        .argument = STATUS_SLEEP,
     },
 
+    [MOVE_HAMMER_ARM] =
+    {
+        .effect = EFFECT_SPEED_DOWN_USER,
+        .power = 100,
+        .type = TYPE_FIGHTING,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_IRON_FIST_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_GYRO_BALL] =
+    {
+        .effect = EFFECT_GYRO_BALL,
+        .power = 1,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_BALLISTIC,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_HEALING_WISH] =
+    {
+        .effect = EFFECT_HEALING_WISH,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = 0,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_BRINE] =
+    {
+        .effect = EFFECT_BRINE,
+        .power = 65,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_NATURAL_GIFT] =
+    {
+        .effect = EFFECT_HIT,//EFFECT_NATURAL_GIFT,
+        .power = 1,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_FEINT] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 30,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 2,
+        .flags = F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_PLUCK] =
+    {
+        .effect = EFFECT_PLUCK, // Needs a custom move effect (Bug Bite and Pluck should have the same move effect)
+        .power = 60,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_TAILWIND] =
+    {
+        .effect = EFFECT_TAILWIND,
+        .power = 0,
+        .type = TYPE_FLYING,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_ACUPRESSURE] =
+    {
+        .effect = EFFECT_ACUPRESSURE,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER | TARGET_SPECIAL,
+        .priority = 0,
+        .flags = 0,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_METAL_BURST] =
+    {
+        .effect = EFFECT_METAL_BURST,
+        .power = 0,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_DEPENDS,
+        .priority = 0,
+        .flags = 0,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_U_TURN] =
+    {
+        .effect = EFFECT_HIT_ESCAPE,
+        .power = 70,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_CLOSE_COMBAT] =
+    {
+        .effect = EFFECT_CLOSE_COMBAT,
+        .power = 120,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_PAYBACK] =
+    {
+        .effect = EFFECT_PAYBACK,
+        .power = 50,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_ASSURANCE] =
+    {
+        .effect = EFFECT_ASSURANCE,
+        .power = 60,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_EMBARGO] =
+    {
+        .effect = EFFECT_EMBARGO,
+        .power = 0,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_AFFECTED_BY_MAGIC_COAT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_FLING] =
+    {
+        .effect = EFFECT_FLING,
+        .power = 1,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_PSYCHO_SHIFT] =
+    {
+        .effect = EFFECT_HIT,//EFFECT_PSYCHO_SHIFT,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_TRUMP_CARD] =
+    {
+        .effect = EFFECT_TRUMP_CARD,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_HEAL_BLOCK] =
+    {
+        .effect = EFFECT_HEAL_BLOCK,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_AFFECTED_BY_MAGIC_COAT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_WRING_OUT] =
+    {
+        .effect = EFFECT_WRING_OUT,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_POWER_TRICK] =
+    {
+        .effect = EFFECT_POWER_TRICK,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_GASTRO_ACID] =
+    {
+        .effect = EFFECT_GASTRO_ACID,
+        .power = 0,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_AFFECTED_BY_MAGIC_COAT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_LUCKY_CHANT] =
+    {
+        .effect = EFFECT_LUCKY_CHANT,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_ME_FIRST] =
+    {
+        .effect = EFFECT_ME_FIRST,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_COPYCAT] =
+    {
+        .effect = EFFECT_COPYCAT,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_DEPENDS,
+        .priority = 0,
+        .flags = 0,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_POWER_SWAP] =
+    {
+        .effect = EFFECT_POWER_SWAP,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_GUARD_SWAP] =
+    {
+        .effect = EFFECT_GUARD_SWAP,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_PUNISHMENT] =
+    {
+        .effect = EFFECT_PUNISHMENT,
+        .power = 60,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_LAST_RESORT] =
+    {
+        .effect = EFFECT_LAST_RESORT,
+        .power = 140,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_WORRY_SEED] =
+    {
+        .effect = EFFECT_WORRY_SEED,
+        .power = 0,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_AFFECTED_BY_MAGIC_COAT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_SUCKER_PUNCH] =
+    {
+        .effect = EFFECT_SUCKER_PUNCH,
+        .power = 70,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 1,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_TOXIC_SPIKES] =
+    {
+        .effect = EFFECT_HIT,//EFFECT_TOXIC_SPIKES,
+        .power = 0,
+        .type = TYPE_POISON,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_MAGIC_COAT,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_HEART_SWAP] =
+    {
+        .effect = EFFECT_HEART_SWAP,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_AQUA_RING] =
+    {
+        .effect = EFFECT_AQUA_RING,
+        .power = 0,
+        .type = TYPE_WATER,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_MAGNET_RISE] =
+    {
+        .effect = EFFECT_MAGNET_RISE,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_FLARE_BLITZ] =
+    {
+        .effect = EFFECT_RECOIL_33_STATUS,
+        .power = 120,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST | F_RECKLESS_BOOST,
+        .split = SPLIT_PHYSICAL,
+        .argument = STATUS_BURN,
+    },
+
+    [MOVE_FORCE_PALM] =
+    {
+        .effect = EFFECT_PARALYZE_HIT,
+        .power = 60,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 30,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_AURA_SPHERE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_FIGHTING,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_MEGA_LAUNCHER_BOOST | F_BALLISTIC,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_ROCK_POLISH] =
+    {
+        .effect = EFFECT_SPEED_UP_2,
+        .power = 0,
+        .type = TYPE_ROCK,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_POISON_JAB] =
+    {
+        .effect = EFFECT_POISON_HIT,
+        .power = 80,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 30,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_DARK_PULSE] =
+    {
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 20,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_SHEER_FORCE_BOOST | F_MEGA_LAUNCHER_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_NIGHT_SLASH] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 70,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_AQUA_TAIL] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 90,
+        .type = TYPE_WATER,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_SEED_BOMB] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_AIR_SLASH] =
+    {
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 75,
+        .type = TYPE_FLYING,
+        .accuracy = 95,
+        .pp = 15,
+        .secondaryEffectChance = 30,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_X_SCISSOR] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_BUG_BUZZ] =
+    {
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .power = 90,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SOUND,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_DRAGON_PULSE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 85,
+        .type = TYPE_DRAGON,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_MEGA_LAUNCHER_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_DRAGON_RUSH] =
+    {
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 100,
+        .type = TYPE_DRAGON,
+        .accuracy = 75,
+        .pp = 10,
+        .secondaryEffectChance = 20,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_SHEER_FORCE_BOOST | F_DMG_MINIMIZE,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_POWER_GEM] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_ROCK,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_DRAIN_PUNCH] =
+    {
+        .effect = EFFECT_ABSORB,
+        .power = 75,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_IRON_FIST_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_VACUUM_WAVE] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 40,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 1,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_FOCUS_BLAST] =
+    {
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .power = 120,
+        .type = TYPE_FIGHTING,
+        .accuracy = 70,
+        .pp = 5,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_SHEER_FORCE_BOOST | F_BALLISTIC,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_ENERGY_BALL] =
+    {
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .power = 90,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_BALLISTIC,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_BRAVE_BIRD] =
+    {
+        .effect = EFFECT_DOUBLE_EDGE,
+        .power = 120,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_RECKLESS_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_EARTH_POWER] =
+    {
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .power = 90,
+        .type = TYPE_GROUND,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_SWITCHEROO] =
+    {
+        .effect = EFFECT_TRICK,
+        .power = 0,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_GIGA_IMPACT] =
+    {
+        .effect = EFFECT_RECHARGE,
+        .power = 150,
+        .type = TYPE_NORMAL,
+        .accuracy = 90,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_NASTY_PLOT] =
+    {
+        .effect = EFFECT_SPECIAL_ATTACK_UP_2,
+        .power = 0,
+        .type = TYPE_DARK,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_BULLET_PUNCH] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 1,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_IRON_FIST_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_AVALANCHE] =
+    {
+        .effect = EFFECT_REVENGE,
+        .power = 60,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_BOTH_ENEMIES,
+        .priority = -4,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_ICE_SHARD] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 40,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 1,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_SHADOW_CLAW] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 70,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_THUNDER_FANG] =
+    {
+        .effect = EFFECT_FLINCH_STATUS,
+        .power = 65,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 95,
+        .pp = 15,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST | F_STRONG_JAW_BOOST,
+        .split = SPLIT_PHYSICAL,
+        .argument = STATUS_PARALYSIS,
+    },
+
+    [MOVE_ICE_FANG] =
+    {
+        .effect = EFFECT_FLINCH_STATUS,
+        .power = 65,
+        .type = TYPE_ICE,
+        .accuracy = 95,
+        .pp = 15,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST | F_STRONG_JAW_BOOST,
+        .split = SPLIT_PHYSICAL,
+        .argument = STATUS_FREEZE,
+    },
+
+    [MOVE_FIRE_FANG] =
+    {
+        .effect = EFFECT_FLINCH_STATUS,
+        .power = 65,
+        .type = TYPE_FIRE,
+        .accuracy = 95,
+        .pp = 15,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST | F_STRONG_JAW_BOOST,
+        .split = SPLIT_PHYSICAL,
+        .argument = STATUS_BURN,
+    },
+
+    [MOVE_SHADOW_SNEAK] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 1,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_MUD_BOMB] =
+    {
+        .effect = EFFECT_ACCURACY_DOWN_HIT,
+        .power = 65,
+        .type = TYPE_GROUND,
+        .accuracy = 85,
+        .pp = 10,
+        .secondaryEffectChance = 30,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST | F_BALLISTIC,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_PSYCHO_CUT] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_ZEN_HEADBUTT] =
+    {
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 90,
+        .pp = 15,
+        .secondaryEffectChance = 20,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_MIRROR_SHOT] =
+    {
+        .effect = EFFECT_ACCURACY_DOWN_HIT,
+        .power = 65,
+        .type = TYPE_STEEL,
+        .accuracy = 85,
+        .pp = 10,
+        .secondaryEffectChance = 30,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_FLASH_CANNON] =
+    {
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .power = 80,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_ROCK_CLIMB] =
+    {
+        .effect = EFFECT_CONFUSE_HIT,
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 85,
+        .pp = 20,
+        .secondaryEffectChance = 20,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_DEFOG] =
+    {
+        .effect = EFFECT_HIT,//EFFECT_DEFOG,
+        .power = 0,
+        .type = TYPE_FLYING,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_AFFECTED_BY_MAGIC_COAT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_TRICK_ROOM] =
+    {
+        .effect = EFFECT_TRICK_ROOM,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = -7,
+        .flags = 0,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_DRACO_METEOR] =
+    {
+        .effect = EFFECT_OVERHEAT,
+        .power = 130,
+        .type = TYPE_DRAGON,
+        .accuracy = 90,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_DISCHARGE] =
+    {
+        .effect = EFFECT_PARALYZE_HIT,
+        .power = 80,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 30,
+        .target = TARGET_ALL_EXCEPT_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_LAVA_PLUME] =
+    {
+        .effect = EFFECT_BURN_HIT,
+        .power = 80,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 30,
+        .target = TARGET_ALL_EXCEPT_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_LEAF_STORM] =
+    {
+        .effect = EFFECT_OVERHEAT,
+        .power = 130,
+        .type = TYPE_GRASS,
+        .accuracy = 90,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_POWER_WHIP] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 120,
+        .type = TYPE_GRASS,
+        .accuracy = 85,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_ROCK_WRECKER] =
+    {
+        .effect = EFFECT_RECHARGE,
+        .power = 150,
+        .type = TYPE_ROCK,
+        .accuracy = 90,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_BALLISTIC,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_CROSS_POISON] =
+    {
+        .effect = EFFECT_POISON_HIT,
+        .power = 70,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 10,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_GUNK_SHOT] =
+    {
+        .effect = EFFECT_POISON_HIT,
+        .power = 120,
+        .type = TYPE_POISON,
+        .accuracy = 80,
+        .pp = 5,
+        .secondaryEffectChance = 30,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_IRON_HEAD] =
+    {
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 30,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_MAGNET_BOMB] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 60,
+        .type = TYPE_STEEL,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_BALLISTIC,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_STONE_EDGE] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 100,
+        .type = TYPE_ROCK,
+        .accuracy = 80,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_CAPTIVATE] =
+    {
+        .effect = EFFECT_HIT,//EFFECT_CAPTIVATE,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_BOTH_ENEMIES,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_AFFECTED_BY_MAGIC_COAT,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_STEALTH_ROCK] =
+    {
+        .effect = EFFECT_HIT,//EFFECT_STEALTH_ROCK,
+        .power = 0,
+        .type = TYPE_ROCK,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_MAGIC_COAT,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_GRASS_KNOT] =
+    {
+        .effect = EFFECT_LOW_KICK,
+        .power = 1,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_CHATTER] =
+    {
+        .effect = EFFECT_CONFUSE_HIT,
+        .power = 65,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_SOUND,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_JUDGMENT] =
+    {
+        .effect = EFFECT_HIT,//EFFECT_JUDGMENT,
+        .power = 100,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_BUG_BITE] =
+    {
+        .effect = EFFECT_PLUCK, // Needs a custom move effect (Bug Bite and Pluck should have the same move effect)
+        .power = 60,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_CHARGE_BEAM] =
+    {
+        .effect = EFFECT_SP_ATTACK_UP_HIT,
+        .power = 50,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 70,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_SHEER_FORCE_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_WOOD_HAMMER] =
+    {
+        .effect = EFFECT_RECOIL,
+        .power = 120,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_RECKLESS_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_AQUA_JET] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 1,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_ATTACK_ORDER] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 90,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_DEFEND_ORDER] =
+    {
+        .effect = EFFECT_COSMIC_POWER,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_HEAL_ORDER] =
+    {
+        .effect = EFFECT_RESTORE_HP,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_SNATCH,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_HEAD_SMASH] =
+    {
+        .effect = EFFECT_DOUBLE_EDGE,
+        .power = 150,
+        .type = TYPE_ROCK,
+        .accuracy = 80,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_RECKLESS_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_DOUBLE_HIT] =
+    {
+        .effect = EFFECT_DOUBLE_HIT,
+        .power = 35,
+        .type = TYPE_NORMAL,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_ROAR_OF_TIME] =
+    {
+        .effect = EFFECT_RECHARGE,
+        .power = 150,
+        .type = TYPE_DRAGON,
+        .accuracy = 90,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_SPACIAL_REND] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 100,
+        .type = TYPE_DRAGON,
+        .accuracy = 95,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_LUNAR_DANCE] =
+    {
+        .effect = EFFECT_HEALING_WISH,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_USER,
+        .priority = 0,
+        .flags = 0,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_CRUSH_GRIP] =
+    {
+        .effect = EFFECT_WRING_OUT,
+        .power = 1,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_MAGMA_STORM] =
+    {
+        .effect = EFFECT_TRAP,
+        .power = 100,
+        .type = TYPE_FIRE,
+        .accuracy = 75,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_DARK_VOID] =
+    {
+        .effect = EFFECT_SLEEP,
+        .power = 0,
+        .type = TYPE_DARK,
+        .accuracy = 50,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = TARGET_BOTH_ENEMIES,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_AFFECTED_BY_MAGIC_COAT | F_MIRROR_MOVE_COMPATIBLE,
+        .split = SPLIT_STATUS,
+    },
+
+    [MOVE_SEED_FLARE] =
+    {
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_2,
+        .power = 120,
+        .type = TYPE_GRASS,
+        .accuracy = 85,
+        .pp = 5,
+        .secondaryEffectChance = 40,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_OMINOUS_WIND] =
+    {
+        .effect = EFFECT_ALL_STATS_UP_HIT,
+        .power = 60,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 10,
+        .target = TARGET_BOTH_ENEMIES,
+        .priority = 0,
+        .flags = F_AFFECTED_BY_PROTECT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_SHADOW_FORCE] =
+    {
+        .effect = EFFECT_HIT,//EFFECT_SEMI_INVULNERABLE,
+        .power = 120,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = TARGET_SELECTED_POKEMON,
+        .priority = 0,
+        .flags = F_MAKES_CONTACT | F_MIRROR_MOVE_COMPATIBLE | F_AFFECTED_BY_KINGS_ROCK | F_DMG_MINIMIZE,
+        .split = SPLIT_PHYSICAL,
+    },
 };
