@@ -5,6 +5,7 @@
 #include "item.h"
 #include "event_data.h"
 #include "constants/items.h"
+#include "constants/moves.h"
 #include "pokemon.h"
 #include "data2.h"
 #include "text.h"
@@ -16,7 +17,7 @@
 #include "ewram.h"
 
 #define BATTLESTRING_TO_SUB 12
-#define BATTLESTRINGS_NO    366
+#define BATTLESTRINGS_NO    397
 #define BATTLESTRINGS_MAX   BATTLESTRINGS_NO + BATTLESTRING_TO_SUB
 
 #ifdef GERMAN
@@ -366,7 +367,7 @@ void BufferStringBattle(u16 stringID)
         break;
     case 4: // pokemon used a move msg
         sub_8121D1C(gBattleTextBuff1);
-        if (gStringInfo->currentMove > 0x162)
+        if (gStringInfo->currentMove > NUM_MOVES)
             StringCopy(gBattleTextBuff2, gUnknown_08401674[gBattleStruct->stringMoveType]);
         else
             StringCopy(gBattleTextBuff2, gMoveNames[gStringInfo->currentMove]);
@@ -483,26 +484,28 @@ extern u8 *de_sub_8041024(s32, u32);
 
 #ifdef ENGLISH
 #define HANDLE_NICKNAME_STRING_CASE(bank, monIndex)                     \
-    if (GetBattlerSide(bank) != 0)                                         \
+        if (GetBattlerSide(bank) != 0)                     \
     {                                                                   \
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                     \
-            toCpy = BattleText_Foe;                                  \
-        else                                                            \
-            toCpy = BattleText_Wild;                                  \
+        GetMonData(&gEnemyParty[monIndex], MON_DATA_NICKNAME, text);    \
+		StringGetEnd10(text);											\
+		toCpy = text;													\
         while (*toCpy != EOS)                                           \
         {                                                               \
             dst[dstID] = *toCpy;                                        \
             dstID++;                                                    \
             toCpy++;                                                    \
-        }                                                               \
-        GetMonData(&gEnemyParty[monIndex], MON_DATA_NICKNAME, text);    \
+        }																\
+		 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                    \
+            toCpy = BattleText_Foe;                                \
+        else                                                            \
+            toCpy = BattleText_Wild;                               \
     }                                                                   \
     else                                                                \
     {                                                                   \
         GetMonData(&gPlayerParty[monIndex], MON_DATA_NICKNAME, text);   \
-    }                                                                   \
     StringGetEnd10(text);                                               \
-    toCpy = text;
+	toCpy = text;														\
+	}
 #else
 #define HANDLE_NICKNAME_STRING_CASE(bank, monIndex)                     \
     if (GetBattlerSide(bank) != 0)                                         \
@@ -642,13 +645,13 @@ u32 StrCpyDecodeBattle(const u8* src, u8* dst)
                 HANDLE_NICKNAME_STRING_CASE(gBattleStruct->scriptingActive, gBattlerPartyIndexes[gBattleStruct->scriptingActive])
                 break;
             case 17: // current move name
-                if (gStringInfo->currentMove > 0x162)
+                if (gStringInfo->currentMove > NUM_MOVES)
                     toCpy = (void*) &gUnknown_08401674[gBattleStruct->stringMoveType];
                 else
                     toCpy = gMoveNames[gStringInfo->currentMove];
                 break;
             case 18: // last used move name
-                if (gStringInfo->lastMove > 0x162)
+                if (gStringInfo->lastMove > NUM_MOVES)
                     toCpy = (void*) &gUnknown_08401674[gBattleStruct->stringMoveType];
                 else
                     toCpy = gMoveNames[gStringInfo->lastMove];

@@ -32,6 +32,7 @@
 
 // These macros can be used with either battler ID or positions to get the partner or the opposite mon
 #define BATTLE_OPPOSITE(id) ((id) ^ 1)
+#define BATTLE_OPPOSITE2(id) ((id) ^ 3)
 #define BATTLE_PARTNER(id) ((id) ^ 2)
 
 #define B_SIDE_PLAYER     0
@@ -93,8 +94,28 @@
 #define STATUS3_UNDERWATER              0x40000
 #define STATUS3_INTIMIDATE_POKES        0x80000
 #define STATUS3_TRACE                   0x100000
+#define STATUS3_GASTRO_ACID             0x200000
+#define STATUS3_MIRACLE_EYED            0x400000
+#define STATUS3_EMBARGO                 0x800000
+#define STATUS3_HEAL_BLOCK              0x1000000
+#define STATUS3_AQUA_RING               0x2000000
+#define STATUS3_MAGNET_RISE             0x4000000
 
 #define STATUS3_SEMI_INVULNERABLE       ((STATUS3_UNDERGROUND | STATUS3_ON_AIR | STATUS3_UNDERWATER))
+
+//Field Status Flags
+#define STATUS_FIELD_MAGIC_ROOM         0x1
+#define STATUS_FIELD_TRICK_ROOM         0x2
+#define STATUS_FIELD_WONDER_ROOM        0x4
+#define STATUS_FIELD_MUDSPORT           0x8
+#define STATUS_FIELD_WATERSPORT         0x10
+#define STATUS_FIELD_GRAVITY            0x20
+#define STATUS_FIELD_GRASSY_TERRAIN     0x40
+#define STATUS_FIELD_MISTY_TERRAIN      0x80
+#define STATUS_FIELD_ELECTRIC_TERRAIN   0x100
+#define STATUS_FIELD_PSYCHIC_TERRAIN    0x200
+#define STATUS_FIELD_ION_DELUGE         0x400
+
 
 #define HITMARKER_x10                   0x00000010
 #define HITMARKER_x20                   0x00000020
@@ -174,6 +195,8 @@
 #define SIDE_STATUS_FUTUREATTACK     (1 << 6)
 #define SIDE_STATUS_MIST             (1 << 8)
 #define SIDE_STATUS_SPIKES_DAMAGED   (1 << 9)
+#define SIDE_STATUS_TAILWIND   		 (1 << 10)
+#define SIDE_STATUS_LUCKY_CHANT		 (1 << 11)
 
 #define ACTION_USE_MOVE             0
 #define ACTION_USE_ITEM             1
@@ -207,6 +230,17 @@
 #define F_MIRROR_MOVE_COMPATIBLE  (1 << 4)
 #define F_AFFECTED_BY_KINGS_ROCK  (1 << 5)
 #define F_IRON_FIST_BOOST		  (1 << 6)
+#define F_SHEER_FORCE_BOOST		  (1 << 7)
+#define F_RECKLESS_BOOST		  (1 << 8)
+#define F_MEGA_LAUNCHER_BOOST	  (1 << 9)
+#define F_BALLISTIC		  	      (1 << 10)
+#define F_SOUND		  	          (1 << 11)
+#define F_DMG_MINIMIZE		  	  (1 << 12)
+#define F_STRONG_JAW_BOOST		  (1 << 13)
+
+#define SPLIT_PHYSICAL 0
+#define SPLIT_SPECIAL 1
+#define SPLIT_STATUS 2
 
 #define AI_ACTION_DONE          0x0001
 #define AI_ACTION_FLEE          0x0002
@@ -328,6 +362,7 @@
 #define B_ANIM_FOCUS_PUNCH_SET_UP       0x14
 #define B_ANIM_INGRAIN_HEAL             0x15
 #define B_ANIM_WISH_HEAL                0x16
+#define B_ANIM_AQUA_RING_HEAL           0x17
 
 // special animation table
 #define B_ANIM_LVL_UP                   0x0

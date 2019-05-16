@@ -119,7 +119,7 @@ gBattleAnims_Moves:: @ 81C7168
 	.4byte Move_QUICK_ATTACK
 	.4byte Move_RAGE
 	.4byte Move_TELEPORT
-	.4byte Move_NIGHT_SHADE
+	.4byte Move_LUCKY_CHANT
 	.4byte Move_MIMIC
 	.4byte Move_SCREECH
 	.4byte Move_DOUBLE_TEAM
@@ -272,7 +272,7 @@ gBattleAnims_Moves:: @ 81C7168
 	.4byte Move_BEAT_UP
 	.4byte Move_FAKE_OUT
 	.4byte Move_UPROAR
-	.4byte Move_STOCKPILE
+	.4byte Move_TAILWIND
 	.4byte Move_SPIT_UP
 	.4byte Move_SWALLOW
 	.4byte Move_HEAT_WAVE
@@ -373,6 +373,119 @@ gBattleAnims_Moves:: @ 81C7168
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_PSYCHO_BOOST
+	.4byte Move_ROOST
+	.4byte Move_GRAVITY
+	.4byte Move_MIRACLE_EYE
+	.4byte Move_WAKE_UP_SLAP
+	.4byte Move_HAMMER_ARM
+	.4byte Move_GYRO_BALL
+	.4byte Move_HEALING_WISH
+	.4byte Move_BRINE
+	.4byte Move_NATURAL_GIFT
+	.4byte Move_FEINT
+	.4byte Move_PLUCK
+	.4byte Move_STOCKPILE
+	.4byte Move_ACUPRESSURE
+	.4byte Move_METAL_BURST
+	.4byte Move_U_TURN
+	.4byte Move_CLOSE_COMBAT
+	.4byte Move_PAYBACK
+	.4byte Move_ASSURANCE
+	.4byte Move_EMBARGO
+	.4byte Move_FLING
+	.4byte Move_PSYCHO_SHIFT
+	.4byte Move_TRUMP_CARD
+	.4byte Move_HEAL_BLOCK
+	.4byte Move_WRING_OUT
+	.4byte Move_POWER_TRICK
+	.4byte Move_GASTRO_ACID
+	.4byte Move_NIGHT_SHADE
+	.4byte Move_ME_FIRST
+	.4byte Move_COPYCAT
+	.4byte Move_POWER_SWAP
+	.4byte Move_GUARD_SWAP
+	.4byte Move_PUNISHMENT
+	.4byte Move_LAST_RESORT
+	.4byte Move_WORRY_SEED
+	.4byte Move_SUCKER_PUNCH
+	.4byte Move_TOXIC_SPIKES
+	.4byte Move_HEART_SWAP
+	.4byte Move_AQUA_RING
+	.4byte Move_MAGNET_RISE
+	.4byte Move_FLARE_BLITZ
+	.4byte Move_FORCE_PALM
+	.4byte Move_AURA_SPHERE
+	.4byte Move_ROCK_POLISH
+	.4byte Move_POISON_JAB
+	.4byte Move_DARK_PULSE
+	.4byte Move_NIGHT_SLASH
+	.4byte Move_AQUA_TAIL
+	.4byte Move_SEED_BOMB
+	.4byte Move_AIR_SLASH
+	.4byte Move_XSCISSOR
+	.4byte Move_BUG_BUZZ
+	.4byte Move_DRAGON_PULSE
+	.4byte Move_DRAGON_RUSH
+	.4byte Move_POWER_GEM
+	.4byte Move_DRAIN_PUNCH
+	.4byte Move_VACUUM_WAVE
+	.4byte Move_FOCUS_BLAST
+	.4byte Move_ENERGY_BALL
+	.4byte Move_BRAVE_BIRD
+	.4byte Move_EARTH_POWER
+	.4byte Move_SWITCHEROO
+	.4byte Move_GIGA_IMPACT
+	.4byte Move_NASTY_PLOT
+	.4byte Move_BULLET_PUNCH
+	.4byte Move_AVALANCHE
+	.4byte Move_ICE_SHARD
+	.4byte Move_SHADOW_CLAW
+	.4byte Move_THUNDER_FANG
+	.4byte Move_ICE_FANG
+	.4byte Move_FIRE_FANG
+	.4byte Move_SHADOW_SNEAK
+	.4byte Move_MUD_BOMB
+	.4byte Move_PSYCHO_CUT
+	.4byte Move_ZEN_HEADBUTT
+	.4byte Move_MIRROR_SHOT
+	.4byte Move_FLASH_CANNON
+	.4byte Move_ROCK_CLIMB
+	.4byte Move_DEFOG
+	.4byte Move_TRICK_ROOM
+	.4byte Move_DRACO_METEOR
+	.4byte Move_DISCHARGE
+	.4byte Move_LAVA_PLUME
+	.4byte Move_LEAF_STORM
+	.4byte Move_POWER_WHIP
+	.4byte Move_ROCK_WRECKER
+	.4byte Move_CROSS_POISON
+	.4byte Move_GUNK_SHOT
+	.4byte Move_IRON_HEAD
+	.4byte Move_MAGNET_BOMB
+	.4byte Move_STONE_EDGE
+	.4byte Move_CAPTIVATE
+	.4byte Move_STEALTH_ROCK
+	.4byte Move_GRASS_KNOT
+	.4byte Move_CHATTER
+	.4byte Move_JUDGMENT
+	.4byte Move_BUG_BITE
+	.4byte Move_CHARGE_BEAM
+	.4byte Move_WOOD_HAMMER
+	.4byte Move_AQUA_JET
+	.4byte Move_ATTACK_ORDER
+	.4byte Move_DEFEND_ORDER
+	.4byte Move_HEAL_ORDER
+	.4byte Move_HEAD_SMASH
+	.4byte Move_DOUBLE_HIT
+	.4byte Move_ROAR_OF_TIME
+	.4byte Move_SPECIAL_REND
+	.4byte Move_LUNAR_DANCE
+	.4byte Move_CRUSH_GRIP
+	.4byte Move_MAGMA_STORM
+	.4byte Move_DARK_VOID
+	.4byte Move_SEED_FLARE
+	.4byte Move_OMINOUS_WIND
+	.4byte Move_SHADOW_FORCE
 	.4byte PoundCopy
 
 	.align 2
@@ -412,6 +525,7 @@ gBattleAnims_General:: @ 81C771C
 	.4byte General_FocusPunchSetUp
 	.4byte General_IngrainHeal
 	.4byte General_WishHeal
+	.4byte General_AquaRingHeal
 
 	.align 2
 gBattleAnims_Special:: @ 81C7778
@@ -10653,6 +10767,7 @@ General_IngrainHeal: @ 81D6A39
 	blendoff
 	end
 
+General_AquaRingHeal:
 General_WishHeal: @ 81D6A7C
 	loadspritegfx ANIM_TAG_BLUE_STAR
 	loadspritegfx ANIM_TAG_SPARKLE_2
@@ -10747,4 +10862,119 @@ Special_SubstituteToMon: @ 81D6BA6
 
 Special_MonToSubstitute: @ 81D6BB0
 	createvisualtask sub_814151C, 2, 0
+	end
+
+Move_WAKE_UP_SLAP:
+Move_HAMMER_ARM:
+Move_GYRO_BALL:
+Move_HEALING_WISH:
+Move_BRINE:
+Move_NATURAL_GIFT:
+Move_FEINT:
+Move_PLUCK:
+Move_TAILWIND:
+Move_ACUPRESSURE:
+Move_METAL_BURST:
+Move_U_TURN:
+Move_CLOSE_COMBAT:
+Move_PAYBACK:
+Move_ASSURANCE:
+Move_EMBARGO:
+Move_FLING:
+Move_PSYCHO_SHIFT:
+Move_TRUMP_CARD:
+Move_HEAL_BLOCK:
+Move_WRING_OUT:
+Move_POWER_TRICK:
+Move_GASTRO_ACID:
+Move_LUCKY_CHANT:
+Move_ME_FIRST:
+Move_COPYCAT:
+Move_POWER_SWAP:
+Move_GUARD_SWAP:
+Move_PUNISHMENT:
+Move_LAST_RESORT:
+Move_WORRY_SEED:
+Move_SUCKER_PUNCH:
+Move_TOXIC_SPIKES:
+Move_HEART_SWAP:
+Move_AQUA_RING:
+Move_MAGNET_RISE:
+Move_FLARE_BLITZ:
+Move_FORCE_PALM:
+Move_AURA_SPHERE:
+Move_ROCK_POLISH:
+Move_POISON_JAB:
+Move_DARK_PULSE:
+Move_NIGHT_SLASH:
+Move_AQUA_TAIL:
+Move_SEED_BOMB:
+Move_AIR_SLASH:
+Move_XSCISSOR:
+Move_BUG_BUZZ:
+Move_DRAGON_PULSE:
+Move_DRAGON_RUSH:
+Move_POWER_GEM:
+Move_DRAIN_PUNCH:
+Move_VACUUM_WAVE:
+Move_FOCUS_BLAST:
+Move_ENERGY_BALL:
+Move_BRAVE_BIRD:
+Move_EARTH_POWER:
+Move_SWITCHEROO:
+Move_GIGA_IMPACT:
+Move_NASTY_PLOT:
+Move_BULLET_PUNCH:
+Move_AVALANCHE:
+Move_ICE_SHARD:
+Move_SHADOW_CLAW:
+Move_THUNDER_FANG:
+Move_ICE_FANG:
+Move_FIRE_FANG:
+Move_SHADOW_SNEAK:
+Move_MUD_BOMB:
+Move_PSYCHO_CUT:
+Move_ZEN_HEADBUTT:
+Move_MIRROR_SHOT:
+Move_FLASH_CANNON:
+Move_ROCK_CLIMB:
+Move_DEFOG:
+Move_TRICK_ROOM:
+Move_DRACO_METEOR:
+Move_DISCHARGE:
+Move_LAVA_PLUME:
+Move_LEAF_STORM:
+Move_POWER_WHIP:
+Move_ROCK_WRECKER:
+Move_CROSS_POISON:
+Move_GUNK_SHOT:
+Move_IRON_HEAD:
+Move_MAGNET_BOMB:
+Move_STONE_EDGE:
+Move_CAPTIVATE:
+Move_STEALTH_ROCK:
+Move_GRASS_KNOT:
+Move_CHATTER:
+Move_JUDGMENT:
+Move_BUG_BITE:
+Move_CHARGE_BEAM:
+Move_WOOD_HAMMER:
+Move_AQUA_JET:
+Move_ATTACK_ORDER:
+Move_DEFEND_ORDER:
+Move_HEAL_ORDER:
+Move_HEAD_SMASH:
+Move_DOUBLE_HIT:
+Move_ROAR_OF_TIME:
+Move_SPECIAL_REND:
+Move_LUNAR_DANCE:
+Move_CRUSH_GRIP:
+Move_MAGMA_STORM:
+Move_DARK_VOID:
+Move_SEED_FLARE:
+Move_OMINOUS_WIND:
+Move_SHADOW_FORCE:
+Move_MIRACLE_EYE:
+Move_GRAVITY:
+Move_ROOST:
 	end

@@ -48,6 +48,8 @@ AI_CheckBadMove: @ 81DA09C
 	is_most_powerful_move
 	if_equal 0, AI_CheckBadMove_CheckSoundproof
 	if_damage_bonus 0, Score_Minus10
+	get_ability USER
+	if_equal ABILITY_MOLD_BREAKER, AI_CheckBadMove_CheckEffect
 	get_ability TARGET
 	if_equal ABILITY_VOLT_ABSORB, CheckIfVoltAbsorbCancelsElectric
 	if_equal ABILITY_LIGHTNING_ROD, CheckIfVoltAbsorbCancelsElectric
@@ -346,6 +348,7 @@ AI_CBM_Toxic: @ 81DA583
 	if_equal TYPE_STEEL, Score_Minus10
 	if_equal TYPE_POISON, Score_Minus10
 	get_ability TARGET
+	if_equal ABILITY_POISON_HEAL, Score_Minus10
 	if_equal ABILITY_IMMUNITY, Score_Minus10
 	if_status TARGET, SLP | PSN | BRN | FRZ | PAR | TOX, Score_Minus10
 	end
@@ -2121,6 +2124,8 @@ AI_CV_RainDance2: @ 81DB8F7
 	if_equal BATTLE_WEATHER_SANDSTORM, AI_CV_RainDance3
 	get_ability USER
 	if_equal ABILITY_RAIN_DISH, AI_CV_RainDance3
+	if_equal ABILITY_HYDRATATION, AI_CV_RainDance3
+	if_equal ABILITY_DRY_SKIN, AI_CV_RainDance3
 	jump AI_CV_RainDance_End
 
 AI_CV_RainDance3: @ 81DB91E
@@ -2139,6 +2144,12 @@ AI_CV_SunnyDay: @ 81DB928
 	if_equal BATTLE_WEATHER_HAIL, AI_CV_SunnyDay2
 	if_equal BATTLE_WEATHER_RAIN, AI_CV_SunnyDay2
 	if_equal BATTLE_WEATHER_SANDSTORM, AI_CV_SunnyDay2
+	get_ability USER
+	if_equal ABILITY_CHLOROPHYLL, AI_CV_SunnyDay2
+	if_equal ABILITY_SOLAR_POWER, AI_CV_SunnyDay2
+	if_equal ABILITY_FLOWER_GIFT, AI_CV_SunnyDay2
+	get_ability TARGET
+	if_equal ABILITY_DRY_SKIN, AI_CV_SunnyDay2
 	jump AI_CV_SunnyDay_End
 
 AI_CV_SunnyDay2: @ 81DB947
@@ -2329,6 +2340,9 @@ AI_CV_Hail: @ 81DBB2F
 	if_equal BATTLE_WEATHER_SUN, AI_CV_Hail2
 	if_equal BATTLE_WEATHER_RAIN, AI_CV_Hail2
 	if_equal BATTLE_WEATHER_SANDSTORM, AI_CV_Hail2
+	get_ability USER
+	if_equal ABILITY_ICE_BODY, AI_CV_Hail2
+	if_equal ABILITY_SNOW_CLOAK, AI_CV_Hail2
 	jump AI_CV_Hail_End
 
 AI_CV_Hail2: @ 81DBB4E

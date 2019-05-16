@@ -365,3 +365,34 @@
 	enum BATTLE_TEXT_TeravoltEnter
 	enum BATTLE_TEXT_SlowStartEnd
 	enum BATTLE_TEXT_AttackerAbilityStatUp
+	enum BATTLE_TEXT_MagnetRise
+	enum BATTLE_TEXT_GastroAcid
+	enum BATTLE_TEXT_WorrySeed
+	enum BATTLE_TEXT_AquaRing
+	enum BATTLE_TEXT_MiracleEye
+	enum BATTLE_TEXT_Embargo
+	enum BATTLE_TEXT_Tailwind
+	enum BATTLE_TEXT_Gravity
+	enum BATTLE_TEXT_HealingWishHeal
+	enum BATTLE_TEXT_GravityNoUse
+	enum BATTLE_TEXT_HealBlock
+	enum BATTLE_TEXT_HealBlockNoUse
+	enum BATTLE_TEXT_LuckyChant
+	enum BATTLE_TEXT_MagnetRiseWoreOff
+	enum BATTLE_TEXT_AquaRingTurnHeal
+	enum BATTLE_TEXT_BerryBurned
+	enum BATTLE_TEXT_BerryEated
+	enum BATTLE_TEXT_BerryStatRaised
+	enum BATTLE_TEXT_BerryCuredParalysis
+	enum BATTLE_TEXT_BerryCuredPoison
+	enum BATTLE_TEXT_BerryCuredBurn
+	enum BATTLE_TEXT_BerryCuredConfusion
+	enum BATTLE_TEXT_BerryNormalizedStatus
+	enum BATTLE_TEXT_BerryCuredStatus
+	enum BATTLE_TEXT_PowerTrickString
+	enum BATTLE_TEXT_PowerSwapString
+	enum BATTLE_TEXT_GuardSwapString
+	enum BATTLE_TEXT_HeartSwapString
+	enum BATTLE_TEXT_TrickRoom
+	enum BATTLE_TEXT_TrickRoomWoreOff
+	enum BATTLE_TEXT_GravityWoreOff

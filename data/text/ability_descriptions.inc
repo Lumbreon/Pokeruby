@@ -189,6 +189,9 @@ gAbilityDescription_Guts: @ 81F9F8D
 
 gAbilityDescription_MarvelScale: @ 81F9FA6
 	.string "Sube la DEFENSA si sufre.$"
+	
+gAbilityDescription_QuickFeet: @ 81F9FA6
+	.string "Sube la VELOCIDAD si sufre.$"
 
 gAbilityDescription_LiquidOoze: @ 81F9FC0
 	.string "Al verterlo, hiere.$"
@@ -497,3 +500,4 @@ gAbilityDescriptions:: @ 81FA110
 	.4byte gAbilityDescription_Unburden
 	.4byte gAbilityDescription_Multitype
 	.4byte gAbilityDescription_Honey
+	.4byte gAbilityDescription_QuickFeet

@@ -367,7 +367,38 @@ enum
 	BATTLE_TEXT_TurboBlazeEnter,
 	BATTLE_TEXT_TeravoltEnter,
 	BATTLE_TEXT_SlowStartEnd,
-	BATTLE_TEXT_AttackerAbilityStatUp
+	BATTLE_TEXT_AttackerAbilityStatUp,
+	BATTLE_TEXT_MagnetRise,
+	BATTLE_TEXT_GastroAcid,
+	BATTLE_TEXT_WorrySeed,
+	BATTLE_TEXT_AquaRing,
+	BATTLE_TEXT_MiracleEye,
+	BATTLE_TEXT_Embargo,
+	BATTLE_TEXT_Tailwind,
+	BATTLE_TEXT_Gravity,
+	BATTLE_TEXT_HealingWishHeal,
+	BATTLE_TEXT_GravityNoUse,
+	BATTLE_TEXT_HealBlock,
+	BATTLE_TEXT_HealBlockNoUse,
+	BATTLE_TEXT_LuckyChant,
+	BATTLE_TEXT_MagnetRiseWoreOff,
+	BATTLE_TEXT_AquaRingTurnHeal,
+	BATTLE_TEXT_BerryBurned,
+	BATTLE_TEXT_BerryEated,
+	BATTLE_TEXT_BerryStatRaised,
+	BATTLE_TEXT_BerryCuredParalysis,
+	BATTLE_TEXT_BerryCuredPoison,
+	BATTLE_TEXT_BerryCuredBurn,
+	BATTLE_TEXT_BerryCuredConfusion,
+	BATTLE_TEXT_BerryNormalizedStatus,
+	BATTLE_TEXT_BerryCuredStatus,
+	BATTLE_TEXT_PowerTrickString,
+	BATTLE_TEXT_PowerSwapString,
+	BATTLE_TEXT_GuardSwapString,
+	BATTLE_TEXT_HeartSwapString,
+	BATTLE_TEXT_TrickRoom,
+	BATTLE_TEXT_TrickRoomWoreOff,
+	BATTLE_TEXT_GravityWoreOff,
 };
 
 const u8 BattleText_UnknownString[] = _("{STRING 33}");
@@ -469,7 +500,7 @@ const u8 BattleText_FreedFrom[] = _("¡{ATTACKING_MON} fue liberado\nde {STRING 
 const u8 BattleText_KeptGoingCrash[] = _("¡{ATTACKING_MON} continuó\ny se cayó!");
 const u8 BattleText_MistShroud[] = _("¡{STRING 38} está\nenvuelto en NEBLINA!");
 const u8 BattleText_MistProtect[] = _("¡{STRING 16} está protegido\npor NEBLINA!");
-const u8 BattleText_GetPumped[] = _("¡{ATTACKING_MON} se está\npreparando para luchar!");
+const u8 BattleText_GetPumped[] = _("¡{ATTACKING_MON} está\npreparado para luchar!");
 const u8 BattleText_HitRecoil[] = _("¡{ATTACKING_MON} es golpeado\ncon retroceso!");
 const u8 BattleText_ProtectedItself2[] = _("¡{ATTACKING_MON} salvaje\nse ha protegido!");
 const u8 BattleText_SandBuffeted[] = _("¡{ATTACKING_MON} es abofeteado por\nla tormenta de arena!");
@@ -577,8 +608,10 @@ const u8 BattleText_NoEffect[] = _("¡Pero no tuvo efecto!");
 const u8 BattleText_NoMovesLeft[] = _("¡{STRING 15} has no\nmoves left!\p");
 const u8 BattleText_MoveIsDisabled[] = _("¡{STRING 17} de {STRING 15}\nestá desactivado!\p");
 const u8 BattleText_TormentNoUse[] = _("¡{STRING 15} no puede usar el mismo\nmovimiento dos veces debido al TORMENTO!\p");
-const u8 BattleText_TauntNoUse[] = _("¡{STRING 15} no puede usar\n{STRING 17} por la MOFA!\p");
-const u8 BattleText_SealedNoUse[] = _("¡{STRING 15} no puede usar el\n{STRING 17} nsellado!\p");
+const u8 BattleText_TauntNoUse[] = _("¡{STRING 15} no puede usar\n{STRING 17} por la Mofa!\p");
+const u8 BattleText_SealedNoUse[] = _("¡{STRING 15} no puede usar el\n{STRING 17} sellado!\p");
+const u8 BattleText_GravityNoUse[] = _("¡{STRING 15} no puede usar\n{STRING 17} por la Gravedad!\p");
+const u8 BattleText_HealBlockNoUse[] = _("¡{STRING 15} no puede usar\n{STRING 17} por el Bloqueo Cura!\p");
 const u8 BattleText_RainMade[] = _("¡{STRING 23} de {STRING 16}\nhizo llover!");
 const u8 BattleText_SpeedRisen[] = _("¡{STRING 23} de {STRING 16}\nsubió su Velocidad!");
 const u8 BattleText_ProtectedBy[] = _("¡{DEFENDING_MON} fue protegido\npor {STRING 22}!");
@@ -725,7 +758,7 @@ const u8 BattleText_ComeBackSingle4[] = _("¡Bien, {STRING 0}!\n¡Vuelve!");
 const u8 BattleText_WithdrewPoke1[] = _("¡{STRING 25} {STRING 26}\nretiró a {STRING 0}!");
 const u8 BattleText_WithdrewPoke2[] = _("¡{STRING 29} retiró a\n{STRING 0}!");
 const u8 BattleText_WithdrewPoke3[] = _("¡{STRING 31} retiró a\n{STRING 0}!");
-const u8 BattleText_Wild[] = _("salvaje ");
+const u8 BattleText_Wild[] = _(" salvaje");
 const u8 BattleText_Foe[] = _(" enemigo");
 const u8 BattleText_Foe2[] = _(" enemigo");
 const u8 BattleText_Ally[] = _(" aliado");
@@ -774,7 +807,7 @@ const u8 BattleText_Raining[] = _("Esta lloviendo.");
 const u8 BattleText_Sandstorm[] = _("Una tormenta de arena\narrecia.");
 const u8 BattleText_BoxFull[] = _("¡Las CAJAS están llenas!\n¡No puedes seguir capturando!\p");
 const u8 BattleText_EnigmaBerry[] = _("BAYA ENIGMA");
-const u8 BattleText_Berry[] = _(" BAYA");
+const u8 BattleText_Berry[] = _("BAYA ");
 const u8 BattleText_CuredParalysis[] = _("¡{STRING 19} de {STRING 16}\ncuró la parálisis!");
 const u8 BattleText_CuredPoison[] = _("¡{STRING 19} de {STRING 16}\ncuró el envenenamiento!");
 const u8 BattleText_CuredBurn[] = _("¡{STRING 19} de {STRING 16}\ncuró la quemadura!");
@@ -782,7 +815,7 @@ const u8 BattleText_CuredFreeze[] = _("¡{STRING 19} de {STRING 16}\nlo ha desco
 const u8 BattleText_CuredSleep[] = _("¡{STRING 19} de {STRING 16}\nlo despertó!");
 const u8 BattleText_CuredConfusion[] = _("¡{STRING 19} de {STRING 16}\nlo sacó de la confusión!");
 const u8 BattleText_CuredStatus[] = _("¡{STRING 19} de {STRING 16}\nha curado su problema de {STRING 0}!");
-const u8 BattleText_NormalizedStatus[] = _("¡{STRING 19} de {STRING 16}\nha normalizado sus estadísticas!");
+const u8 BattleText_NormalizedStatus[] = _("¡{STRING 19} de {STRING 16}\nha normalizado su estado!");
 const u8 BattleText_RestoredHealth[] = _("¡{STRING 19} de {STRING 16}\nrestauró su salud!");
 const u8 BattleText_RestoredPP[] = _("¡{STRING 19} de {STRING 16}\nrestauró los PP de {STRING 0}!");
 const u8 BattleText_RestoredStatus[] = _("¡{STRING 19} de {STRING 16}\nrestauró sus estadísticas!");
@@ -856,7 +889,8 @@ const u8 BattleText_Psychic[] = _("un movimiento PsÍQUICO");
 const u8 BattleText_Ice[] = _("un movimiento HIELO");
 const u8 BattleText_Dragon[] = _("un movimiento DRAGÓN");
 const u8 BattleText_Dark[] = _("un movimiento SINIESTRO");
-const u8 BattleText_BadDreamsDmg[] = _("{DEFENDING_MON} is hurt by.\n{ATTACKING_MON}'s BAD DREAMS!");
+// Strings Nuevas
+const u8 BattleText_BadDreamsDmg[] = _("{DEFENDING_MON} sufre por el\nMAL SUEÑO de {ATTACKING_MON}!");
 const u8 BattleText_SpeedRaisedUsing[] = _("{DEFENDING_MON} raised its SPEED\nusing its {STRING 22}!");
 const u8 BattleText_AttackRaisedUsing[] = _("{DEFENDING_MON} raised its ATTACK\nusing its {STRING 22}!");
 const u8 BattleText_SpAttackRaisedUsing[] = _("{DEFENDING_MON} raised its SP.ATTACK\nusing its {STRING 22}!");
@@ -869,7 +903,36 @@ const u8 BattleText_SlowStartEnter[] = _("¡{STRING 16} empieza con\npoca energ�
 const u8 BattleText_TeravoltEnter[] = _("¡{STRING 16} desprende un\naura chizpeante!");
 const u8 BattleText_TurboBlazeEnter[] = _("¡{STRING 16} desprende un\ncalor tremendo!");
 const u8 BattleText_SlowStartEnd[] = _("¡{STRING 16} ya está\npeleando al máximo!");
-const u8 BattleText_AttackerAbilityStatUp[] = _("¡{ATTACKING_MON} subió su\n{STRING 0} por {STRING 23}!");
+const u8 BattleText_AttackerAbilityStatUp[] = _("¡{ATTACKING_MON} subió su {STRING 0}\ngracias a {STRING 26}!");
+const u8 BattleText_MagnetRise[] = _("¡{ATTACKING_MON} está empezando\na levitar en el aire!");
+const u8 BattleText_GastroAcid[] = _("¡La habilidad especial de\n{DEFENDING_MON} fue suprimida!");
+const u8 BattleText_WorrySeed[] = _("¡La habilidad especial de\n{DEFENDING_MON} ahora es INSOMNIO!");
+const u8 BattleText_AquaRing[] = _("¡{ATTACKING_MON} se cubrió en\nun manto fresco de agua!");
+const u8 BattleText_MiracleEye[] = _("¡{DEFENDING_MON} fué identificado!");
+const u8 BattleText_Embargo[] = _("¡{DEFENDING_MON} no puede\nusar objetos!");
+const u8 BattleText_HealBlock[] = _("¡{DEFENDING_MON} no puede usar\nmovimientos para recuperar Ps!");
+const u8 BattleText_Tailwind[] = _("¡Un viento afín sopla a favor\ndel equipo de {ATTACKING_MON}!");
+const u8 BattleText_Gravity[] = _("¡La gravedad se ha intensificado!");
+const u8 BattleText_HealingWishHeal[] = _("¡{ATTACKING_MON} se restaurá al totalmente\ngracias al Deseo Cura!");
+const u8 BattleText_LuckyChant[] = _("¡El equipo de {ATTACKING_MON} está\nprotegido de golpes críticos!");
+const u8 BattleText_MagnetRiseWoreOff[] = _("{ATTACKING_MON} ya no esta levitando.");
+const u8 BattleText_AquaRingTurnHeal[] = _("¡{ATTACKING_MON} abosrbió\nnutrientes con sus raíces!");
+const u8 BattleText_BerryBurned[] = _("¡La {STRING 0} de {DEFENDING_MON}\nfué incinerada!");
+const u8 BattleText_BerryEated[] = _("¡{ATTACKING_MON} comió la {STRING 0}\nde {DEFENDING_MON}!");
+const u8 BattleText_BerryStatRaised[] = _("¡La {STRING 0} de {DEFENDING_MON}\nrestauró a {ATTACKING_MON}!");
+const u8 BattleText_BerryCuredParalysis[] = _("¡{ATTACKING_MON} se\ncuró la parálisis!");
+const u8 BattleText_BerryCuredPoison[] = _("¡{ATTACKING_MON} se\ncuró el envenenamiento!");
+const u8 BattleText_BerryCuredBurn[] = _("¡{ATTACKING_MON} se\ncuró la quemadura!");
+const u8 BattleText_BerryCuredConfusion[] = _("¡{ATTACKING_MON} se\nliberó de la confusión!");
+const u8 BattleText_BerryNormalizedStatus[] = _("¡{ATTACKING_MON} ha\nnormalizado su estado!");
+const u8 BattleText_BerryCuredStatus[] = _("¡{ATTACKING_MON} se ha\ncurado del {STRING 0}!");
+const u8 BattleText_PowerTrickString[] = _("¡{ATTACKING_MON} intercambió\nsu ATAQUE y DEFENSA!");
+const u8 BattleText_PowerSwapString[] = _("¡{ATTACKING_MON} y {DEFENDING_MON}\nintercambiaron su ofensiva!");
+const u8 BattleText_GuardSwapString[] = _("¡{ATTACKING_MON} y {DEFENDING_MON}\nintercambiaron sus defensas!");
+const u8 BattleText_HeartSwapString[] = _("¡{ATTACKING_MON} y {DEFENDING_MON}\nintercambiaron sus estadísticas!");
+const u8 BattleText_TrickRoom[] = _("¡{ATTACKING_MON} alteró\nel campo de combate!");
+const u8 BattleText_TrickRoomWoreOff[] = _("¡Se acabó el efecto del\nEspacio Raro!");
+const u8 BattleText_GravityWoreOff[] = _("¡La gravedad se ha normalizado!");
 
 const u8 *const gUnknown_08400F58[] =
 {
@@ -1260,6 +1323,37 @@ const u8 *const gBattleStringsTable[] =
 	BattleText_TeravoltEnter,
 	BattleText_SlowStartEnd,
 	BattleText_AttackerAbilityStatUp,
+	BattleText_MagnetRise,
+	BattleText_GastroAcid,
+	BattleText_WorrySeed,
+	BattleText_AquaRing,
+	BattleText_MiracleEye,
+	BattleText_Embargo,
+	BattleText_Tailwind,
+	BattleText_Gravity,
+	BattleText_HealingWishHeal,
+	BattleText_GravityNoUse,
+	BattleText_HealBlock,
+	BattleText_HealBlockNoUse,
+	BattleText_LuckyChant,
+	BattleText_MagnetRiseWoreOff,
+	BattleText_AquaRingTurnHeal,
+	BattleText_BerryBurned,
+	BattleText_BerryEated,
+	BattleText_BerryStatRaised,
+	BattleText_BerryCuredParalysis,
+	BattleText_BerryCuredPoison,
+	BattleText_BerryCuredBurn,
+	BattleText_BerryCuredConfusion,
+	BattleText_BerryNormalizedStatus,
+	BattleText_BerryCuredStatus,
+	BattleText_PowerTrickString,
+	BattleText_PowerSwapString,
+	BattleText_GuardSwapString,
+	BattleText_HeartSwapString,
+	BattleText_TrickRoom,
+	BattleText_TrickRoomWoreOff,
+	BattleText_GravityWoreOff,
 };
 
 // below are lists of battle string enums and NOT pointers to the strings.
@@ -1272,6 +1366,14 @@ const u16 gMissStringIds[] =
     BATTLE_TEXT_GroundMoveNegate,
 };
 
+const u16 gSwapStatStringIds[] =
+{
+	BATTLE_TEXT_PowerTrickString,
+	BATTLE_TEXT_PowerSwapString,
+	BATTLE_TEXT_GuardSwapString,
+	BATTLE_TEXT_HeartSwapString,
+};
+
 const u16 gSwitchInIds[] =
 {
     BATTLE_TEXT_MoldBreakerEnter,
@@ -1279,6 +1381,12 @@ const u16 gSwitchInIds[] =
 	BATTLE_TEXT_TurboBlazeEnter,
 	BATTLE_TEXT_TeravoltEnter,
 	BATTLE_TEXT_SlowStartEnd,
+};
+
+const u16 gFieldStatusEndIds[] =
+{
+	BATTLE_TEXT_GravityWoreOff,
+	BATTLE_TEXT_TrickRoomWoreOff,
 };
 
 const u16 gNoEscapeStringIds[] =
@@ -1403,6 +1511,22 @@ const u16 gStatUpStringIds[] =
     BATTLE_TEXT_Terminator2,
     BATTLE_TEXT_UnknownString4,
     BATTLE_TEXT_HustleUse,
+};
+
+const u16 gStatus3StringIds[] =
+{
+	BATTLE_TEXT_PlantedRoots,
+	BATTLE_TEXT_Gravity,
+	BATTLE_TEXT_MagnetRise,
+	BATTLE_TEXT_GastroAcid,
+	BATTLE_TEXT_WorrySeed,
+	BATTLE_TEXT_AquaRing,
+	BATTLE_TEXT_MiracleEye,
+	BATTLE_TEXT_Embargo,
+	BATTLE_TEXT_Tailwind,
+	BATTLE_TEXT_HealBlock,
+	BATTLE_TEXT_LuckyChant,
+	BATTLE_TEXT_TrickRoom,
 };
 
 const u16 gStatDownStringIds[] =
@@ -1599,6 +1723,12 @@ const u16 gBerryEffectStringIds[] =
 {
     BATTLE_TEXT_CuredStatus,
     BATTLE_TEXT_NormalizedStatus,
+};
+
+const u16 gBerryEffectStringIdsATK[] =
+{
+    BATTLE_TEXT_BerryCuredStatus,
+    BATTLE_TEXT_BerryNormalizedStatus,
 };
 
 const u16 gBRNPreventionStringIds[] =

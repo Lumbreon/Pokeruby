@@ -124,3 +124,4 @@ gAbilityNames:: @ 81FA248
 	.string "LIVIANO$", 13
 	.string "MULTITIPO$", 13
 	.string "RECOGE MIEL$", 13
+	.string "PIES RÁPIDOS$", 13

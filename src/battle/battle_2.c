@@ -69,8 +69,12 @@ extern void sub_802BBD4();
 u32 GetBattlerHoldEffect(u8 battlerId, bool32 checkNegating);
 u32 GetBattlerHoldEffectParam(u8 battlerId);
 u32 GetBattlerAbility(u8 battlerId);
+u32 GetBattlerTotalSpeedStat(u8 battlerId);
+s8 GetMovePriority(u32 battlerId, u16 move);
+s8 GetChosenMovePriority(u32 battlerId);
 extern struct SpriteTemplate gUnknown_02024E8C;
 extern const u8 Str_821F7B8[];
+extern u32 gFieldStatuses;
 extern u8 gUnknown_02023A14_50;
 extern const u16 gBattleTextboxPalette[];
 extern const struct MonCoords gCastformFrontSpriteCoords[];
@@ -3329,6 +3333,7 @@ void sub_8010874(void)
     gBankAttacker = 0;
     gBankTarget = 0;
     gBattleWeather = 0;
+	gFieldStatuses = 0;
 
     MEMSET_ALT(&gWishFutureKnock, 0, 0x2C, i, r4);
 
@@ -4473,98 +4478,9 @@ void SwapTurnOrder(u8 a, u8 b)
 // 2 = second mon moves first because it won a 50/50 roll
 u8 GetWhoStrikesFirst(u8 bank1, u8 bank2, bool8 ignoreMovePriorities)
 {
-    int bank1SpeedMultiplier, bank2SpeedMultiplier;
-    u32 bank1AdjustedSpeed, bank2AdjustedSpeed;
-    u8 heldItemEffect;
-    u8 heldItemEffectParam;
     u16 bank1Move;
     u16 bank2Move;
     u8 strikesFirst = 0;
-
-    // Check for abilities that boost speed in weather.
-    if (WEATHER_HAS_EFFECT)
-    {
-        if ((GetBattlerAbility(bank1) == ABILITY_SWIFT_SWIM && (gBattleWeather & WEATHER_RAIN_ANY))
-            || (GetBattlerAbility(bank1) == ABILITY_CHLOROPHYLL && (gBattleWeather & WEATHER_SUN_ANY)))
-            bank1SpeedMultiplier = 2;
-        else
-            bank1SpeedMultiplier = 1;
-
-        if ((GetBattlerAbility(bank2) == ABILITY_SWIFT_SWIM && (gBattleWeather & WEATHER_RAIN_ANY))
-            || (GetBattlerAbility(bank2) == ABILITY_CHLOROPHYLL && (gBattleWeather & WEATHER_SUN_ANY)))
-            bank2SpeedMultiplier = 2;
-        else
-            bank2SpeedMultiplier = 1;
-    }
-	else
-    {
-        bank1SpeedMultiplier = 1;
-        bank2SpeedMultiplier = 1;
-    }
-	
-	if (GetBattlerAbility(bank1) == ABILITY_UNBURDEN && gDisableStructs[bank1].unburden == 1)
-		bank1SpeedMultiplier = 2;
-	if (GetBattlerAbility(bank2) == ABILITY_UNBURDEN && gDisableStructs[bank2].unburden == 1)
-		bank2SpeedMultiplier = 2; 
-    
-
-    // Calculate adjusted speed for first mon.
-    bank1AdjustedSpeed = (gBattleMons[bank1].speed * bank1SpeedMultiplier)
-        * gStatStageRatios[gBattleMons[bank1].statStages[STAT_STAGE_SPEED]][0] / gStatStageRatios[gBattleMons[bank1].statStages[STAT_STAGE_SPEED]][1];
-
-    
-        heldItemEffect = GetBattlerHoldEffect(bank1, TRUE);
-        heldItemEffectParam = GetBattlerHoldEffectParam(bank1);
-    
-
-    // Only give badge speed boost to the player's mon.
-    if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && FlagGet(FLAG_BADGE03_GET) && GetBattlerSide(bank1) == 0)
-        bank1AdjustedSpeed = (bank1AdjustedSpeed * 110) / 100;
-
-    if (heldItemEffect == HOLD_EFFECT_MACHO_BRACE)
-        bank1AdjustedSpeed /= 2;
-
-    if (gBattleMons[bank1].status1 & STATUS_PARALYSIS)
-        bank1AdjustedSpeed /= 4;
-
-    if (heldItemEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (heldItemEffectParam * 0xFFFF) / 100)
-        bank1AdjustedSpeed = UINT_MAX;
-	
-	if (GetBattlerAbility(bank1) == ABILITY_STALL)
-        bank1AdjustedSpeed /= 100;
-	
-	if (GetBattlerAbility(bank1) == ABILITY_SLOW_START && gDisableStructs[bank1].slowStartTimer != 0)
-		bank1AdjustedSpeed /= 2;
-
-    // Calculate adjusted speed for second mon.
-    bank2AdjustedSpeed = gBattleMons[bank2].speed * bank2SpeedMultiplier
-        * gStatStageRatios[gBattleMons[bank2].statStages[STAT_STAGE_SPEED]][0] / gStatStageRatios[gBattleMons[bank2].statStages[STAT_STAGE_SPEED]][1];
-
-    
-    heldItemEffect = GetBattlerHoldEffect(bank2, TRUE);
-    heldItemEffectParam = GetBattlerHoldEffectParam(bank2);
-    
-
-    // Only give badge speed boost to the player's mon.
-    if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && FlagGet(FLAG_BADGE03_GET) && GetBattlerSide(bank2) == 0)
-    {
-        bank2AdjustedSpeed = (bank2AdjustedSpeed * 110) / 100;
-    }
-
-    if (heldItemEffect == HOLD_EFFECT_MACHO_BRACE)
-        bank2AdjustedSpeed /= 2;
-
-    if (gBattleMons[bank2].status1 & STATUS_PARALYSIS)
-        bank2AdjustedSpeed /= 4;
-
-    if (heldItemEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (heldItemEffectParam * 0xFFFF) / 100)
-        bank2AdjustedSpeed = UINT_MAX;
-
-	if (GetBattlerAbility(bank2) == ABILITY_STALL)
-        bank2AdjustedSpeed /= 100;
-	
-	if (GetBattlerAbility(bank2) == ABILITY_SLOW_START && gDisableStructs[bank2].slowStartTimer != 0)
-		bank2AdjustedSpeed /= 2;
 	
     if (ignoreMovePriorities)
     {
@@ -4593,25 +4509,41 @@ u8 GetWhoStrikesFirst(u8 bank1, u8 bank2, bool8 ignoreMovePriorities)
         else
             bank2Move = MOVE_NONE;
     }
-
-    if (gBattleMoves[bank1Move].priority != 0 || gBattleMoves[bank2Move].priority != 0)
+		
+    if (GetMovePriority(bank1, bank1Move) != 0 || GetMovePriority(bank2, bank2Move) != 0)
     {
-        if (gBattleMoves[bank1Move].priority == gBattleMoves[bank2Move].priority)
+        if (GetMovePriority(bank1, bank1Move) == GetMovePriority(bank2, bank2Move))
         {
-            if (bank1AdjustedSpeed == bank2AdjustedSpeed && (Random() & 1))
+            if (GetBattlerTotalSpeedStat(bank1) == GetBattlerTotalSpeedStat(bank2) && (Random() & 1))
                 strikesFirst = 2;
-            else if (bank1AdjustedSpeed < bank2AdjustedSpeed)
+            else if (GetBattlerTotalSpeedStat(bank1) < GetBattlerTotalSpeedStat(bank2))
                 strikesFirst = 1;
+			
+			if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM && strikesFirst == 0)
+			strikesFirst = 1;
+			else if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM && (strikesFirst == 1 || strikesFirst == 2))
+			strikesFirst = 0;
         }
-        else if (gBattleMoves[bank1Move].priority < gBattleMoves[bank2Move].priority)
+        else if (GetMovePriority(bank1, bank1Move) < GetMovePriority(bank2, bank2Move))
             strikesFirst = 1;
     }
     else
     {
-        if (bank1AdjustedSpeed == bank2AdjustedSpeed && (Random() & 1))
+        if (GetBattlerTotalSpeedStat(bank1) == GetBattlerTotalSpeedStat(bank2) && (Random() & 1))
             strikesFirst = 2;
-        else if (bank1AdjustedSpeed < bank2AdjustedSpeed)
+        else if (GetBattlerTotalSpeedStat(bank1) < GetBattlerTotalSpeedStat(bank2))
             strikesFirst = 1;
+		
+		if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM && strikesFirst == 0)
+			strikesFirst = 1;
+		else if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM && (strikesFirst == 1 || strikesFirst == 2))
+			strikesFirst = 0;
+		
+		if (strikesFirst == 0 && GetBattlerAbility(bank1) == ABILITY_STALL)
+            strikesFirst = 1;
+		else if ((strikesFirst == 1 || strikesFirst == 2) && GetBattlerAbility(bank2) == ABILITY_STALL)
+            strikesFirst = 0;
+		
     }
 
     return strikesFirst;
@@ -5203,7 +5135,7 @@ void HandleAction_UseMove(void)
             gBankTarget = gActiveBattler;
         }
     }
-	 else if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+	else if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
              && gSideTimers[side].followmeTimer == 0
              && (gBattleMoves[gCurrentMove].power != 0
                  || gBattleMoves[gCurrentMove].target != MOVE_TARGET_x10)
